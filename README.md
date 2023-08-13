@@ -7,6 +7,7 @@ This application is built with React.js. Just a little brief of my skills for yo
 - React.js
 - Vite
 - TypeScript
+- Material UI
 
 ## To interact:
 
