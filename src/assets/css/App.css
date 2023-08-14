@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.footer {
+  background-color: lightgray;
+  color: black;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+}
