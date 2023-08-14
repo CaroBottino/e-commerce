@@ -15,6 +15,7 @@ const ItemListContainer = ({ items }: ItemListContainerProps) => {
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 2, sm: 12, md: 16 }}
+        paddingTop={10}
       >
         {items.map((itemToShow: IItem, index: number) => (
           <Grid item xs={2} sm={4} md={4} key={index}>

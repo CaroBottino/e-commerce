@@ -13,19 +13,20 @@ type ItemCardProps = {
 
 function ItemCard({ item }: ItemCardProps) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height: 450 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="300"
           image={item.img}
           alt={item.id}
+          sx={{ objectFit: "contain" }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             $ {Intl.NumberFormat("es-CL").format(item.price)}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             {item.name}
           </Typography>
         </CardContent>
