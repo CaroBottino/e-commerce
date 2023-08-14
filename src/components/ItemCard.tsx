@@ -27,7 +27,9 @@ function ItemCard({ item }: ItemCardProps) {
             $ {Intl.NumberFormat("es-CL").format(item.price)}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            {item.name}
+            {item.name.length > 38
+              ? item.name.substring(0, 38) + "..."
+              : item.name}
           </Typography>
         </CardContent>
       </CardActionArea>
