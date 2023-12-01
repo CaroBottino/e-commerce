@@ -5,13 +5,22 @@ import ItemListContainer from "./components/ItemListContainer";
 import { IItem } from "./interfaces/IItem";
 import "@/assets/css/App.css";
 
-import { items as data } from "./assets/js/items";
-
 function App() {
   const [items, setItems] = useState<IItem[]>([]);
 
+  const getItems = async () => {
+    try {
+      await fetch("src/assets/data/items.json").then(async (response) => {
+        const items = await response.json();
+        items && setItems(items);
+      });
+    } catch (error) {
+      console.log("Error getting items: ", error);
+    }
+  };
+
   useEffect(() => {
-    setItems(data as IItem[]);
+    getItems();
   }, []);
 
   return (
