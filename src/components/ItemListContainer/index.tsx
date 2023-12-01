@@ -1,13 +1,31 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
 import ItemCard from "../ItemCard";
 import { IItem } from "../../interfaces/IItem";
 import "@/assets/css/ItemListContainer.css";
 
-type ItemListContainerProps = {
-  items: IItem[];
-};
+const ItemListContainer = () => {
+  const { category } = useParams();
+  const [items, setItems] = useState<IItem[]>([]);
 
-const ItemListContainer = ({ items }: ItemListContainerProps) => {
+  const getItemsByType = async () => {
+    try {
+      await fetch("http://localhost:8080/src/assets/data/items.json").then(async (response) => {
+        const items = await response.json();
+        items && category
+          ? setItems(items.filter((item: IItem) => item.category === category))
+          : setItems(items);
+      });
+    } catch (error) {
+      console.log("Error getting items: ", error);
+    }
+  };
+
+  useEffect(() => {
+    getItemsByType();
+  }, [category]);
+
   return (
     <>
       <Grid

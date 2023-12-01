@@ -1,9 +1,11 @@
 import { useState, MouseEvent } from "react";
+import { Link } from "react-router-dom";
 import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import CartWidget from "../CartWidget";
 import SearchBar from "../SearchBar";
 import UserMenu from "../UserMenu";
+import { StyledLink } from "./NavBar.styled";
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -79,14 +81,19 @@ const NavBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            e-commerce
-          </Typography>
+          <StyledLink to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              e-commerce
+            </Typography>
+          </StyledLink>
+          <StyledLink to="/category/indumentaria">indumentaria</StyledLink>
+          <StyledLink to="/category/juguete">juguetes</StyledLink>
+          <StyledLink to="/category/electronico">electronicos</StyledLink>
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
