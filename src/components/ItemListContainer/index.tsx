@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
-import ItemCard from "./ItemCard";
-import { IItem } from "../interfaces/IItem";
+import ItemCard from "../ItemCard";
+import { IItem } from "../../interfaces/IItem";
 import "@/assets/css/ItemListContainer.css";
 
 type ItemListContainerProps = {

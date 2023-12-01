@@ -5,7 +5,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import { IItem } from "../interfaces/IItem";
+import { IItem } from "../../interfaces/IItem";
 
 type ItemCardProps = {
   item: IItem;

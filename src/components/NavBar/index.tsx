@@ -1,22 +1,13 @@
 import { useState, MouseEvent } from "react";
-import {
-  AppBar,
-  Box,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import CartWidget from "./CartWidget";
-import SearchBar from "./SearchBar";
-import UserMenu from "./UserMenu";
+import CartWidget from "../CartWidget";
+import SearchBar from "../SearchBar";
+import UserMenu from "../UserMenu";
 
 const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -43,8 +34,8 @@ const NavBar = () => {
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: "bottom",
+        horizontal: "left",
       }}
       id={menuId}
       keepMounted
@@ -65,15 +56,11 @@ const NavBar = () => {
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: "bottom",
+        horizontal: "left",
       }}
       id={mobileMenuId}
       keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
@@ -103,10 +90,7 @@ const NavBar = () => {
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <UserMenu
-              handleProfileMenuOpen={handleProfileMenuOpen}
-              menuId={menuId}
-            />
+            <UserMenu handleProfileMenuOpen={handleProfileMenuOpen} menuId={menuId} />
             <CartWidget />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
