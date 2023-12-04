@@ -1,11 +1,7 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import { IItem } from "../../interfaces/IItem";
+import { Link } from "react-router-dom";
+import { StyledCard } from "./ItemCard.styled";
 
 type ItemCardProps = {
   item: IItem;
@@ -13,27 +9,27 @@ type ItemCardProps = {
 
 function ItemCard({ item }: ItemCardProps) {
   return (
-    <Card sx={{ maxWidth: 345, height: 450 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="300"
-          image={item.img}
-          alt={item.id}
-          sx={{ objectFit: "contain" }}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            $ {Intl.NumberFormat("es-CL").format(item.price)}
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            {item.name.length > 38
-              ? item.name.substring(0, 38) + "..."
-              : item.name}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+    <StyledCard>
+      <Link to={`/item/${item.id}`}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            height="300"
+            image={item.img}
+            alt={item.id}
+            sx={{ objectFit: "contain" }}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div" color="text.secondary">
+              $ {Intl.NumberFormat("es-CL").format(item.price)}
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              {item.name.length > 38 ? item.name.substring(0, 38) + "..." : item.name}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
+    </StyledCard>
   );
 }
 

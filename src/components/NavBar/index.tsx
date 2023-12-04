@@ -1,5 +1,4 @@
 import { useState, MouseEvent } from "react";
-import { Link } from "react-router-dom";
 import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import CartWidget from "../CartWidget";
