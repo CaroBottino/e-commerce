@@ -84,7 +84,7 @@ const NavBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar>
-          <StyledLink to={`${base_url}`}>
+          <StyledLink to={`${base_url}/`}>
             <Typography
               variant="h6"
               noWrap
@@ -95,7 +95,7 @@ const NavBar = () => {
             </Typography>
           </StyledLink>
           {categories.map((category) => (
-            <StyledLink to={`${base_url}category/${category}`}>{category}</StyledLink>
+            <StyledLink to={`${base_url}/category/${category}`}>{category}</StyledLink>
           ))}
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />

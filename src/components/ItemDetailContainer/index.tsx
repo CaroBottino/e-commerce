@@ -8,13 +8,10 @@ const ItemDetailContainer = () => {
 
   const getItemInfo = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/items`).then(async (response) => {
-        const items = await response.json();
+      await fetch(`${import.meta.env.VITE_API_URL}/items/${id}`).then(async (response) => {
+        const item = await response.json();
 
-        if (items && id) {
-          const found = items.find((item: IItem) => item.id === id);
-          found && setItem(found);
-        }
+        item && setItem(item);
       });
     } catch (error) {
       console.log("Error getting item info: ", error);
