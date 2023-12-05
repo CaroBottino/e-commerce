@@ -8,9 +8,11 @@ type ItemCardProps = {
 };
 
 function ItemCard({ item }: ItemCardProps) {
+  const base_url = import.meta.env.VITE_BASE_URL;
+
   return (
     <StyledCard>
-      <Link to={`/item/${item.id}`}>
+      <Link to={`${base_url}/item/${item.id}`}>
         <CardActionArea>
           <CardMedia
             component="img"

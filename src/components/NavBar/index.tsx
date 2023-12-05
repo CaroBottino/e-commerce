@@ -10,6 +10,8 @@ const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
 
+  const base_url = import.meta.env.VITE_BASE_URL;
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -76,11 +78,13 @@ const NavBar = () => {
     </Menu>
   );
 
+  const categories = ["indumentaria", "electronico", "ropa", "juguete", "hogar"];
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar>
-          <StyledLink to="/">
+          <StyledLink to={`${base_url}`}>
             <Typography
               variant="h6"
               noWrap
@@ -90,9 +94,9 @@ const NavBar = () => {
               e-commerce
             </Typography>
           </StyledLink>
-          <StyledLink to="/category/indumentaria">indumentaria</StyledLink>
-          <StyledLink to="/category/juguete">juguetes</StyledLink>
-          <StyledLink to="/category/electronico">electronicos</StyledLink>
+          {categories.map((category) => (
+            <StyledLink to={`${base_url}category/${category}`}>{category}</StyledLink>
+          ))}
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
