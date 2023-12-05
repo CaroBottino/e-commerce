@@ -11,11 +11,20 @@ const ItemListContainer = () => {
 
   const getItemsByType = async () => {
     try {
-      await fetch("http://localhost:8080/src/assets/data/items.json").then(async (response) => {
+      await fetch(`${import.meta.env.VITE_API_URL}/items`).then(async (response) => {
         const items = await response.json();
-        items && category
-          ? setItems(items.filter((item: IItem) => item.category === category))
-          : setItems(items);
+
+        if (items) {
+          if (category) {
+            const filteredItems = items.filter((item: IItem) => {
+              return item.categories.includes(category) && item;
+            });
+
+            filteredItems && setItems(filteredItems);
+          } else {
+            setItems(items);
+          }
+        }
       });
     } catch (error) {
       console.log("Error getting items: ", error);

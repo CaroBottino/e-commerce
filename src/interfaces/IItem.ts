@@ -5,5 +5,6 @@ export interface IItem {
   desc: string;
   price: number;
   tags: string[];
-  category: string;
+  categories: string[];
+  seller_id: string;
 }

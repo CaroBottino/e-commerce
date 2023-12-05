@@ -8,6 +8,7 @@ This application is built with React.js. Just a little brief of my skills for yo
 - Vite
 - TypeScript
 - Material UI
+- MockAPI backend
 
 ## To interact:
 

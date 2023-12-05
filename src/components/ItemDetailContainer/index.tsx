@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
 
   const getItemInfo = async () => {
     try {
-      await fetch("http://localhost:8080/src/assets/data/items.json").then(async (response) => {
+      await fetch(`${import.meta.env.VITE_API_URL}/items`).then(async (response) => {
         const items = await response.json();
 
         if (items && id) {
