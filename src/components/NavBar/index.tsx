@@ -78,7 +78,7 @@ const NavBar = () => {
     </Menu>
   );
 
-  const categories = ["indumentaria", "electronico", "ropa", "juguete", "hogar"];
+  const categories = ["indumentaria", "electronico", "juguete", "hogar"];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
