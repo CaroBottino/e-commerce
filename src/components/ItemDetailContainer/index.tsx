@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { IItem } from "../../interfaces/IItem";
 import { Button, ButtonGroup, Grid } from "@mui/material";
 import { ItemDescription, ItemImg, ItemPrice, ItemTitle } from "./ItemDetail.styled";
+import itemsService from "../../services/items.service";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -10,11 +11,10 @@ const ItemDetailContainer = () => {
 
   const getItemInfo = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/items/${id}`).then(async (response) => {
-        const item = await response.json();
-
+      if (id) {
+        const item = await itemsService.getItemById(id);
         item && setItem(item);
-      });
+      }
     } catch (error) {
       console.log("Error getting item info: ", error);
     }

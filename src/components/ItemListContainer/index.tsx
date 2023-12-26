@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import ItemCard from "../ItemCard";
 import { IItem } from "../../interfaces/IItem";
 import "@/assets/css/ItemListContainer.css";
+import itemsService from "../../services/items.service";
 
 const ItemListContainer = () => {
   const { category } = useParams();
@@ -11,21 +12,18 @@ const ItemListContainer = () => {
 
   const getItemsByType = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/items`).then(async (response) => {
-        const items = await response.json();
+      const items = await itemsService.getItems();
+      if (items) {
+        if (category) {
+          const filteredItems = items.filter((item: IItem) => {
+            return item.categories.includes(category) && item;
+          });
 
-        if (items) {
-          if (category) {
-            const filteredItems = items.filter((item: IItem) => {
-              return item.categories.includes(category) && item;
-            });
-
-            filteredItems && setItems(filteredItems);
-          } else {
-            setItems(items);
-          }
+          filteredItems && setItems(filteredItems);
+        } else {
+          setItems(items);
         }
-      });
+      }
     } catch (error) {
       console.log("Error getting items: ", error);
     }
