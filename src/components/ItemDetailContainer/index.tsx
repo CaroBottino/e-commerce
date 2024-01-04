@@ -1,32 +1,15 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { IItem } from "../../interfaces/IItem";
 import { Button, ButtonGroup, Grid } from "@mui/material";
 import { ItemDescription, ItemImg, ItemPrice, ItemTitle } from "./ItemDetail.styled";
-import itemsService from "../../services/items.service";
 
-const ItemDetailContainer = () => {
-  const { id } = useParams();
-  const [item, setItem] = useState<IItem>();
+type ItemDetailProps = {
+  item: IItem;
+};
 
-  const getItemInfo = async () => {
-    try {
-      if (id) {
-        const item = await itemsService.getItemById(id);
-        item && setItem(item);
-      }
-    } catch (error) {
-      console.log("Error getting item info: ", error);
-    }
-  };
-
-  useEffect(() => {
-    getItemInfo();
-  }, [id]);
-
+const ItemDetailContainer = ({ item }: ItemDetailProps) => {
   return (
     <>
-      <Grid container>
+      <Grid container className="item-detail-container">
         {item && (
           <Grid item container spacing={2}>
             <Grid item xs={12} md={6}>
