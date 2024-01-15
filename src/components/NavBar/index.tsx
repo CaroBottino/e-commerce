@@ -7,52 +7,18 @@ import UserMenu from "../UserMenu";
 import { StyledLink } from "./NavBar.styled";
 
 const NavBar = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
-
   const base_url = import.meta.env.VITE_BASE_URL;
 
-  const isMenuOpen = Boolean(anchorEl);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
   const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const menuId = "user-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "bottom",
-        horizontal: "left",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
 
   const mobileMenuId = "user-menu-mobile";
   const renderMobileMenu = (
@@ -71,14 +37,14 @@ const NavBar = () => {
         <p>Carrito</p>
         <CartWidget />
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem>
         <p>Profile</p>
-        <UserMenu handleProfileMenuOpen={() => {}} menuId={menuId} />
+        <UserMenu handleMobileMenuClose={() => {}} />
       </MenuItem>
     </Menu>
   );
 
-  const categories = ["indumentaria", "electronico", "juguete", "hogar"];
+  const categories = ["clothes", "electronics", "toys", "home"];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -95,12 +61,14 @@ const NavBar = () => {
             </Typography>
           </StyledLink>
           {categories.map((category) => (
-            <StyledLink to={`${base_url}/category/${category}`}>{category}</StyledLink>
+            <StyledLink key={category} to={`${base_url}/category/${category}`}>
+              {category}
+            </StyledLink>
           ))}
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <UserMenu handleProfileMenuOpen={handleProfileMenuOpen} menuId={menuId} />
+            <UserMenu handleMobileMenuClose={handleMobileMenuClose} />
             <CartWidget />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -118,7 +86,6 @@ const NavBar = () => {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
     </Box>
   );
 };

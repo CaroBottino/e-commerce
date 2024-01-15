@@ -12,7 +12,7 @@
             "toys"
         ],
         "categories": [
-            "juguete"
+            "toys"
         ],
         "seller_id": "1"
     },
@@ -29,7 +29,7 @@
             "computing"
         ],
         "categories": [
-            "electronico"
+            "electronics"
         ],
         "seller_id": "1"
     },
@@ -62,7 +62,7 @@
             "reparaciones"
         ],
         "categories": [
-            "electronico"
+            "electronics"
         ],
         "seller_id": "1"
     },
@@ -79,7 +79,7 @@
             "doll"
         ],
         "categories": [
-            "juguete"
+            "toys"
         ],
         "seller_id": "1"
     },
@@ -95,7 +95,7 @@
             "colchon"
         ],
         "categories": [
-            "hogar"
+            "home"
         ],
         "seller_id": "1"
     },
@@ -112,7 +112,7 @@
             "play"
         ],
         "categories": [
-            "juguete"
+            "toys"
         ],
         "seller_id": "1"
     },
@@ -129,7 +129,7 @@
             "loud"
         ],
         "categories": [
-            "electronico"
+            "electronics"
         ],
         "seller_id": "1"
     },
@@ -145,7 +145,7 @@
             "electronics"
         ],
         "categories": [
-            "electronico"
+            "electronics"
         ],
         "seller_id": "1"
     },
@@ -161,7 +161,7 @@
             "tablet"
         ],
         "categories": [
-            "electronico"
+            "electronics"
         ],
         "seller_id": "1"
     },
@@ -178,7 +178,7 @@
             "salty"
         ],
         "categories": [
-            "electronico"
+            "electronics"
         ],
         "seller_id": "1"
     },
@@ -195,7 +195,7 @@
             "rosa"
         ],
         "categories": [
-            "indumentaria"
+            "clothes"
         ],
         "seller_id": "1"
     },
@@ -212,7 +212,7 @@
             "hombre"
         ],
         "categories": [
-            "indumentaria"
+            "clothes"
         ],
         "seller_id": "1"
     },
@@ -229,7 +229,7 @@
             "pink"
         ],
         "categories": [
-            "indumentaria"
+            "clothes"
         ],
         "seller_id": "1"
     },
@@ -246,7 +246,7 @@
             "mujer"
         ],
         "categories": [
-            "indumentaria"
+            "clothes"
         ],
         "seller_id": "1"
     },
@@ -263,7 +263,7 @@
         ],
         "categories": [
             "alimentos",
-            "hogar"
+            "home"
         ],
         "seller_id": "6",
         "id": "16"
@@ -280,8 +280,8 @@
             "deco"
         ],
         "categories": [
-            "hogar",
-            "juguete"
+            "home",
+            "toys"
         ],
         "seller_id": "7",
         "id": "17"
@@ -299,7 +299,7 @@
             "christmas"
         ],
         "categories": [
-            "juguete"
+            "toys"
         ],
         "seller_id": "8",
         "id": "18"
@@ -317,8 +317,8 @@
             "verano"
         ],
         "categories": [
-            "electronico",
-            "hogar"
+            "electronics",
+            "home"
         ],
         "seller_id": "9",
         "id": "19"
@@ -336,8 +336,8 @@
             "agua"
         ],
         "categories": [
-            "electronico",
-            "hogar"
+            "electronics",
+            "home"
         ],
         "seller_id": "2",
         "id": "20"
@@ -373,7 +373,7 @@
             "lenceria"
         ],
         "categories": [
-            "indumentaria"
+            "clothes"
         ],
         "seller_id": "2",
         "id": "22"
@@ -391,7 +391,7 @@
             "fiestas"
         ],
         "categories": [
-            "hogar"
+            "home"
         ],
         "seller_id": "3",
         "id": "23"
@@ -404,7 +404,7 @@
         "stock": 5,
         "tags": [
             "navidad",
-            "juguete",
+            "toys",
             "interactivo",
             "robot",
             "colores",
@@ -412,8 +412,8 @@
             "adultos"
         ],
         "categories": [
-            "electronico",
-            "juguete"
+            "electronics",
+            "toys"
         ],
         "seller_id": "4",
         "id": "24"
@@ -426,7 +426,7 @@
         "stock": 5,
         "tags": [
             "navidad",
-            "juguete",
+            "toys",
             "interactivo",
             "robot",
             "colores",
@@ -434,8 +434,8 @@
             "adultos"
         ],
         "categories": [
-            "electronico",
-            "juguete"
+            "electronics",
+            "toys"
         ],
         "seller_id": "4",
         "id": "25"
@@ -448,7 +448,7 @@
         "stock": 5,
         "tags": [
             "navidad",
-            "juguete",
+            "toys",
             "interactivo",
             "robot",
             "colores",
@@ -456,8 +456,8 @@
             "adultos"
         ],
         "categories": [
-            "electronico",
-            "juguete"
+            "electronics",
+            "toys"
         ],
         "seller_id": "4",
         "id": "26"

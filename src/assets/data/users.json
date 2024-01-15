@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "name": "Carolina",
+        "surname": "Bottino",
+        "email": "caro@mail.com",
+        "avatar": "https://scontent.fcor10-3.fna.fbcdn.net/v/t39.30808-6/344740155_1200994750569906_7699939035725386736_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=O-8_tsVXiwEAX9orkhg&_nc_ht=scontent.fcor10-3.fna&oh=00_AfA5ohSfC0aP9BmeOleP8PIc3ZYhz2xqSjZdmsYQEq747Q&oe=659C3AC5",
+        "password": "caro1234",
+        "type": 1
+    },
+    {
+        "id": "2",
+        "name": "Maria",
+        "surname": "Gutkowski",
+        "email": "seller@example.net",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/939.jpg",
+        "password": "seller1234",
+        "type": 2
+    },
+    {
+        "id": "3",
+        "name": "Brennan",
+        "surname": "Bayer",
+        "email": "buyer@example.net",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/70.jpg",
+        "password": "buyer1234",
+        "type": 3
+    },
+    {
+        "id": "4",
+        "name": "Haven",
+        "surname": "Dach",
+        "email": "Evie.Collier@example.org",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/238.jpg",
+        "password": "5dhTSN324tC8PDr",
+        "type": 3
+    }
+]

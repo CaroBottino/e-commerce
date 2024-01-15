@@ -9,6 +9,7 @@ This application is built with React.js. Just a little brief of my skills for yo
 - TypeScript
 - Material UI
 - MockAPI backend
+- react-hook-form
 
 ## To interact:
 
