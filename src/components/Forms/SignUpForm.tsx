@@ -23,7 +23,7 @@ const SignUpForm = ({ setLogin }: ISignUpFormProps) => {
   } = useForm<IFormSignUp>();
 
   const navigate = useNavigate();
-
+  const base_url = import.meta.env.VITE_BASE_URL;
   const [error, setError] = useState(false);
 
   const onSubmit: SubmitHandler<IFormSignUp> = async (data) => {
@@ -36,16 +36,12 @@ const SignUpForm = ({ setLogin }: ISignUpFormProps) => {
       type: UserType.BUYER,
     };
 
-    console.log("caro - userToPost: ", userToPost);
-
     const user = await usersService.postUser(userToPost);
-
-    console.log("caro - user: ", user);
 
     if (user) {
       setUser(user);
       setError(false);
-      navigate("/");
+      navigate(base_url);
     } else {
       setError(true);
     }

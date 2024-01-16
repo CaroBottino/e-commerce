@@ -1,27 +1,43 @@
 import { MouseEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { useUserContext } from "../../providers/User.provider";
 import AvatarWidget from "../AvatarWidget";
 import { StyledLoginLink } from "./UserMenu.styled";
+import { UserType } from "../../enums/user.enum";
 
 type UserMenuProps = {
   handleMobileMenuClose: () => void;
 };
 
 const UserMenu = ({ handleMobileMenuClose }: UserMenuProps) => {
-  const { user } = useUserContext();
+  const { user, setUser } = useUserContext();
+  const navigate = useNavigate();
 
   const base_url = import.meta.env.VITE_BASE_URL;
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isMenuOpen = Boolean(anchorEl);
 
-  console.log("caro - UserMenu - user: ", user);
-
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
+  };
+
+  const handleSignOut = () => {
+    setUser({
+      id: undefined,
+      name: undefined,
+      surname: undefined,
+      email: undefined,
+      avatar: undefined,
+      type: UserType.BUYER,
+    });
+
+    setAnchorEl(null);
+    handleMobileMenuClose();
+    navigate(base_url);
   };
 
   const menuId = "user-menu";
@@ -42,7 +58,7 @@ const UserMenu = ({ handleMobileMenuClose }: UserMenuProps) => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Sign out</MenuItem>
+      <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
     </Menu>
   );
 

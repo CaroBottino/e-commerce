@@ -14,11 +14,15 @@ const usersService = {
     });
   },
   postUser(user: IUser): Promise<IUser | undefined> {
-    return fetch(`${base_url}/users`, { method: "POST", body: JSON.stringify(user) }).then(
-      async (response) => {
-        return await response.json();
-      }
-    );
+    return fetch(`${base_url}/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then(async (response) => {
+      return await response.json();
+    });
   },
 };
 
