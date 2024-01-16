@@ -21,7 +21,7 @@ const LoginForm = ({ setLogin }: ILoginFormProps) => {
   } = useForm<IFormLogin>();
 
   const navigate = useNavigate();
-
+  const base_url = import.meta.env.VITE_BASE_URL;
   const [error, setError] = useState(false);
 
   const onSubmit: SubmitHandler<IFormLogin> = async (data) => {
@@ -30,7 +30,7 @@ const LoginForm = ({ setLogin }: ILoginFormProps) => {
     if (user) {
       setUser(user);
       setError(false);
-      navigate("/");
+      navigate(base_url);
     } else {
       setError(true);
     }
