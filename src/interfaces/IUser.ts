@@ -1,4 +1,5 @@
 import { UserType } from "../enums/user.enum";
+import { ICartItem } from "./ICartItem";
 
 export interface IUser {
   id?: string;
@@ -8,4 +9,5 @@ export interface IUser {
   avatar?: string;
   password?: string;
   type: UserType;
+  cart: ICartItem[];
 }

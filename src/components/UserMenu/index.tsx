@@ -33,6 +33,7 @@ const UserMenu = ({ handleMobileMenuClose }: UserMenuProps) => {
       email: undefined,
       avatar: undefined,
       type: UserType.BUYER,
+      cart: [],
     });
 
     setAnchorEl(null);

@@ -1,12 +1,32 @@
 import { IItem } from "../../interfaces/IItem";
 import { Button, ButtonGroup, Grid } from "@mui/material";
-import { ItemDescription, ItemImg, ItemPrice, ItemTitle } from "./ItemDetail.styled";
+import {
+  ItemDescription,
+  ItemImg,
+  ItemPrice,
+  ItemTitle,
+  QuantityButton,
+} from "./ItemDetail.styled";
+import { useState } from "react";
+import { useUserContext } from "../../providers/User.provider";
 
 type ItemDetailProps = {
   item: IItem;
 };
 
 const ItemDetailContainer = ({ item }: ItemDetailProps) => {
+  const { addToCart } = useUserContext();
+
+  const [quantity, setQuantity] = useState(1);
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    quantity > 0 && setQuantity(quantity - 1);
+  };
+
   return (
     <>
       <Grid container className="item-detail-container">
@@ -24,13 +44,15 @@ const ItemDetailContainer = ({ item }: ItemDetailProps) => {
               </Grid>
               <Grid item xs={12}>
                 <ButtonGroup variant="outlined" aria-label="outlined button group">
-                  <Button>-</Button>
-                  <Button>Q</Button>
-                  <Button>+</Button>
+                  <Button onClick={decreaseQuantity}>-</Button>
+                  <QuantityButton disabled>{quantity}</QuantityButton>
+                  <Button onClick={increaseQuantity}>+</Button>
                 </ButtonGroup>
               </Grid>
               <Grid item xs={12}>
-                <Button variant="contained">Add to cart!</Button>
+                <Button variant="contained" onClick={() => addToCart(item, quantity)}>
+                  Add to cart!
+                </Button>
               </Grid>
               <Grid item xs={12}>
                 <ItemDescription>{item.desc}</ItemDescription>

@@ -13,9 +13,20 @@ const usersService = {
       }
     });
   },
-  postUser(user: IUser): Promise<IUser | undefined> {
+  createUser(user: IUser): Promise<IUser | undefined> {
     return fetch(`${base_url}/users`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then(async (response) => {
+      return await response.json();
+    });
+  },
+  updateUser(user: IUser): Promise<IUser | undefined> {
+    return fetch(`${base_url}/users/${user.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },

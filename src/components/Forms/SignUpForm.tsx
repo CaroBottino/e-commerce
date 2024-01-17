@@ -34,9 +34,10 @@ const SignUpForm = ({ setLogin }: ISignUpFormProps) => {
       password: data.password,
       avatar: data.avatar,
       type: UserType.BUYER,
+      cart: [],
     };
 
-    const user = await usersService.postUser(userToPost);
+    const user = await usersService.createUser(userToPost);
 
     if (user) {
       setUser(user);
@@ -112,7 +113,7 @@ const SignUpForm = ({ setLogin }: ISignUpFormProps) => {
         </Grid>
 
         <Grid item xs={12}>
-          <FormControl defaultValue="" required>
+          <FormControl defaultValue="">
             <FormLabel>Avatar</FormLabel>
             <FormInput {...register("avatar")} />
             {errors.avatar && <FormHelper>{errors.avatar.message}</FormHelper>}

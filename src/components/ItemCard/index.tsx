@@ -25,8 +25,8 @@ function ItemCard({ item }: ItemCardProps) {
             <Typography gutterBottom variant="h5" component="div" color="text.secondary">
               $ {Intl.NumberFormat("es-CL").format(item.price)}
             </Typography>
-            <Typography variant="body1" color="text.secondary">
-              {item.name.length > 38 ? item.name.substring(0, 38) + "..." : item.name}
+            <Typography variant="body1" color="text.secondary" noWrap>
+              {item.name}
             </Typography>
           </CardContent>
         </CardActionArea>

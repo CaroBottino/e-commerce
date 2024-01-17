@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from "@mui/material";
+import { Box, Button, Typography, styled } from "@mui/material";
 
 export const ItemImg = styled(Box)(() => ({
   maxHeight: 450,
@@ -21,3 +21,10 @@ export const ItemDescription = styled(Typography)(() => ({
   fontSize: 20,
   color: "gray",
 }));
+
+export const QuantityButton = styled(Button)({
+  ":disabled": {
+    color: "#1976d2",
+    border: "1px solid rgba(25, 118, 210, 0.5)",
+  },
+});

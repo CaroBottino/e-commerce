@@ -6,6 +6,7 @@ export const StyledLoginLink = styled(Link)(({ theme }) => ({
   marginTop: "7px",
   color: "white",
   ":hover": {
-    color: "pink",
+    color: "#D29BFD",
+    textShadow: "1px 1px 2px #D29BFD",
   },
 }));

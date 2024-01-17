@@ -1,14 +1,16 @@
 import { useState, MouseEvent } from "react";
-import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
+import { Box, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import CartWidget from "../CartWidget";
 import SearchBar from "../SearchBar";
 import UserMenu from "../UserMenu";
-import { StyledLink } from "./NavBar.styled";
+import { AppName, IconsBox, StyledAppBar, StyledLink } from "./NavBar.styled";
+import CartDrawer from "../CartDrawer";
 
 const NavBar = () => {
   const base_url = import.meta.env.VITE_BASE_URL;
 
+  const [open, setOpen] = useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState<null | HTMLElement>(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -48,17 +50,17 @@ const NavBar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <StyledAppBar position="fixed">
         <Toolbar>
           <StyledLink to={`${base_url}/`}>
-            <Typography
-              variant="h6"
+            <AppName
               noWrap
-              component="div"
-              sx={{ display: { xs: "none", sm: "block" } }}
+              sx={{
+                display: { xs: "none", sm: "block" },
+              }}
             >
-              e-commerce
-            </Typography>
+              CA.FE buy!
+            </AppName>
           </StyledLink>
           {categories.map((category) => (
             <StyledLink key={category} to={`${base_url}/category/${category}`}>
@@ -67,10 +69,10 @@ const NavBar = () => {
           ))}
           <SearchBar />
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <IconsBox sx={{ display: { xs: "none", md: "flex" } }}>
             <UserMenu handleMobileMenuClose={handleMobileMenuClose} />
-            <CartWidget />
-          </Box>
+            <CartWidget open={open} setOpen={setOpen} />
+          </IconsBox>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -84,8 +86,9 @@ const NavBar = () => {
             </IconButton>
           </Box>
         </Toolbar>
-      </AppBar>
+      </StyledAppBar>
       {renderMobileMenu}
+      {open && <CartDrawer open={open} setOpen={setOpen} />}
     </Box>
   );
 };

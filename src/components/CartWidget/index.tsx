@@ -1,17 +1,22 @@
 // import { Badge, IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge/Badge";
-import IconButton from "@mui/material/IconButton/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useUserContext } from "../../providers/User.provider";
+import { CartButton } from "./CartWidget.styled";
 
-const CartWidget = () => {
+interface ICartWidgetProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+const CartWidget = ({ open, setOpen }: ICartWidgetProps) => {
+  const { user } = useUserContext();
   return (
-    <>
-      <IconButton size="large" edge="end" aria-label="show 4 new mails" color="inherit">
-        <Badge badgeContent={4} color="error">
-          <ShoppingCartIcon />
-        </Badge>
-      </IconButton>
-    </>
+    <CartButton color="inherit" onClick={() => setOpen(!open)}>
+      <Badge badgeContent={user.cart.length} color="error">
+        <ShoppingCartIcon />
+      </Badge>
+    </CartButton>
   );
 };
 
