@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useMemo, useState } from "react";
+import { ReactNode, createContext, useContext, useMemo, useState } from "react";
 import { IUser } from "../interfaces/IUser";
 import { UserType } from "../enums/user.enum";
 import { IItem } from "../interfaces/IItem";

@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Divider,
   Drawer,
   List,
   ListItem,

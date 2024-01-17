@@ -37,7 +37,7 @@ const NavBar = () => {
     >
       <MenuItem>
         <p>Carrito</p>
-        <CartWidget />
+        <CartWidget open={false} setOpen={() => setOpen(!open)} />
       </MenuItem>
       <MenuItem>
         <p>Profile</p>
