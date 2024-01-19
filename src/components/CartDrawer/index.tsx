@@ -5,7 +5,6 @@ import {
   CardContent,
   CardMedia,
   Drawer,
-  Grid,
   List,
   ListItem,
   Typography,
