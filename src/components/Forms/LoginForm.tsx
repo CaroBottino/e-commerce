@@ -12,7 +12,7 @@ interface ILoginFormProps {
 }
 
 const LoginForm = ({ setLogin }: ILoginFormProps) => {
-  const { setUser } = useUserContext();
+  const { loginUser } = useUserContext();
 
   const {
     register,
@@ -28,7 +28,7 @@ const LoginForm = ({ setLogin }: ILoginFormProps) => {
     const user = await usersService.getUserByEmail(data.email);
 
     if (user) {
-      setUser(user);
+      loginUser(user);
       setError(false);
       navigate(base_url);
     } else {

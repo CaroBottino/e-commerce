@@ -5,14 +5,13 @@ import { AccountCircle } from "@mui/icons-material";
 import { useUserContext } from "../../providers/User.provider";
 import AvatarWidget from "../AvatarWidget";
 import { StyledLoginLink } from "./UserMenu.styled";
-import { UserType } from "../../enums/user.enum";
 
 type UserMenuProps = {
   handleMobileMenuClose: () => void;
 };
 
 const UserMenu = ({ handleMobileMenuClose }: UserMenuProps) => {
-  const { user, setUser } = useUserContext();
+  const { user, logoutUser } = useUserContext();
   const navigate = useNavigate();
 
   const base_url = import.meta.env.VITE_BASE_URL;
@@ -26,16 +25,7 @@ const UserMenu = ({ handleMobileMenuClose }: UserMenuProps) => {
   };
 
   const handleSignOut = () => {
-    setUser({
-      id: undefined,
-      name: undefined,
-      surname: undefined,
-      email: undefined,
-      avatar: undefined,
-      type: UserType.BUYER,
-      cart: [],
-    });
-
+    logoutUser();
     setAnchorEl(null);
     handleMobileMenuClose();
     navigate(base_url);

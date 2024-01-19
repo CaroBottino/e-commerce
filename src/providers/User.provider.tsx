@@ -7,7 +7,8 @@ import usersService from "../services/users.service";
 
 type UserContextProviderProps = {
   user: IUser;
-  setUser: (user: IUser) => void;
+  loginUser: (user: IUser) => void;
+  logoutUser: () => void;
   addToCart: (item: IItem, quentity: number) => void;
   deleteFromCart: (cartItem: ICartItem) => void;
   increaseQuantity: (cartItem: ICartItem) => void;
@@ -26,7 +27,8 @@ export const UserContext = createContext<UserContextProviderProps>({
     type: UserType.BUYER,
     cart: [],
   },
-  setUser: () => {},
+  loginUser: () => {},
+  logoutUser: () => {},
   addToCart: () => {},
   deleteFromCart: () => {},
   increaseQuantity: () => {},
@@ -52,6 +54,38 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     type: UserType.BUYER,
     cart: [],
   });
+
+  const loginUser = (userToLog: IUser) => {
+    if (user.cart.length > 0) {
+      // user added items to cart while not logged
+      user.cart.forEach((cartItem) => {
+        const found = userToLog.cart.find((ci) => ci.id === cartItem.id);
+
+        if (found) {
+          found.quantity = found.quantity + cartItem.quantity;
+          const newCart = userToLog.cart.filter((ci) => ci.id !== cartItem.id);
+          newCart.push(found);
+          userToLog.cart = newCart;
+        } else {
+          userToLog.cart.push(cartItem);
+        }
+      });
+    }
+
+    setUser(userToLog);
+  };
+
+  const logoutUser = () => {
+    setUser({
+      id: undefined,
+      name: undefined,
+      surname: undefined,
+      email: undefined,
+      avatar: undefined,
+      type: UserType.BUYER,
+      cart: [],
+    });
+  };
 
   const addToCart = (item: IItem, quantity: number) => {
     const cart = user.cart;
@@ -111,7 +145,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     <UserContext.Provider
       value={{
         user,
-        setUser,
+        loginUser,
+        logoutUser,
         addToCart,
         deleteFromCart,
         increaseQuantity,

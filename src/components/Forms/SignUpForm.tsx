@@ -14,7 +14,7 @@ interface ISignUpFormProps {
 }
 
 const SignUpForm = ({ setLogin }: ISignUpFormProps) => {
-  const { setUser } = useUserContext();
+  const { loginUser } = useUserContext();
 
   const {
     register,
@@ -40,7 +40,7 @@ const SignUpForm = ({ setLogin }: ISignUpFormProps) => {
     const user = await usersService.createUser(userToPost);
 
     if (user) {
-      setUser(user);
+      loginUser(user);
       setError(false);
       navigate(base_url);
     } else {
