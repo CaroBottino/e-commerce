@@ -27,7 +27,7 @@ const LoginForm = ({ setLogin }: ILoginFormProps) => {
   const onSubmit: SubmitHandler<IFormLogin> = async (data) => {
     const user = await usersService.getUserByEmail(data.email);
 
-    if (user) {
+    if (user && user.password === data.password) {
       loginUser(user);
       setError(false);
       navigate(base_url);
@@ -42,7 +42,7 @@ const LoginForm = ({ setLogin }: ILoginFormProps) => {
         <Grid container item xs={12} justifyContent={"center"} alignItems={"center"}>
           {error && (
             <Alert severity="error" sx={{ width: "400px" }}>
-              User not found
+              User or password incorrect
             </Alert>
           )}
         </Grid>

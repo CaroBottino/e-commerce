@@ -31,6 +31,11 @@ const UserMenu = ({ handleMobileMenuClose }: UserMenuProps) => {
     navigate(base_url);
   };
 
+  const goToProfile = () => {
+    handleMenuClose();
+    navigate(`${base_url}/profile`);
+  };
+
   const menuId = "user-menu";
   const renderMenu = (
     <Menu
@@ -48,7 +53,7 @@ const UserMenu = ({ handleMobileMenuClose }: UserMenuProps) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={goToProfile}>Profile</MenuItem>
       <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
     </Menu>
   );

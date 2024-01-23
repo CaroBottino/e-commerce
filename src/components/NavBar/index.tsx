@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar";
 import UserMenu from "../UserMenu";
 import { AppName, IconsBox, StyledAppBar, StyledLink } from "./NavBar.styled";
 import CartDrawer from "../CartDrawer";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const base_url = import.meta.env.VITE_BASE_URL;
@@ -40,7 +41,7 @@ const NavBar = () => {
         <CartWidget open={false} setOpen={() => setOpen(!open)} />
       </MenuItem>
       <MenuItem>
-        <p>Profile</p>
+        <Link to={`${base_url}/profile`}>Profile</Link>
         <UserMenu handleMobileMenuClose={() => {}} />
       </MenuItem>
     </Menu>
