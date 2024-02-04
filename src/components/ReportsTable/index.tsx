@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Paper,
   Table,
@@ -7,11 +8,41 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { get } from "lodash";
+import { cloneDeep, get } from "lodash";
 import { IReportsTableColumn, IReportsTableProps } from "./ReportsTable.interfaces";
+import ReportsTableHeadCell from "./ReportsTableHeadCell.component";
+import { SortDirection } from "../../enums/sorting.enum";
+import { sortByProperty } from "../../utils/sortObjects";
 
 const ReportsTable = <T,>({ data, columns }: IReportsTableProps<T>) => {
+  const [order, setOrder] = useState<SortDirection>(SortDirection.NO_SORT);
+  const [orderBy, setOrderBy] = useState<string | undefined>();
+  const [orderedData, setOrderedData] = useState<T[]>(cloneDeep(data));
+
   const getCellValue = (item: T, column: IReportsTableColumn<T>) => get(item, column.key);
+
+  const onSortChange = (key: string) => {
+    if (orderBy === key) {
+      if (order === SortDirection.ASC_SORT) {
+        setOrder(SortDirection.DESC_SORT);
+        setOrderedData(sortByProperty(cloneDeep(data), key as keyof T, false));
+      } else if (order === SortDirection.DESC_SORT) {
+        setOrder(SortDirection.NO_SORT);
+        setOrderedData(cloneDeep(data));
+      } else {
+        setOrder(SortDirection.ASC_SORT);
+        setOrderedData(sortByProperty(orderedData, key as keyof T));
+      }
+    } else {
+      setOrderBy(key);
+      setOrder(SortDirection.ASC_SORT);
+      setOrderedData(sortByProperty(orderedData, key as keyof T));
+    }
+  };
+
+  useEffect(() => {
+    setOrderedData(cloneDeep(data));
+  }, [data]);
 
   return (
     <TableContainer component={Paper}>
@@ -19,18 +50,22 @@ const ReportsTable = <T,>({ data, columns }: IReportsTableProps<T>) => {
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell align="center" id={column.key}>
-                {column.title}
-              </TableCell>
+              <ReportsTableHeadCell
+                key={column.key}
+                title={column.title}
+                sortable={column.sortable}
+                sort={orderBy === column.key ? order : SortDirection.NO_SORT}
+                onSort={() => onSortChange(column.key)}
+              />
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.length > 0 ? (
-            data.map((row: T, index) => (
+          {orderedData.length > 0 ? (
+            orderedData.map((row: T, index) => (
               <TableRow key={index}>
-                {columns.map((col) => (
-                  <TableCell align="center">
+                {columns.map((col, i) => (
+                  <TableCell key={`${col}-${i}`} align="center">
                     {col.render ? col.render(col, row) : getCellValue(row, col)}
                   </TableCell>
                 ))}

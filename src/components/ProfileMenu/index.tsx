@@ -30,15 +30,15 @@ const ProfileMenu = () => {
 
   const userColumns: IReportsTableColumn<IUser>[] = [
     { key: "id", title: "ID" },
-    { key: "name", title: "Name" },
-    { key: "surname", title: "Surname" },
-    { key: "email", title: "Email" },
+    { key: "name", title: "Name", sortable: true },
+    { key: "surname", title: "Surname", sortable: true },
+    { key: "email", title: "Email", sortable: true },
   ];
 
   const itemColumns: IReportsTableColumn<IItem>[] = [
     { key: "id", title: "ID" },
-    { key: "name", title: "Name" },
-    { key: "seller_id", title: "Seller ID" },
+    { key: "name", title: "Name", sortable: true },
+    { key: "seller_id", title: "Seller ID", sortable: true },
     {
       key: "desc",
       title: "Description",
@@ -48,15 +48,15 @@ const ProfileMenu = () => {
         </Tooltip>
       ),
     },
-    { key: "price", title: "Price" },
-    { key: "stock", title: "Stock" },
+    { key: "price", title: "Price", sortable: true },
+    { key: "stock", title: "Stock", sortable: true },
     {
       key: "tags",
       title: "Tags",
       render: (_, { tags }) => (
         <Box sx={{ width: "auto", p: 2 }}>
-          {tags.map((tag) => (
-            <Badge badgeContent={tag} color="info" sx={{ p: 2, m: 0.5 }} />
+          {tags.map((tag, index) => (
+            <Badge key={`${tag}-${index}`} badgeContent={tag} color="info" sx={{ p: 2, m: 0.5 }} />
           ))}
         </Box>
       ),
@@ -66,8 +66,13 @@ const ProfileMenu = () => {
       title: "Categories",
       render: (_, { categories }) => (
         <Box sx={{ width: "auto", p: 2 }}>
-          {categories.map((category) => (
-            <Badge badgeContent={category} color="warning" sx={{ p: 2, m: 0.5 }} />
+          {categories.map((category, index) => (
+            <Badge
+              key={`${category}-${index}`}
+              badgeContent={category}
+              color="warning"
+              sx={{ p: 2, m: 0.5 }}
+            />
           ))}
         </Box>
       ),
