@@ -10,7 +10,7 @@ const usersService = {
   },
   getUserByEmail(email: string): Promise<IUser | undefined> {
     return fetch(`${base_url}/users`).then(async (response) => {
-      // all this because can't get user by email form free mockapi plan
+      // all this because can't get user by email from free mockapi plan
       const users = await response.json();
 
       if (users) {

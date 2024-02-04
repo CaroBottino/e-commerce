@@ -19,20 +19,30 @@ const ReportsTable = <T,>({ data, columns }: IReportsTableProps<T>) => {
         <TableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell align="center">{column.title}</TableCell>
+              <TableCell align="center" id={column.key}>
+                {column.title}
+              </TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row: T, index) => (
-            <TableRow key={index}>
-              {columns.map((col) => (
-                <TableCell align="center">
-                  {col.render ? col.render(col, row) : getCellValue(row, col)}
-                </TableCell>
-              ))}
+          {data.length > 0 ? (
+            data.map((row: T, index) => (
+              <TableRow key={index}>
+                {columns.map((col) => (
+                  <TableCell align="center">
+                    {col.render ? col.render(col, row) : getCellValue(row, col)}
+                  </TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell align="center" colSpan={columns.length}>
+                No data to show yet
+              </TableCell>
             </TableRow>
-          ))}
+          )}
         </TableBody>
       </Table>
     </TableContainer>

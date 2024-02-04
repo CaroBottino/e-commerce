@@ -22,6 +22,7 @@ const ProfileMenu = () => {
   const { user } = useUserContext();
   const [users, setUsers] = useState<IUser[]>([]);
   const [items, setItems] = useState<IItem[]>([]);
+  const [userItems, setUserItems] = useState<IItem[]>([]);
 
   const hasSellingPermissions = () => {
     return user.type === UserType.SELLER || user.type === UserType.ADMIN;
@@ -55,7 +56,7 @@ const ProfileMenu = () => {
       render: (_, { tags }) => (
         <Box sx={{ width: "auto", p: 2 }}>
           {tags.map((tag) => (
-            <Badge badgeContent={tag} color="info" sx={{ p: 2 }} />
+            <Badge badgeContent={tag} color="info" sx={{ p: 2, m: 0.5 }} />
           ))}
         </Box>
       ),
@@ -66,7 +67,7 @@ const ProfileMenu = () => {
       render: (_, { categories }) => (
         <Box sx={{ width: "auto", p: 2 }}>
           {categories.map((category) => (
-            <Badge badgeContent={category} color="warning" sx={{ p: 2 }} />
+            <Badge badgeContent={category} color="warning" sx={{ p: 2, m: 0.5 }} />
           ))}
         </Box>
       ),
@@ -76,6 +77,9 @@ const ProfileMenu = () => {
   useEffect(() => {
     usersService.getUsers().then((users) => users && setUsers(users));
     itemsService.getItems().then((items) => items && setItems(items));
+    if (user.id && hasSellingPermissions()) {
+      itemsService.getItemsByUser(user.id).then((items) => items.length > 0 && setUserItems(items));
+    }
   }, []);
 
   return (
@@ -119,8 +123,7 @@ const ProfileMenu = () => {
               Your items on sale
             </AccordionSummary>
             <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus
-              ex, sit amet blandit leo lobortis eget.
+              <ReportsTable data={userItems} columns={itemColumns} />
             </AccordionDetails>
           </Accordion>
           <Accordion>
@@ -131,10 +134,7 @@ const ProfileMenu = () => {
             >
               Sales
             </AccordionSummary>
-            <AccordionDetails>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus
-              ex, sit amet blandit leo lobortis eget.
-            </AccordionDetails>
+            <AccordionDetails>comming soon...</AccordionDetails>
           </Accordion>
         </>
       )}
@@ -146,10 +146,7 @@ const ProfileMenu = () => {
         >
           Purchases
         </AccordionSummary>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-          sit amet blandit leo lobortis eget.
-        </AccordionDetails>
+        <AccordionDetails>comming soon...</AccordionDetails>
       </Accordion>
     </>
   );
