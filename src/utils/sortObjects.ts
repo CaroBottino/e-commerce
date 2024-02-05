@@ -2,20 +2,19 @@ import { upperCase } from "lodash";
 import moment from "moment";
 
 export const sortByProperty = <T>(array: T[], property: keyof T, ascending = true) => {
-  if (typeof property === "string" && property.indexOf(".") !== -1) {
-    return sortByNestedProperty(array, property, ascending);
-  } else {
-    // sorting works different if data is string, date or number
-    if (typeof array[0][property] === "string") {
-      const isDate = moment(array[0][property] as string, "MM/DD/YYYY", true).isValid();
+  // TODO: fix ts issues
+  // if (typeof property === "string" && property.indexOf(".") !== -1) {
+  //   return sortByNestedProperty(array, property, ascending);
+  // } else {
+  // sorting works different if data is string, date or number
+  if (typeof array[0][property] === "string") {
+    const isDate = moment(array[0][property] as string, "MM/DD/YYYY", true).isValid();
 
-      return isDate
-        ? sortDates(array, property, ascending)
-        : sortStrings(array, property, ascending);
-    } else {
-      return traditionalBubleSorting(array, property, ascending);
-    }
+    return isDate ? sortDates(array, property, ascending) : sortStrings(array, property, ascending);
+  } else {
+    return traditionalBubleSorting(array, property, ascending);
   }
+  // }
 };
 
 const traditionalBubleSorting = <T>(array: T[], property: keyof T, ascending: boolean) => {
@@ -56,18 +55,18 @@ const sortDates = <T>(array: T[], property: keyof T, ascending: boolean) => {
   });
 };
 
-export const sortByNestedProperty = <T>(array: T[], property: string, ascending: boolean) => {
-  const list = property.split(".");
-  return array.sort((a, b) => {
-    const aa = list.reduce((current, name) => current[name], a);
-    const bb = list.reduce((current, name) => current[name], b);
-    return aa < bb ? (ascending ? -1 : 1) : aa > bb ? (ascending ? 1 : -1) : 0;
-  });
-};
+// export const sortByNestedProperty = <T>(array: T[], property: string, ascending: boolean) => {
+//   const list = property.split(".");
+//   return array.sort((a, b) => {
+//     const aa = list.reduce((current, name) => current[name], a);
+//     const bb = list.reduce((current, name) => current[name], b);
+//     return aa < bb ? (ascending ? -1 : 1) : aa > bb ? (ascending ? 1 : -1) : 0;
+//   });
+// };
 
 export const sortByProperties = <T>(array: T[], properties: string[], ascendings = []) => {
   if (properties.reduce((result, current) => result || current.indexOf(".") !== -1, false)) {
-    return sortByNestedProperties(array, properties, ascendings);
+    // return sortByNestedProperties(array, properties, ascendings);
   } else {
     return array.sort((a, b) => {
       let order = 0;
@@ -76,11 +75,11 @@ export const sortByProperties = <T>(array: T[], properties: string[], ascendings
         const property = properties[index];
         const ascending = typeof ascendings[index] === "undefined" ? true : ascendings[index];
         order =
-          a[property] < b[property]
+          a[property as keyof T] < b[property as keyof T]
             ? ascending
               ? -1
               : 1
-            : a[property] > b[property]
+            : a[property as keyof T] > b[property as keyof T]
             ? ascending
               ? 1
               : -1
@@ -92,22 +91,22 @@ export const sortByProperties = <T>(array: T[], properties: string[], ascendings
   }
 };
 
-export const sortByNestedProperties = <T>(
-  array: T[],
-  properties: string[],
-  ascendings: boolean[]
-) => {
-  const list = properties.map((a) => a.split("."));
-  return array.sort((a, b) => {
-    let order = 0;
-    let index = 0;
-    while (order === 0 && index < properties.length) {
-      const aa = list[index].reduce((current, name) => current[name], a);
-      const bb = list[index].reduce((current, name) => current[name], b);
-      const ascending = typeof ascendings[index] === "undefined" ? true : ascendings[index];
-      order = aa < bb ? (ascending ? -1 : 1) : aa > bb ? (ascending ? 1 : -1) : 0;
-      index += 1;
-    }
-    return order;
-  });
-};
+// export const sortByNestedProperties = <T>(
+//   array: T[],
+//   properties: string[],
+//   ascendings: boolean[]
+// ) => {
+//   const list = properties.map((a) => a.split("."));
+//   return array.sort((a, b) => {
+//     let order = 0;
+//     let index = 0;
+//     while (order === 0 && index < properties.length) {
+//       const aa = list[index].reduce((current, name) => current[name], a);
+//       const bb = list[index].reduce((current, name) => current[name], b);
+//       const ascending = typeof ascendings[index] === "undefined" ? true : ascendings[index];
+//       order = aa < bb ? (ascending ? -1 : 1) : aa > bb ? (ascending ? 1 : -1) : 0;
+//       index += 1;
+//     }
+//     return order;
+//   });
+// };

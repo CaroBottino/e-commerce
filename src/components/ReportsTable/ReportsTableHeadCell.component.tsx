@@ -4,7 +4,7 @@ import { ColumnSortIcon } from "../../assets/icons/ColumnSortIcon";
 
 const ReportsTableHeadCell = ({ title, sortable, sort, onSort }: IReportsTableHeadCell) => {
   return (
-    <TableCell align="center">
+    <TableCell align="center" sx={{ minWidth: "85px" }}>
       {title}
       {sortable && (
         <IconButton size="small" sx={{ marginLeft: 1 }} onClick={onSort}>

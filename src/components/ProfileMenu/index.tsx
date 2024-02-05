@@ -5,24 +5,31 @@ import {
   AccordionSummary,
   Badge,
   Box,
+  Button,
+  MenuItem,
+  Select,
   Tooltip,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useUserContext } from "../../providers/User.provider";
 import { UserType } from "../../enums/user.enum";
 import ReportsTable from "../ReportsTable";
-import usersService from "../../services/users.service";
+import ECDialog from "../ECDialog";
 import { IUser } from "../../interfaces/IUser";
 import { IReportsTableColumn } from "../ReportsTable/ReportsTable.interfaces";
 import { IItem } from "../../interfaces/IItem";
 import itemsService from "../../services/items.service";
+import usersService from "../../services/users.service";
+import { useUserContext } from "../../providers/User.provider";
 
 const ProfileMenu = () => {
   const { user } = useUserContext();
   const [users, setUsers] = useState<IUser[]>([]);
   const [items, setItems] = useState<IItem[]>([]);
   const [userItems, setUserItems] = useState<IItem[]>([]);
+  const [openConfDialog, setOpenConfDialog] = useState(false);
+  const [newUserType, setNewUserType] = useState<number>();
+  const [userToUpdate, setUserToUpdate] = useState<IUser>();
 
   const hasSellingPermissions = () => {
     return user.type === UserType.SELLER || user.type === UserType.ADMIN;
@@ -33,6 +40,18 @@ const ProfileMenu = () => {
     { key: "name", title: "Name", sortable: true },
     { key: "surname", title: "Surname", sortable: true },
     { key: "email", title: "Email", sortable: true },
+    {
+      key: "type",
+      title: "Type",
+      sortable: true,
+      render: (_, user) => (
+        <Select value={user.type} onChange={(e) => onTypeChange(e.target.value, user)} displayEmpty>
+          <MenuItem value={UserType.ADMIN}>admin</MenuItem>
+          <MenuItem value={UserType.SELLER}>seller</MenuItem>
+          <MenuItem value={UserType.BUYER}>buyer</MenuItem>
+        </Select>
+      ),
+    },
   ];
 
   const itemColumns: IReportsTableColumn<IItem>[] = [
@@ -78,6 +97,22 @@ const ProfileMenu = () => {
       ),
     },
   ];
+
+  const onTypeChange = (newType: number | string | UserType, user: IUser) => {
+    setNewUserType(Number(newType));
+    setUserToUpdate(user);
+    setOpenConfDialog(true);
+  };
+
+  const updateUserType = () => {
+    if (newUserType && userToUpdate) {
+      const payload = { ...userToUpdate, type: newUserType };
+      usersService.updateUser(payload).then(() => {
+        usersService.getUsers().then((users) => users && setUsers(users));
+        setOpenConfDialog(false);
+      });
+    }
+  };
 
   useEffect(() => {
     usersService.getUsers().then((users) => users && setUsers(users));
@@ -153,6 +188,25 @@ const ProfileMenu = () => {
         </AccordionSummary>
         <AccordionDetails>comming soon...</AccordionDetails>
       </Accordion>
+
+      {openConfDialog && userToUpdate && (
+        <ECDialog
+          open={openConfDialog}
+          title={"Change user type"}
+          content={`Changing user's type means changing user's permissions. Are you sure you want to continue?`}
+          handleClose={() => setOpenConfDialog(false)}
+          actions={
+            <>
+              <Button autoFocus onClick={() => setOpenConfDialog(false)}>
+                Cancel
+              </Button>
+              <Button variant="contained" onClick={updateUserType}>
+                Continue
+              </Button>
+            </>
+          }
+        />
+      )}
     </>
   );
 };
