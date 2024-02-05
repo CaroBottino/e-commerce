@@ -10,6 +10,7 @@ This application is built with React.js. Just a little brief of my skills for yo
 - Material UI
 - MockAPI backend
 - react-hook-form
+- sessionStorage
 
 ## To interact:
 

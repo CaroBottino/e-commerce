@@ -44,16 +44,20 @@ interface IUserProviderProps {
 }
 
 const UserProvider = ({ children }: IUserProviderProps) => {
-  const [user, setUser] = useState<IUser>({
-    id: undefined,
-    name: undefined,
-    surname: undefined,
-    email: undefined,
-    avatar: undefined,
-    password: undefined,
-    type: UserType.BUYER,
-    cart: [],
-  });
+  const [user, setUser] = useState<IUser>(
+    sessionStorage.getItem("user")
+      ? { ...JSON.parse(sessionStorage.getItem("user")!) }
+      : {
+          id: undefined,
+          name: undefined,
+          surname: undefined,
+          email: undefined,
+          avatar: undefined,
+          password: undefined,
+          type: UserType.BUYER,
+          cart: [],
+        }
+  );
 
   const loginUser = (userToLog: IUser) => {
     if (user.cart.length > 0) {
@@ -73,6 +77,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     }
 
     setUser(userToLog);
+    sessionStorage.setItem("user", JSON.stringify(userToLog));
   };
 
   const logoutUser = () => {
@@ -85,6 +90,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       type: UserType.BUYER,
       cart: [],
     });
+    sessionStorage.removeItem("user");
   };
 
   const addToCart = (item: IItem, quantity: number) => {
