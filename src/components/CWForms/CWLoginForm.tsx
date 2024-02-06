@@ -1,7 +1,7 @@
 import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FormHelper, FormInput, FormLabel } from "./CWForms.styled";
-import { IFormLogin } from "./CWForms.interfaces";
+import { ICWFormLogin } from "./CWForms.interfaces";
 import { useUserContext } from "../../providers/User.provider";
 import usersService from "../../services/users.service";
 import { useNavigate } from "react-router-dom";
@@ -18,13 +18,13 @@ const CWLoginForm = ({ setLogin }: ICWLoginFormProps) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormLogin>();
+  } = useForm<ICWFormLogin>();
 
   const navigate = useNavigate();
   const base_url = import.meta.env.VITE_BASE_URL;
   const [error, setError] = useState(false);
 
-  const onSubmit: SubmitHandler<IFormLogin> = async (data) => {
+  const onSubmit: SubmitHandler<ICWFormLogin> = async (data) => {
     const user = await usersService.getUserByEmail(data.email);
 
     if (user && user.password === data.password) {
