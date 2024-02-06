@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "@/assets/css/App.css";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import CWNavBar from "./components/CWNavBar";
+import CWFooter from "./components/CWFooter";
 import HomePage from "./pages/Home";
 import ItemDetailPage from "./pages/ItemDetail";
 import UserProvider from "./providers/User.provider";
@@ -15,7 +15,7 @@ function App() {
     <>
       <UserProvider>
         <BrowserRouter>
-          <NavBar />
+          <CWNavBar />
           <Routes>
             <Route path={`${base_url}/`} element={<HomePage />} />
             <Route path={`${base_url}/category/:category`} element={<HomePage />} />
@@ -24,7 +24,7 @@ function App() {
             <Route path={`${base_url}/profile`} element={<ProfilePage />} />
           </Routes>
         </BrowserRouter>
-        <Footer />
+        <CWFooter />
       </UserProvider>
     </>
   );

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import LoginForm from "../components/Forms/LoginForm";
-import SignUpForm from "../components/Forms/SignUpForm";
+import CWLoginForm from "../components/CWForms/CWLoginForm";
+import CWSignUpForm from "../components/CWForms/CWSignUpForm";
 
 const LoginPage = () => {
   const [login, setLogin] = useState(true);
 
-  return login ? <LoginForm setLogin={setLogin} /> : <SignUpForm setLogin={setLogin} />;
+  return login ? <CWLoginForm setLogin={setLogin} /> : <CWSignUpForm setLogin={setLogin} />;
 };
 
 export default LoginPage;

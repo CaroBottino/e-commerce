@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import ItemDetailContainer from "../components/ItemDetailContainer";
+import ItemDetailContainer from "../components/CWItemDetailContainer";
 import "@/assets/css/ItemDetailPage.css";
 import { useEffect, useState } from "react";
 import { IItem } from "../interfaces/IItem";

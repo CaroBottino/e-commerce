@@ -1,7 +1,7 @@
-import ItemListContainer from "../components/ItemListContainer";
+import CWItemListContainer from "../components/CWItemListContainer";
 
 const HomePage = () => {
-  return <ItemListContainer />;
+  return <CWItemListContainer />;
 };
 
 export default HomePage;
