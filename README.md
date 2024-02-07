@@ -28,8 +28,6 @@ npm install
 npm run dev
 ```
 
-### Compiles and minifies for production
+## Message to other devs:
 
-```
-npm run predeploy
-```
+This is a **personal** project I have, and the aim of it is having an excuse to solve real life problems. For now, I'd like to keep development just on my side. It's not an open source project, it's just me having fun. ✨🤓
