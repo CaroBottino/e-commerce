@@ -1,15 +1,19 @@
+import "./CWFooter.styled";
+
+import { Box, Typography } from "@mui/material";
+import { StyledFooter, FooterText, FooterLink } from "./CWFooter.styled";
+
 const CWFooter = () => {
   return (
-    <div>
-      <footer className="footer mt-auto py-3 fixed-bottom">
-        <div className="container footer">
-          <p className="footer-label">
-            <a href="/#">Back to top</a>· © 2023 Carolina Bottino, Inc. ·<a href="/#">Privacy</a>·
-            <a href="/#">Terms</a>
-          </p>
-        </div>
-      </footer>
-    </div>
+    <StyledFooter>
+      <Box >
+        <FooterText>
+          <FooterLink href="/#">Back to top</FooterLink>· © 2023 Carolina Bottino, Inc. ·
+          <FooterLink href="/#">Privacy</FooterLink>·
+          <FooterLink href="/#">Terms</FooterLink>
+        </FooterText>
+      </Box>
+    </StyledFooter>
   );
 };
 
