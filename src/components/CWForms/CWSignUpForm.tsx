@@ -126,7 +126,7 @@ const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
           </FormControl>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} mt={"1rem"}>
           <Typography>
             Already have an account? Log in{" "}
             <Link underline="hover" onClick={() => setLogin(true)}>
@@ -136,7 +136,7 @@ const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} mt={"1rem"}>
           <Button type="submit" variant="contained">
             Sign up!
           </Button>

@@ -76,7 +76,7 @@ const CWLoginForm = ({ setLogin }: ICWLoginFormProps) => {
           </FormControl>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} mt={"1rem"}>
           <Typography>
             Don't have an account? Register{" "}
             <Link underline="hover" onClick={() => setLogin(false)}>
@@ -86,7 +86,7 @@ const CWLoginForm = ({ setLogin }: ICWLoginFormProps) => {
           </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} mt={"2rem"}>
           <Button type="submit" variant="contained">
             Login
           </Button>
