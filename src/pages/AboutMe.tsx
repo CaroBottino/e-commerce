@@ -3,7 +3,7 @@ import { Box, Grid, ImageList, ImageListItem } from "@mui/material";
 const AboutMePage = () => {
   const itemData = [
     {
-      img: "https://iili.io/J1acdSn.jpg",
+      img: "https://iili.io/J1aas8g.jpg",
       title: "Olivia",
     },
     {
