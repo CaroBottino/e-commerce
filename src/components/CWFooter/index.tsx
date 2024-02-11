@@ -1,15 +1,31 @@
+import { Grid } from "@mui/material";
+import { FooterLink, FooterText, StyledFooter } from "./CWFooter.styled";
+
 const CWFooter = () => {
+  const base_url = import.meta.env.VITE_BASE_URL;
+
   return (
-    <div>
-      <footer className="footer mt-auto py-3 fixed-bottom">
-        <div className="container footer">
-          <p className="footer-label">
-            <a href="/#">Back to top</a>· © 2023 Carolina Bottino, Inc. ·<a href="/#">Privacy</a>·
-            <a href="/#">Terms</a>
-          </p>
-        </div>
-      </footer>
-    </div>
+    <StyledFooter>
+      <Grid container>
+        <Grid item container justifyContent={"center"} justifyItems={"center"}>
+          <Grid item>
+            <FooterLink to="/#">Back to top</FooterLink>
+          </Grid>
+          <Grid item>
+            <FooterText>· © 2023 Carolina Bottino, Ca.Fe Web. ·</FooterText>
+          </Grid>
+          <Grid item>
+            <FooterLink to="https://www.linkedin.com/in/carolina-bottino-5214309b/" target="_blank">
+              Get to know me 🌷
+            </FooterLink>
+            ·
+          </Grid>
+          <Grid item>
+            <FooterLink to={`${base_url}/about-me`}>About this project</FooterLink>
+          </Grid>
+        </Grid>
+      </Grid>
+    </StyledFooter>
   );
 };
 

@@ -7,10 +7,11 @@ import CWAvatarWidget from "../CWAvatarWidget";
 import { StyledLoginLink } from "./CWUserMenu.styled";
 
 type CWUserMenuProps = {
+  iconColor?: string;
   handleMobileMenuClose: () => void;
 };
 
-const CWUserMenu = ({ handleMobileMenuClose }: CWUserMenuProps) => {
+const CWUserMenu = ({ iconColor = "black", handleMobileMenuClose }: CWUserMenuProps) => {
   const { user, logoutUser } = useUserContext();
   const navigate = useNavigate();
 
@@ -78,7 +79,7 @@ const CWUserMenu = ({ handleMobileMenuClose }: CWUserMenuProps) => {
     </>
   ) : (
     <StyledLoginLink to={`${base_url}/login`}>
-      <AccountCircle sx={{ height: 40, width: 40 }} />
+      <AccountCircle sx={{ height: 40, width: 40, color: iconColor }} />
     </StyledLoginLink>
   );
 };
