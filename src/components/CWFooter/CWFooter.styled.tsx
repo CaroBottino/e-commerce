@@ -4,12 +4,9 @@ import { Link } from "react-router-dom";
 export const StyledFooter = styled(Box)({
   backgroundColor: "#55b6ff",
   color: "#A451FE",
-  textAlign: "center",
   padding: "40px",
   position: "absolute",
-  bottom: 0,
-  right: 0,
-  left: "auto",
+  marginLeft: "-20px",
   width: "100%",
   zIndex: 1100,
 });

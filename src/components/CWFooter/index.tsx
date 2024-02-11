@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import { FooterLink, FooterText, StyledFooter } from "./CWFooter.styled";
 
 const CWFooter = () => {
@@ -6,15 +6,25 @@ const CWFooter = () => {
 
   return (
     <StyledFooter>
-      <Box>
-        <FooterText>
-          <FooterLink to="/#">Back to top</FooterLink>· © 2023 Carolina Bottino, Ca.Fe Web. ·
-          <FooterLink to="https://www.linkedin.com/in/carolina-bottino-5214309b/" target="_blank">
-            Get to know me 🌷
-          </FooterLink>
-          ·<FooterLink to={`${base_url}/about-me`}>About this project</FooterLink>
-        </FooterText>
-      </Box>
+      <Grid container>
+        <Grid item container justifyContent={"center"} justifyItems={"center"}>
+          <Grid item>
+            <FooterLink to="/#">Back to top</FooterLink>
+          </Grid>
+          <Grid item>
+            <FooterText>· © 2023 Carolina Bottino, Ca.Fe Web. ·</FooterText>
+          </Grid>
+          <Grid item>
+            <FooterLink to="https://www.linkedin.com/in/carolina-bottino-5214309b/" target="_blank">
+              Get to know me 🌷
+            </FooterLink>
+            ·
+          </Grid>
+          <Grid item>
+            <FooterLink to={`${base_url}/about-me`}>About this project</FooterLink>
+          </Grid>
+        </Grid>
+      </Grid>
     </StyledFooter>
   );
 };

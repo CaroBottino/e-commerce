@@ -1,5 +1,5 @@
 import { useState, MouseEvent } from "react";
-import { Box, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
+import { Box, Divider, IconButton, Menu, MenuItem, Toolbar } from "@mui/material";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import CWCartWidget from "../CWCartWidget";
 import CWSearchBar from "../CWSearchBar";
@@ -23,6 +23,8 @@ const CWNavBar = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const categories = ["clothes", "electronics", "toys", "home"];
+
   const mobileMenuId = "user-menu-mobile";
   const renderMobileMenu = (
     <Menu
@@ -44,34 +46,37 @@ const CWNavBar = () => {
         <Link to={`${base_url}/profile`}>Profile</Link>
         <CWUserMenu handleMobileMenuClose={() => {}} />
       </MenuItem>
+      <Divider />
+      {categories.map((category) => (
+        <MenuItem>
+          <Link key={`mobile-${category}`} to={`${base_url}/category/${category}`}>
+            {category}
+          </Link>
+        </MenuItem>
+      ))}
     </Menu>
   );
-
-  const categories = ["clothes", "electronics", "toys", "home"];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <StyledAppBar position="fixed">
         <Toolbar>
           <StyledLink to={`${base_url}/`}>
-            <AppName
-              noWrap
-              sx={{
-                display: { xs: "none", sm: "block" },
-              }}
-            >
+            <AppName noWrap sx={{ display: { sm: "block" } }}>
               CA.FE buy!
             </AppName>
           </StyledLink>
-          {categories.map((category) => (
-            <StyledLink key={category} to={`${base_url}/category/${category}`}>
-              {category}
-            </StyledLink>
-          ))}
+          <Box sx={{ display: { md: "flex", xs: "none" } }}>
+            {categories.map((category) => (
+              <StyledLink key={`desktop-${category}`} to={`${base_url}/category/${category}`}>
+                {category}
+              </StyledLink>
+            ))}
+          </Box>
           <CWSearchBar />
           <Box sx={{ flexGrow: 1 }} />
           <IconsBox sx={{ display: { xs: "none", md: "flex" } }}>
-            <CWUserMenu handleMobileMenuClose={handleMobileMenuClose} />
+            <CWUserMenu iconColor={"white"} handleMobileMenuClose={handleMobileMenuClose} />
             <CWCartWidget open={open} setOpen={setOpen} />
           </IconsBox>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
