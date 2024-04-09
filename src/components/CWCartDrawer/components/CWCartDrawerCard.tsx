@@ -28,7 +28,7 @@ const CWCartDrawerCard = ({ cartItem }: ICWCartDrawerCardProps) => {
         </Grid>
       </Grid>
       <CardInfoGrid container item xs={8}>
-        <Grid item xs={12} sx={{ ml: 4 }}>
+        <Grid item xs={12} sx={{ ml: 4, mr: 1 }}>
           <Typography noWrap>{cartItem.name}</Typography>
           <Typography variant="subtitle1" color="text.secondary">
             ${Intl.NumberFormat("es-CL").format(cartItem.price)}

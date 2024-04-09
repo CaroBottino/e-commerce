@@ -17,13 +17,12 @@ export const CartTytleBox = styled(Box)({
 });
 
 export const CardMainGrid = styled(Grid)({
-  width: "400px",
+  width: "390px",
   padding: "10px",
   borderBottom: "1px solid lightgray",
 });
 
 export const CardInfoGrid = styled(Grid)({
-  width: "400px",
   justifyContent: "center",
   alignItems: "center",
 });
