@@ -1,30 +1,30 @@
 import { useParams } from "react-router-dom";
 import ItemDetailContainer from "../components/CWItemDetailContainer";
 import "@/assets/css/ItemDetailPage.css";
-import { useEffect, useState } from "react";
-import { IItem } from "../interfaces/IItem";
-import itemsService from "../services/items.service";
+import { useEffect } from "react";
+import ItemsProvider from "../providers/Items.provider";
+import CWItemDetailSkeleton from "../components/CWSkeletons/CWItemDetailSkeleton";
+import { useItemsContext } from "../hooks/useItemsContext";
 
 const ItemDetailPage = () => {
   const { id } = useParams();
-  const [item, setItem] = useState<IItem>();
-
-  const getItemInfo = async () => {
-    try {
-      if (id) {
-        const item = await itemsService.getItemById(id);
-        item && setItem(item);
-      }
-    } catch (error) {
-      console.log("Error getting item info: ", error);
-    }
-  };
+  const { loading, getItemInfo, item } = useItemsContext();
 
   useEffect(() => {
-    getItemInfo();
+    id && getItemInfo(id);
   }, [id]);
 
-  return item ? <ItemDetailContainer item={item} /> : <div>Item not found</div>;
+  return (
+    <ItemsProvider>
+      {loading ? (
+        <CWItemDetailSkeleton />
+      ) : item ? (
+        <ItemDetailContainer item={item} />
+      ) : (
+        <div>Item not found</div>
+      )}
+    </ItemsProvider>
+  );
 };
 
 export default ItemDetailPage;
