@@ -1,4 +1,4 @@
-import { Box, ButtonGroup, Typography, styled } from "@mui/material";
+import { Box, ButtonGroup, Grid, Typography, styled } from "@mui/material";
 
 export const CartTytle = styled(Typography)({
   fontSize: 20,
@@ -16,6 +16,18 @@ export const CartTytleBox = styled(Box)({
   zIndex: 1,
 });
 
+export const CardMainGrid = styled(Grid)({
+  width: "400px",
+  padding: "10px",
+  borderBottom: "1px solid lightgray",
+});
+
+export const CardInfoGrid = styled(Grid)({
+  width: "400px",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
 export const CartButtonGroup = styled(ButtonGroup)({
   maxWidth: "6px",
 
@@ -26,8 +38,14 @@ export const CartButtonGroup = styled(ButtonGroup)({
   },
 });
 
+export const CartButtonGroupBox = styled(ButtonGroup)({
+  marginTop: 3,
+  width: "130px",
+  display: "grid",
+  justifyContent: "center",
+});
+
 export const CartBodyBox = styled(Box)({
-  width: "200%",
   marginTop: "60px",
   marginBottom: "50px",
 });
