@@ -6,9 +6,9 @@ export const StyledFooter = styled(Box)({
   color: "#A451FE",
   padding: "40px",
   position: "absolute",
-  marginLeft: "-20px",
-  width: "100%",
+  width: "94%",
   zIndex: 1100,
+  bottom: 0,
 });
 
 export const FooterText = styled(Typography)({
