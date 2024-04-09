@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
-import { useUserContext } from "../../providers/User.provider";
 import { userTypeLabel } from "../../utils/userHelper";
+import { useUserContext } from "../../hooks/useUserContext";
 
 const CWProfileCard = () => {
   const { user } = useUserContext();

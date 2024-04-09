@@ -1,7 +1,7 @@
 import { Box, Drawer, List, ListItem } from "@mui/material";
-import { useUserContext } from "../../providers/User.provider";
 import { CartBodyBox, CartTytle, CartTytleBox, TotalBox } from "./CWCartDrawer.styled";
 import CWCartDrawerCard from "./components/CWCartDrawerCard";
+import { useUserContext } from "../../hooks/useUserContext";
 
 interface ICWCartDrawerProps {
   open: boolean;

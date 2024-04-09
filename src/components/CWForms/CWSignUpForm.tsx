@@ -4,10 +4,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
 import { FormHelper, FormInput, FormLabel } from "./CWForms.styled";
 import { ICWFormSignUp } from "./CWForms.interfaces";
-import { useUserContext } from "../../providers/User.provider";
 import usersService from "../../services/users.service";
 import { IUser } from "../../interfaces/IUser";
 import { UserType } from "../../enums/user.enum";
+import { useUserContext } from "../../hooks/useUserContext";
 
 interface ICWSignUpFormProps {
   setLogin: (login: boolean) => void;

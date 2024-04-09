@@ -8,7 +8,7 @@ import {
   CartButtonGroupBox,
 } from "../CWCartDrawer.styled";
 import { QuantityButton } from "../../CWItemDetailContainer/CWItemDetail.styled";
-import { useUserContext } from "../../../providers/User.provider";
+import { useUserContext } from "../../../hooks/useUserContext";
 
 interface ICWCartDrawerCardProps {
   cartItem: ICartItem;

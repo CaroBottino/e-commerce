@@ -1,8 +1,8 @@
 // import { Badge, IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { useUserContext } from "../../providers/User.provider";
 import { CartButton } from "./CWCartWidget.styled";
+import { useUserContext } from "../../hooks/useUserContext";
 
 interface ICWCartWidgetProps {
   open: boolean;

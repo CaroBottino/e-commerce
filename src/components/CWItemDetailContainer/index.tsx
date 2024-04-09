@@ -1,5 +1,6 @@
-import { IItem } from "../../interfaces/IItem";
+import { useState } from "react";
 import { Button, ButtonGroup, Grid } from "@mui/material";
+import { IItem } from "../../interfaces/IItem";
 import {
   ItemDescription,
   ItemImg,
@@ -7,8 +8,7 @@ import {
   ItemTitle,
   QuantityButton,
 } from "./CWItemDetail.styled";
-import { useState } from "react";
-import { useUserContext } from "../../providers/User.provider";
+import { useUserContext } from "../../hooks/useUserContext";
 
 type CWItemDetailProps = {
   item: IItem;

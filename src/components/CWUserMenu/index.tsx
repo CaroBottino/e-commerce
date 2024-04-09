@@ -2,9 +2,9 @@ import { MouseEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
-import { useUserContext } from "../../providers/User.provider";
 import CWAvatarWidget from "../CWAvatarWidget";
 import { StyledLoginLink } from "./CWUserMenu.styled";
+import { useUserContext } from "../../hooks/useUserContext";
 
 type CWUserMenuProps = {
   iconColor?: string;

@@ -1,11 +1,11 @@
-import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
 import { FormHelper, FormInput, FormLabel } from "./CWForms.styled";
 import { ICWFormLogin } from "./CWForms.interfaces";
-import { useUserContext } from "../../providers/User.provider";
 import usersService from "../../services/users.service";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useUserContext } from "../../hooks/useUserContext";
 
 interface ICWLoginFormProps {
   setLogin: (login: boolean) => void;
