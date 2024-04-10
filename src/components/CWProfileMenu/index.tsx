@@ -20,7 +20,7 @@ import { ICWReportsTableColumn } from "../CWReportsTable/CWReportsTable.interfac
 import { IItem } from "../../interfaces/IItem";
 import itemsService from "../../services/items.service";
 import usersService from "../../services/users.service";
-import { useUserContext } from "../../providers/User.provider";
+import { useUserContext } from "../../hooks/useUserContext";
 
 const CWProfileMenu = () => {
   const { user } = useUserContext();

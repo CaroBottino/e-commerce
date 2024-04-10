@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useMemo, useState } from "react";
+import { ReactNode, createContext, useMemo, useState } from "react";
 import { IUser } from "../interfaces/IUser";
 import { UserType } from "../enums/user.enum";
 import { IItem } from "../interfaces/IItem";
@@ -35,9 +35,6 @@ export const UserContext = createContext<UserContextProviderProps>({
   decreaseQuantity: () => {},
   cartTotal: 0,
 });
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const useUserContext = () => useContext(UserContext);
 
 interface IUserProviderProps {
   children: ReactNode;

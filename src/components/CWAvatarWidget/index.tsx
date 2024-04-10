@@ -1,6 +1,6 @@
 import Avatar from "@mui/material/Avatar";
-import { useUserContext } from "../../providers/User.provider";
 import { deepPurple } from "@mui/material/colors";
+import { useUserContext } from "../../hooks/useUserContext";
 
 const CWAvatarWidget = () => {
   const { user } = useUserContext();

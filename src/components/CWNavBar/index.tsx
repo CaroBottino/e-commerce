@@ -38,20 +38,18 @@ const CWNavBar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem key={"mobile-cart"}>
         <p>Carrito</p>
         <CWCartWidget open={false} setOpen={() => setOpen(!open)} />
       </MenuItem>
-      <MenuItem>
+      <MenuItem key={"mobile-profile"}>
         <Link to={`${base_url}/profile`}>Profile</Link>
         <CWUserMenu handleMobileMenuClose={() => {}} />
       </MenuItem>
       <Divider />
       {categories.map((category) => (
-        <MenuItem>
-          <Link key={`mobile-${category}`} to={`${base_url}/category/${category}`}>
-            {category}
-          </Link>
+        <MenuItem key={`mobile-${category}`}>
+          <Link to={`${base_url}/category/${category}`}>{category}</Link>
         </MenuItem>
       ))}
     </Menu>
@@ -67,8 +65,8 @@ const CWNavBar = () => {
             </AppName>
           </StyledLink>
           <Box sx={{ display: { md: "flex", xs: "none" } }}>
-            {categories.map((category) => (
-              <StyledLink key={`desktop-${category}`} to={`${base_url}/category/${category}`}>
+            {categories.map((category, i) => (
+              <StyledLink key={`desktop-${category}-${i}`} to={`${base_url}/category/${category}`}>
                 {category}
               </StyledLink>
             ))}

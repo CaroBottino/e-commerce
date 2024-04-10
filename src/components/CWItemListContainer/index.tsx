@@ -1,40 +1,57 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Grid } from "@mui/material";
+import { Alert, Grid, Typography } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import CWItemCard from "../CWItemCard";
+import CFItemsListSkeleton from "../CWSkeletons/CWItemsListSkeleton";
 import { IItem } from "../../interfaces/IItem";
 import "@/assets/css/ItemListContainer.css";
-import itemsService from "../../services/items.service";
+import { SearchTitle } from "./CWItemListContainer.styled";
+import { useItemsContext } from "../../hooks/useItemsContext";
 
 const CWItemListContainer = () => {
   const { category } = useParams();
-  const [items, setItems] = useState<IItem[]>([]);
-
-  const getItemsByType = async () => {
-    try {
-      const items = await itemsService.getItems();
-      if (items) {
-        if (category) {
-          const filteredItems = items.filter((item: IItem) => {
-            return item.categories.includes(category) && item;
-          });
-
-          filteredItems && setItems(filteredItems);
-        } else {
-          setItems(items);
-        }
-      }
-    } catch (error) {
-      console.log("Error getting items: ", error);
-    }
-  };
+  const {
+    loading,
+    items,
+    getItemsByType,
+    getAllItems,
+    criteria,
+    setCriteria,
+    showSearchResult,
+    setShowSearchResult,
+  } = useItemsContext();
 
   useEffect(() => {
-    getItemsByType();
+    if (category) {
+      setCriteria("");
+      setShowSearchResult(false);
+      getItemsByType(category);
+    } else if (!criteria) {
+      getAllItems();
+    }
   }, [category]);
 
-  return (
-    <>
+  return loading ? (
+    <CFItemsListSkeleton />
+  ) : (
+    <Grid container>
+      {showSearchResult && (
+        <Grid container item paddingTop={10} justifyContent={"center"}>
+          <Grid item xs={6} minWidth={300}>
+            <Alert
+              icon={<SearchIcon fontSize="inherit" />}
+              severity="success"
+              sx={{ alignItems: "center" }}
+            >
+              <SearchTitle>{criteria}</SearchTitle>
+            </Alert>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography>{items.length} results</Typography>
+          </Grid>
+        </Grid>
+      )}
       <Grid
         className="list-items-grid"
         container
@@ -48,7 +65,7 @@ const CWItemListContainer = () => {
           </Grid>
         ))}
       </Grid>
-    </>
+    </Grid>
   );
 };
 
