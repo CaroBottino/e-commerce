@@ -10,6 +10,11 @@ type ItemsContextProviderProps = {
   getAllItems: () => void;
   getItemsByType: (category: string) => void;
   getItemInfo: (id: string) => void;
+  criteria?: string;
+  setCriteria: (search: string) => void;
+  searchItems: () => void;
+  showSearchResult: boolean;
+  setShowSearchResult: (show: boolean) => void;
 };
 
 export const ItemsContext = createContext<ItemsContextProviderProps>({
@@ -20,6 +25,11 @@ export const ItemsContext = createContext<ItemsContextProviderProps>({
   getAllItems: () => {},
   getItemsByType: () => {},
   getItemInfo: () => {},
+  criteria: undefined,
+  setCriteria: () => {},
+  searchItems: () => {},
+  showSearchResult: false,
+  setShowSearchResult: () => {},
 });
 
 interface IItemsProviderProps {
@@ -30,6 +40,8 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [items, setItems] = useState<IItem[]>([]);
   const [item, setItem] = useState<IItem>();
+  const [criteria, setCriteria] = useState<string>();
+  const [showSearchResult, setShowSearchResult] = useState<boolean>(false);
 
   const getAllItems = () => {
     itemsService.getItems().then((response) => {
@@ -59,7 +71,6 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
   };
 
   const getItemInfo = (id: string) => {
-    console.log("caro - id 2: ", id);
     itemsService
       .getItemById(id)
       .then((item) => {
@@ -71,9 +82,46 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
       });
   };
 
+  const searchItems = () => {
+    setLoading(true);
+
+    itemsService
+      .getItems()
+      .then((items) => {
+        if (criteria) {
+          const filteredItems = items.filter((item: IItem) => {
+            return item.name.toUpperCase().search(criteria.toUpperCase()) >= 0 && item;
+          });
+
+          filteredItems && setItems(filteredItems);
+          setShowSearchResult(true);
+        } else {
+          setItems(items);
+          setShowSearchResult(false);
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("Error getting items: ", error);
+      });
+  };
+
   return (
     <ItemsContext.Provider
-      value={{ loading, setLoading, items, item, getAllItems, getItemsByType, getItemInfo }}
+      value={{
+        loading,
+        setLoading,
+        items,
+        item,
+        getAllItems,
+        getItemsByType,
+        getItemInfo,
+        criteria,
+        setCriteria,
+        searchItems,
+        showSearchResult,
+        setShowSearchResult,
+      }}
     >
       {children}
     </ItemsContext.Provider>
