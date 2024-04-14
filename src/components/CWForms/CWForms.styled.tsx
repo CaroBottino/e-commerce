@@ -11,3 +11,20 @@ export const FormInput = styled(Input)({
 export const FormHelper = styled(Typography)({
   color: "crimson",
 });
+
+export const FormTitle = styled(Typography)({
+  color: "#F400A1",
+  fontSize: 32,
+  fontWidth: 600,
+});
+
+export const FormItemImg = ({ src }: { src: string }) => (
+  <img
+    src={
+      !src || src === ""
+        ? "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-collection-4_large.png?v=1530129177"
+        : src
+    }
+    style={{ maxHeight: "40vw", maxWidth: "40vw" }}
+  />
+);

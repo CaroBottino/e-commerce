@@ -14,6 +14,7 @@ type UserContextProviderProps = {
   increaseQuantity: (cartItem: ICartItem) => void;
   decreaseQuantity: (cartItem: ICartItem) => void;
   cartTotal: number;
+  hasSellingPermissions: () => boolean;
 };
 
 export const UserContext = createContext<UserContextProviderProps>({
@@ -34,6 +35,7 @@ export const UserContext = createContext<UserContextProviderProps>({
   increaseQuantity: () => {},
   decreaseQuantity: () => {},
   cartTotal: 0,
+  hasSellingPermissions: () => false,
 });
 
 interface IUserProviderProps {
@@ -100,7 +102,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       });
     } else {
       const newItem: ICartItem = {
-        id: item.id,
+        id: item.id!,
         name: item.name,
         img: item.img,
         price: item.price,
@@ -138,6 +140,10 @@ const UserProvider = ({ children }: IUserProviderProps) => {
     user.id && usersService.updateUser(user);
   };
 
+  const hasSellingPermissions = () => {
+    return user.type === UserType.SELLER || user.type === UserType.ADMIN;
+  };
+
   const cartTotal = useMemo(() => {
     let total = 0;
     user.cart.forEach((ci) => (total += ci.quantity * ci.price));
@@ -155,6 +161,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
         increaseQuantity,
         decreaseQuantity,
         cartTotal,
+        hasSellingPermissions,
       }}
     >
       {children}

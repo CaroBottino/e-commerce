@@ -23,6 +23,17 @@ const itemsService = {
       }
     });
   },
+  createItem(item: IItem): Promise<IItem> {
+    return fetch(`${base_url}/items`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(item),
+    }).then(async (response) => {
+      return await response.json();
+    });
+  },
 };
 
 export default itemsService;

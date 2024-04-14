@@ -15,6 +15,7 @@ type ItemsContextProviderProps = {
   searchItems: () => void;
   showSearchResult: boolean;
   setShowSearchResult: (show: boolean) => void;
+  createItem: (item: IItem) => Promise<IItem | undefined>;
 };
 
 export const ItemsContext = createContext<ItemsContextProviderProps>({
@@ -30,6 +31,10 @@ export const ItemsContext = createContext<ItemsContextProviderProps>({
   searchItems: () => {},
   showSearchResult: false,
   setShowSearchResult: () => {},
+  createItem: () =>
+    new Promise((resolve) => {
+      resolve(undefined);
+    }),
 });
 
 interface IItemsProviderProps {
@@ -106,6 +111,11 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
       });
   };
 
+  const createItem = async (item: IItem) => {
+    const newItem = await itemsService.createItem(item);
+    return newItem ?? undefined;
+  };
+
   return (
     <ItemsContext.Provider
       value={{
@@ -121,6 +131,7 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
         searchItems,
         showSearchResult,
         setShowSearchResult,
+        createItem,
       }}
     >
       {children}

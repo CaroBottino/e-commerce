@@ -23,17 +23,13 @@ import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
 
 const CWProfileMenu = () => {
-  const { user } = useUserContext();
+  const { user, hasSellingPermissions } = useUserContext();
   const [users, setUsers] = useState<IUser[]>([]);
   const [items, setItems] = useState<IItem[]>([]);
   const [userItems, setUserItems] = useState<IItem[]>([]);
   const [openConfDialog, setOpenConfDialog] = useState(false);
   const [newUserType, setNewUserType] = useState<number>();
   const [userToUpdate, setUserToUpdate] = useState<IUser>();
-
-  const hasSellingPermissions = () => {
-    return user.type === UserType.SELLER || user.type === UserType.ADMIN;
-  };
 
   const getUserTypeLabel = (type: UserType) => {
     switch (type) {
