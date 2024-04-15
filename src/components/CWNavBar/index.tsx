@@ -6,6 +6,7 @@ import CWSearchBar from "../CWSearchBar";
 import CWUserMenu from "../CWUserMenu";
 import { AppName, IconsBox, StyledAppBar, StyledLink } from "./CWNavBar.styled";
 import CWCartDrawer from "../CWCartDrawer";
+import { getItemsCategories } from "../../utils/itemHelper";
 import { Link } from "react-router-dom";
 
 const CWNavBar = () => {
@@ -23,7 +24,7 @@ const CWNavBar = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const categories = ["clothes", "electronics", "toys", "home"];
+  const categories = getItemsCategories();
 
   const mobileMenuId = "user-menu-mobile";
   const renderMobileMenu = (

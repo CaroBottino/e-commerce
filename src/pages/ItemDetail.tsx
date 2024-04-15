@@ -1,4 +1,4 @@
-import "@/assets/css/ItemDetailPage.css";
+import "@/assets/css/PageContentContainer.css";
 import ItemDetailContainer from "../components/CWItemDetailContainer";
 
 const ItemDetailPage = () => {

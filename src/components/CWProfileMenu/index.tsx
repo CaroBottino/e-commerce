@@ -23,7 +23,7 @@ import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
 
 const CWProfileMenu = () => {
-  const { user } = useUserContext();
+  const { user, hasSellingPermissions } = useUserContext();
   const [users, setUsers] = useState<IUser[]>([]);
   const [items, setItems] = useState<IItem[]>([]);
   const [userItems, setUserItems] = useState<IItem[]>([]);
@@ -31,8 +31,26 @@ const CWProfileMenu = () => {
   const [newUserType, setNewUserType] = useState<number>();
   const [userToUpdate, setUserToUpdate] = useState<IUser>();
 
-  const hasSellingPermissions = () => {
-    return user.type === UserType.SELLER || user.type === UserType.ADMIN;
+  const getUserTypeLabel = (type: UserType) => {
+    switch (type) {
+      case UserType.ADMIN:
+        return "admin";
+      case UserType.SELLER:
+        return "seller";
+      case UserType.BUYER:
+        return "buyer";
+    }
+  };
+
+  const getBackgroundColor = (type: UserType) => {
+    switch (type) {
+      case UserType.ADMIN:
+        return "#FFC019";
+      case UserType.SELLER:
+        return "#A451FE";
+      case UserType.BUYER:
+        return "#55B6FF";
+    }
   };
 
   const userColumns: ICWReportsTableColumn<IUser>[] = [
@@ -45,10 +63,14 @@ const CWProfileMenu = () => {
       title: "Type",
       sortable: true,
       render: (_, user) => (
-        <Select value={user.type} onChange={(e) => onTypeChange(e.target.value, user)} displayEmpty>
-          <MenuItem value={UserType.ADMIN}>admin</MenuItem>
-          <MenuItem value={UserType.SELLER}>seller</MenuItem>
-          <MenuItem value={UserType.BUYER}>buyer</MenuItem>
+        <Select
+          value={user.type}
+          onChange={(e) => onTypeChange(e.target.value, user)}
+          sx={{ backgroundColor: getBackgroundColor(user.type) }}
+        >
+          <MenuItem value={UserType.ADMIN}>{getUserTypeLabel(UserType.ADMIN)}</MenuItem>
+          <MenuItem value={UserType.SELLER}>{getUserTypeLabel(UserType.SELLER)}</MenuItem>
+          <MenuItem value={UserType.BUYER}>{getUserTypeLabel(UserType.BUYER)}</MenuItem>
         </Select>
       ),
     },
