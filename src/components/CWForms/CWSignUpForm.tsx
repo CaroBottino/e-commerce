@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
-import { FormHelper, FormInput, FormLabel } from "./CWForms.styled";
+import { FormAvatarImg, FormHelper, FormInput, FormLabel } from "./CWForms.styled";
 import { ICWFormSignUp } from "./CWForms.interfaces";
 import usersService from "../../services/users.service";
 import { IUser } from "../../interfaces/IUser";
@@ -18,6 +18,7 @@ const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<ICWFormSignUp>();
@@ -25,6 +26,7 @@ const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
   const navigate = useNavigate();
   const base_url = import.meta.env.VITE_BASE_URL;
   const [error, setError] = useState(false);
+  const watchAvatar = watch("avatar");
 
   const onSubmit: SubmitHandler<ICWFormSignUp> = async (data) => {
     const userToPost: IUser = {
@@ -116,13 +118,14 @@ const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
           <FormControl defaultValue="">
             <FormLabel>Avatar</FormLabel>
             <FormInput {...register("avatar")} />
-            {errors.avatar && <FormHelper>{errors.avatar.message}</FormHelper>}
-            {/* <img
-              srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              src={formState}
-              alt={item.title}
-              loading="lazy"
-            /> */}
+            <FormHelper sx={{ color: "lightgray" }}>
+              {errors?.avatar?.message ?? "url to any image you like"}
+            </FormHelper>
+            {watchAvatar && (
+              <Grid item textAlign={"center"}>
+                <FormAvatarImg src={watchAvatar} />
+              </Grid>
+            )}
           </FormControl>
         </Grid>
 

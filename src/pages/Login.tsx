@@ -7,7 +7,7 @@ const LoginPage = () => {
   const [login, setLogin] = useState(true);
 
   return (
-    <Box mt={login ? "30vh" : "15vh"}>
+    <Box mt={login ? "30vh" : "15vh"} width={"90vw"}>
       {login ? <CWLoginForm setLogin={setLogin} /> : <CWSignUpForm setLogin={setLogin} />}
     </Box>
   );

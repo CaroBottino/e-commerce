@@ -24,6 +24,11 @@ const CWNavBar = () => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const handleCartOnMobile = () => {
+    setOpen(!open);
+    handleMobileMenuClose();
+  };
+
   const categories = getItemsCategories();
 
   const mobileMenuId = "user-menu-mobile";
@@ -41,15 +46,15 @@ const CWNavBar = () => {
     >
       <MenuItem key={"mobile-cart"}>
         <p>Carrito</p>
-        <CWCartWidget open={false} setOpen={() => setOpen(!open)} />
+        <CWCartWidget open={false} setOpen={handleCartOnMobile} />
       </MenuItem>
-      <MenuItem key={"mobile-profile"}>
-        <Link to={`${base_url}/profile`}>Profile</Link>
-        <CWUserMenu handleMobileMenuClose={() => {}} />
+      <MenuItem key={"mobile-profile"} onClick={handleMobileMenuClose}>
+        <p>Profile</p>
+        <CWUserMenu handleMobileMenuClose={handleMobileMenuClose} />
       </MenuItem>
       <Divider />
       {categories.map((category) => (
-        <MenuItem key={`mobile-${category}`}>
+        <MenuItem key={`mobile-${category}`} onClick={handleMobileMenuClose}>
           <Link to={`${base_url}/category/${category}`}>{category}</Link>
         </MenuItem>
       ))}

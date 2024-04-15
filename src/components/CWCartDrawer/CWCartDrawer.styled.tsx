@@ -17,7 +17,6 @@ export const CartTytleBox = styled(Box)({
 });
 
 export const CloseIconBtn = styled(IconButton)({
-  marginRight: "32px",
   color: "white",
 });
 
