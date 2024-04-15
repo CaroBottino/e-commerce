@@ -1,4 +1,4 @@
-import { Box, ButtonGroup, Grid, Typography, styled } from "@mui/material";
+import { Box, ButtonGroup, Grid, IconButton, Typography, styled } from "@mui/material";
 
 export const CartTytle = styled(Typography)({
   fontSize: 20,
@@ -10,10 +10,15 @@ export const CartTytleBox = styled(Box)({
   color: "white",
   backgroundColor: "#A451FE",
   position: "fixed",
-  width: "200%",
+  width: "100%",
   height: "50px",
   top: "0px",
   zIndex: 1,
+});
+
+export const CloseIconBtn = styled(IconButton)({
+  marginRight: "32px",
+  color: "white",
 });
 
 export const CardMainGrid = styled(Grid)({
@@ -53,7 +58,7 @@ export const TotalBox = styled(Box)({
   color: "white",
   backgroundColor: "#55B6FF",
   position: "fixed",
-  width: "200%",
+  width: "100%",
   height: "50px",
   bottom: "0px",
 });

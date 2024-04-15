@@ -35,7 +35,7 @@ const CWItemDetailContainer = () => {
     <CWItemDetailSkeleton />
   ) : item ? (
     <Grid container className="page-content-container">
-      <Grid container spacing={2} textAlign={"center"}>
+      <Grid container spacing={2} textAlign={"center"} maxWidth={"90vw"}>
         <Grid item xs={12} md={6}>
           <ItemImg component={item.img ? "img" : "div"} src={item.img} alt={item.desc} />
         </Grid>
