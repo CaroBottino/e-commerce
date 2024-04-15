@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
+import { Box, Button, CardContent, CardMedia, Stack, Typography } from "@mui/material";
 import { userTypeLabel } from "../../utils/userHelper";
 import { useUserContext } from "../../hooks/useUserContext";
+import { ProfileCard } from "./CWProfileCard.styled";
 
 const CWProfileCard = () => {
   const { user, hasSellingPermissions } = useUserContext();
@@ -9,12 +10,11 @@ const CWProfileCard = () => {
   const base_url = import.meta.env.VITE_BASE_URL;
 
   const onNewItemClick = () => {
-    console.log("caro - onNewItemClick");
     navigate(`${base_url}/new-item`);
   };
 
   return (
-    <Card sx={{ display: "flex", marginBottom: 2, maxWidth: "40rem" }}>
+    <ProfileCard>
       <CardMedia component="img" sx={{ width: 250, height: 250 }} image={user.avatar} />
       <CardContent sx={{ width: 418 }}>
         <Typography variant="h4">
@@ -37,7 +37,7 @@ const CWProfileCard = () => {
           )}
         </Box>
       </CardContent>
-    </Card>
+    </ProfileCard>
   );
 };
 

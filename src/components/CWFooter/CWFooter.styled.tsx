@@ -5,9 +5,9 @@ export const StyledFooter = styled(Box)({
   backgroundColor: "#55b6ff",
   color: "#A451FE",
   padding: "40px",
-  position: "absolute",
-  width: "94%",
-  zIndex: 1100,
+  position: "relative",
+  width: "100%",
+  maxWidth: "-webkit-fill-available",
   bottom: 0,
 });
 

@@ -145,7 +145,7 @@ const CWProfileMenu = () => {
   }, []);
 
   return (
-    <>
+    <Box maxWidth={"90vw"}>
       {user.type === UserType.ADMIN && (
         <>
           <Accordion>
@@ -229,7 +229,7 @@ const CWProfileMenu = () => {
           }
         />
       )}
-    </>
+    </Box>
   );
 };
 
