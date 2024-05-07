@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
@@ -10,16 +10,25 @@ import { UserType } from "../../enums/user.enum";
 import { useUserContext } from "../../hooks/useUserContext";
 
 interface ICWSignUpFormProps {
-  setLogin: (login: boolean) => void;
+  editMode?: boolean;
+  changeMode?: () => void;
+  user?: IUser;
+  onSubmitHandler?: () => void;
 }
 
-const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
+const CWSignUpForm = ({
+  editMode = false,
+  changeMode,
+  user,
+  onSubmitHandler,
+}: ICWSignUpFormProps) => {
   const { loginUser } = useUserContext();
 
   const {
     register,
     watch,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<ICWFormSignUp>();
 
@@ -29,26 +38,47 @@ const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
   const watchAvatar = watch("avatar");
 
   const onSubmit: SubmitHandler<ICWFormSignUp> = async (data) => {
+    let user;
     const userToPost: IUser = {
       name: data.name,
       surname: data.surname,
       email: data.email,
       password: data.password,
       avatar: data.avatar,
-      type: UserType.BUYER,
-      cart: [],
+      type: data.type ?? UserType.BUYER,
+      cart: data.cart ?? [],
     };
 
-    const user = await usersService.createUser(userToPost);
+    if (editMode) {
+      user = await usersService.updateUser({ ...userToPost, id: data.id });
+    } else {
+      user = await usersService.createUser(userToPost);
+    }
 
     if (user) {
       loginUser(user);
       setError(false);
-      navigate(base_url);
     } else {
       setError(true);
     }
+
+    !editMode && navigate(base_url);
+
+    onSubmitHandler && onSubmitHandler();
   };
+
+  useEffect(() => {
+    if (user) {
+      setValue("id", user.id!);
+      setValue("name", user.name!);
+      setValue("surname", user.surname!);
+      setValue("email", user.email!);
+      setValue("password", user.password!);
+      setValue("avatar", user.avatar!);
+      setValue("type", user.type!);
+      setValue("cart", user.cart!);
+    }
+  }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -129,20 +159,32 @@ const CWSignUpForm = ({ setLogin }: ICWSignUpFormProps) => {
           </FormControl>
         </Grid>
 
-        <Grid item xs={12} mt={"1rem"}>
-          <Typography>
-            Already have an account? Log in{" "}
-            <Link underline="hover" onClick={() => setLogin(true)}>
-              here
-            </Link>
-            .
-          </Typography>
-        </Grid>
+        {!editMode && (
+          <Grid item xs={12} mt={"1rem"}>
+            <Typography>
+              Already have an account? Log in{" "}
+              <Link underline="hover" onClick={changeMode}>
+                here
+              </Link>
+              .
+            </Typography>
+          </Grid>
+        )}
 
         <Grid item xs={12} mt={"1rem"}>
           <Button type="submit" variant="contained">
-            Sign up!
+            {editMode ? "Update info" : "Sign up!"}
           </Button>
+          {editMode && (
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={onSubmitHandler}
+              sx={{ marginLeft: 2 }}
+            >
+              Back
+            </Button>
+          )}
         </Grid>
       </Grid>
     </form>

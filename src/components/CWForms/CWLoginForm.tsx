@@ -8,10 +8,10 @@ import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
 
 interface ICWLoginFormProps {
-  setLogin: (login: boolean) => void;
+  changeMode: () => void;
 }
 
-const CWLoginForm = ({ setLogin }: ICWLoginFormProps) => {
+const CWLoginForm = ({ changeMode }: ICWLoginFormProps) => {
   const { loginUser } = useUserContext();
 
   const {
@@ -79,7 +79,7 @@ const CWLoginForm = ({ setLogin }: ICWLoginFormProps) => {
         <Grid item xs={12} mt={"1rem"}>
           <Typography>
             Don't have an account? Register{" "}
-            <Link underline="hover" onClick={() => setLogin(false)}>
+            <Link underline="hover" onClick={changeMode}>
               here
             </Link>
             .
