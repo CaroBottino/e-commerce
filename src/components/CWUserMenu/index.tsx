@@ -7,11 +7,10 @@ import { StyledLoginLink } from "./CWUserMenu.styled";
 import { useUserContext } from "../../hooks/useUserContext";
 
 type CWUserMenuProps = {
-  iconColor?: string;
   handleMobileMenuClose: () => void;
 };
 
-const CWUserMenu = ({ iconColor = "black", handleMobileMenuClose }: CWUserMenuProps) => {
+const CWUserMenu = ({ handleMobileMenuClose }: CWUserMenuProps) => {
   const { user, logoutUser } = useUserContext();
   const navigate = useNavigate();
 
@@ -79,7 +78,7 @@ const CWUserMenu = ({ iconColor = "black", handleMobileMenuClose }: CWUserMenuPr
     </>
   ) : (
     <StyledLoginLink to={`${base_url}/login`}>
-      <AccountCircle sx={{ height: 40, width: 40, color: iconColor }} />
+      <AccountCircle sx={{ height: 40, width: 40 }} />
     </StyledLoginLink>
   );
 };

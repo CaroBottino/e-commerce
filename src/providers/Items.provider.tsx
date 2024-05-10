@@ -79,7 +79,7 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
     itemsService
       .getItemById(id)
       .then((item) => {
-        setItem(item);
+        typeof item !== "string" ? setItem(item) : setItem(undefined);
         setLoading(false);
       })
       .catch((error) => {

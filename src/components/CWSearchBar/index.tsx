@@ -19,7 +19,8 @@ const CWSearchBar = () => {
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
-        placeholder="Search…"
+        placeholder="Search products, brands and more..."
+        fullWidth
         value={criteria}
         onChange={(event) => {
           setCriteria(event.target.value);

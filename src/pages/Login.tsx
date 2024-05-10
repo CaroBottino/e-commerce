@@ -7,7 +7,7 @@ const LoginPage = () => {
   const [login, setLogin] = useState(true);
 
   return (
-    <Box mt={login ? "30vh" : "15vh"} width={"90vw"}>
+    <Box mt={login ? "10vh" : "15vh"} width={"90vw"}>
       {login ? (
         <CWLoginForm changeMode={() => setLogin(false)} />
       ) : (

@@ -4,7 +4,7 @@ import CWProfileMenu from "../components/CWProfileMenu";
 
 const ProfilePage = () => {
   return (
-    <Grid container className="page-content-container">
+    <Grid container marginTop={"80px"}>
       <Grid item container sx={{ justifyContent: "center", alignItems: "center" }}>
         <Grid item>
           <CWProfileCard />

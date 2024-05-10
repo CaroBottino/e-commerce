@@ -5,7 +5,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import CWItemCard from "../CWItemCard";
 import CFItemsListSkeleton from "../CWSkeletons/CWItemsListSkeleton";
 import { IItem } from "../../interfaces/IItem";
-import "@/assets/css/PageContentContainer.css";
 import { SearchTitle } from "./CWItemListContainer.styled";
 import { useItemsContext } from "../../hooks/useItemsContext";
 
@@ -53,7 +52,6 @@ const CWItemListContainer = () => {
         </Grid>
       )}
       <Grid
-        className="page-content-container"
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 2, sm: 12, md: 16 }}

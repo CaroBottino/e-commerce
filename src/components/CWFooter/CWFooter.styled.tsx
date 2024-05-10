@@ -2,7 +2,7 @@ import { Box, Typography, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export const StyledFooter = styled(Box)({
-  backgroundColor: "#55b6ff",
+  backgroundColor: "#37475A",
   color: "#A451FE",
   padding: "40px",
   position: "relative",
