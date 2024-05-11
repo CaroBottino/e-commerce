@@ -4,14 +4,14 @@ import CWProfileMenu from "../components/CWProfileMenu";
 
 const ProfilePage = () => {
   return (
-    <Grid container sx={{ marginTop: "4rem" }}>
+    <Grid container marginTop={"80px"}>
       <Grid item container sx={{ justifyContent: "center", alignItems: "center" }}>
         <Grid item>
           <CWProfileCard />
         </Grid>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item container xs={12} sx={{ justifyContent: "center", alignItems: "center" }}>
         <CWProfileMenu />
       </Grid>
     </Grid>

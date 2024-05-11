@@ -1,8 +1,9 @@
 import { Box, Button, Typography, styled } from "@mui/material";
 
 export const ItemImg = styled(Box)(() => ({
+  width: 450,
+  maxWidth: "calc(90vw - 50px)",
   maxHeight: 450,
-  maxWidth: 450,
   objectFit: "contain",
 })) as typeof Box;
 

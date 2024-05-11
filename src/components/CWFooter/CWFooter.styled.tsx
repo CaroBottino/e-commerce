@@ -2,12 +2,12 @@ import { Box, Typography, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export const StyledFooter = styled(Box)({
-  backgroundColor: "#55b6ff",
+  backgroundColor: "#37475A",
   color: "#A451FE",
   padding: "40px",
-  position: "absolute",
-  width: "94%",
-  zIndex: 1100,
+  position: "relative",
+  width: "100%",
+  maxWidth: "-webkit-fill-available",
   bottom: 0,
 });
 

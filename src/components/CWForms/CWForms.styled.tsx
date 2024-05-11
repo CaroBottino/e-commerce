@@ -5,7 +5,8 @@ export const FormLabel = styled(Typography)({
 });
 
 export const FormInput = styled(Input)({
-  minWidth: "400px",
+  width: "400px",
+  maxWidth: "80vw",
 });
 
 export const FormHelper = styled(Typography)({
@@ -26,5 +27,16 @@ export const FormItemImg = ({ src }: { src: string }) => (
         : src
     }
     style={{ maxHeight: "40vw", maxWidth: "40vw" }}
+  />
+);
+
+export const FormAvatarImg = ({ src }: { src: string }) => (
+  <img
+    src={
+      !src || src === ""
+        ? "https://www.shareicon.net/data/512x512/2016/08/05/807310_gaming_512x512.png"
+        : src
+    }
+    style={{ maxHeight: "200px", maxWidth: "200px", borderRadius: "50%", marginTop: "16px" }}
   />
 );

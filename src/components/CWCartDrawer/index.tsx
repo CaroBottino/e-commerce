@@ -1,5 +1,12 @@
-import { Box, Drawer, List, ListItem } from "@mui/material";
-import { CartBodyBox, CartTytle, CartTytleBox, TotalBox } from "./CWCartDrawer.styled";
+import { Box, Drawer, List, ListItem, Stack } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  CartBodyBox,
+  CartTytle,
+  CartTytleBox,
+  CloseIconBtn,
+  TotalBox,
+} from "./CWCartDrawer.styled";
 import CWCartDrawerCard from "./components/CWCartDrawerCard";
 import { useUserContext } from "../../hooks/useUserContext";
 
@@ -15,7 +22,16 @@ const CWCartDrawer = ({ open, setOpen }: ICWCartDrawerProps) => {
     <Drawer anchor={"right"} open={open} onClose={() => setOpen(false)}>
       <Box sx={{ width: 400 }} role="presentation">
         <CartTytleBox>
-          <CartTytle>Cart</CartTytle>
+          <Stack direction={"row"} justifyContent={"space-between"}>
+            <CartTytle>Cart</CartTytle>
+            <CloseIconBtn
+              size="large"
+              onClick={() => setOpen(false)}
+              sx={{ display: { xs: "flex", md: "none" } }}
+            >
+              <CloseIcon />
+            </CloseIconBtn>
+          </Stack>
         </CartTytleBox>
         <CartBodyBox component={"main"}>
           {user.cart.length === 0 ? (

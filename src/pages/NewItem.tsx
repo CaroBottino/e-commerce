@@ -1,10 +1,9 @@
-import "@/assets/css/PageContentContainer.css";
 import CWCreateItemForm from "../components/CWForms/CWCreateItemForm";
 import { Grid } from "@mui/material";
 
 const NewItemPage = () => {
   return (
-    <Grid container className="page-content-container">
+    <Grid container marginTop={"20px"}>
       <CWCreateItemForm />
     </Grid>
   );

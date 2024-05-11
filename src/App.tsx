@@ -21,7 +21,7 @@ function App() {
         <ItemsProvider>
           <BrowserRouter>
             <CWNavBar />
-            <Box p={2} mr={4} ml={4} mb={16}>
+            <Box p={2} margin={"80px 32px 8px 32px"} minHeight={"calc(90vh - 120px)"}>
               <Routes>
                 <Route path={`${base_url}/`} element={<HomePage />} />
                 <Route path={`${base_url}/category/:category`} element={<HomePage />} />
