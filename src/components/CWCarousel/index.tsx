@@ -51,24 +51,6 @@ function CWCarousel() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
-          position: "relative",
-          top: 120,
-          zIndex: 2,
-          color: "black",
-        }}
-      >
-        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-          {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-        </Button>
-        <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-          {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-        </Button>
-      </Box>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -93,6 +75,25 @@ function CWCarousel() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          position: "relative",
+          top: "-55vh",
+          zIndex: 2,
+          color: "black",
+          "@media only screen and (max-width: 900px)": { top: "-15vh" },
+        }}
+      >
+        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+        </Button>
+        <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+          {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+        </Button>
+      </Box>
     </Box>
   );
 }
