@@ -10,7 +10,6 @@ const CWProfileCard = () => {
   const { user, hasSellingPermissions } = useUserContext();
   const navigate = useNavigate();
   const base_url = import.meta.env.VITE_BASE_URL;
-
   const [edit, setEdit] = useState<boolean>(false);
 
   const onNewItemClick = () => {

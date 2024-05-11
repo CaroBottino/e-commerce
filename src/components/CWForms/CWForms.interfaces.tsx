@@ -21,3 +21,7 @@ export interface ICWFormSignUp {
 export interface ICWFormCreateItem extends IItem {
   allTags: string;
 }
+
+export interface ICWFormCreateItem extends IItem {
+  allTags: string;
+}
