@@ -8,28 +8,27 @@ import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-const base_url = import.meta.env.VITE_BASE_URL;
 
 const images = [
   {
     label: "Gifts for mom",
-    imgPath: `${base_url}/public/images/carousel/carousel_1.jpg`,
+    imgPath: "images/carousel/carousel_1.jpg",
   },
   {
     label: "Kitchen favourites",
-    imgPath: `${base_url}/public/images/carousel/carousel_2.jpg`,
+    imgPath: "images/carousel/carousel_2.jpg",
   },
   {
     label: "Shop books",
-    imgPath: `${base_url}/public/images/carousel/carousel_3.jpg`,
+    imgPath: "images/carousel/carousel_3.jpg",
   },
   {
     label: "New arrivals in toys",
-    imgPath: `${base_url}/public/images/carousel/carousel_4.jpg`,
+    imgPath: "images/carousel/carousel_4.jpg",
   },
   {
     label: "Beauty products",
-    imgPath: `${base_url}/public/images/carousel/carousel_5.jpg`,
+    imgPath: "images/carousel/carousel_5.jpg",
   },
 ];
 
