@@ -23,8 +23,8 @@ export const StyledLink = styled(Link)({
   color: "white",
 
   ":hover": {
-    color: "#FFC019",
-    textShadow: "2px 2px 4px #A451FE",
+    color: "#FFD9DA",
+    textShadow: "2px 2px 4px #EB638B",
   },
 });
 
@@ -40,8 +40,8 @@ export const StyledSelect = styled(Select)({
   color: "white",
 
   ":hover": {
-    color: "#FFC019",
-    textShadow: "2px 2px 4px #A451FE",
+    color: "#FFD9DA",
+    textShadow: "2px 2px 4px #EB638B",
   },
 
   ".MuiInputBase-root": {
@@ -59,5 +59,9 @@ export const StyledSelect = styled(Select)({
     display: "flex",
     alignItems: "center",
     padding: 8,
+  },
+
+  ".MuiSvgIcon-root": {
+    color: "white",
   },
 });

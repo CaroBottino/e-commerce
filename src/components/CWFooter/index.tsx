@@ -9,7 +9,18 @@ const CWFooter = () => {
       <Grid container>
         <Grid item container justifyContent={"center"} justifyItems={"center"}>
           <Grid item>
-            <FooterLink to="/#">Back to top</FooterLink>
+            <FooterLink
+              onClick={() => {
+                window.scroll({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
+              }}
+              to={"/"}
+            >
+              Back to top
+            </FooterLink>
           </Grid>
           <Grid item>
             <FooterText>· © 2023 Carolina Bottino, Ca.Fe Web. ·</FooterText>

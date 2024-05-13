@@ -11,8 +11,8 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: "Gifts for mom",
-    imgPath: "images/carousel/carousel_1.jpg",
+    label: "Beauty products",
+    imgPath: "images/carousel/carousel_5.jpg",
   },
   {
     label: "Kitchen favourites",
@@ -27,8 +27,8 @@ const images = [
     imgPath: "images/carousel/carousel_4.jpg",
   },
   {
-    label: "Beauty products",
-    imgPath: "images/carousel/carousel_5.jpg",
+    label: "Gifts for mom",
+    imgPath: "images/carousel/carousel_1.jpg",
   },
 ];
 

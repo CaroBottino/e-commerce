@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Alert, Grid, Typography } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { Grid } from "@mui/material";
 import CWItemCard from "../CWItemCard";
 import CFItemsListSkeleton from "../CWSkeletons/CWItemsListSkeleton";
 import { IItem } from "../../interfaces/IItem";
@@ -35,34 +34,41 @@ const CWItemListContainer = () => {
     <CFItemsListSkeleton />
   ) : (
     <Grid container>
-      {showSearchResult && (
-        <Grid container item paddingTop={10} justifyContent={"center"}>
-          <Grid item xs={6} minWidth={300}>
-            <Alert
-              icon={<SearchIcon fontSize="inherit" />}
-              severity="success"
-              sx={{ alignItems: "center" }}
-            >
-              <SearchTitle>{criteria}</SearchTitle>
-            </Alert>
+      {showSearchResult ? (
+        <Grid container>
+          <Grid container item xs={items.length === 0 ? 12 : 3} paddingTop={10}>
+            <Grid item xs={12}>
+              <SearchTitle marginBottom={2} marginRight={2}>
+                <strong>Your search results for:</strong> {criteria}
+              </SearchTitle>
+              <SearchTitle>{items.length} results</SearchTitle>
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <Typography>{items.length} results</Typography>
+          <Grid container item xs={9} paddingTop={10}>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 12, md: 16 }}>
+              {items.map((itemToShow: IItem, index: number) => (
+                <Grid item xs={2} sm={4} md={4} key={index}>
+                  <CWItemCard item={itemToShow} />
+                </Grid>
+              ))}
+            </Grid>
           </Grid>
         </Grid>
+      ) : (
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 2, sm: 12, md: 16 }}
+          paddingTop={10}
+          maxWidth={"80vw"}
+        >
+          {items.map((itemToShow: IItem, index: number) => (
+            <Grid item xs={2} sm={4} md={4} key={index}>
+              <CWItemCard item={itemToShow} />
+            </Grid>
+          ))}
+        </Grid>
       )}
-      <Grid
-        container
-        spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 2, sm: 12, md: 16 }}
-        paddingTop={10}
-      >
-        {items.map((itemToShow: IItem, index: number) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-            <CWItemCard item={itemToShow} />
-          </Grid>
-        ))}
-      </Grid>
     </Grid>
   );
 };
