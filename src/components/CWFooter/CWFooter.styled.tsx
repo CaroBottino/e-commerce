@@ -12,7 +12,6 @@ export const StyledFooter = styled(Box)({
 });
 
 export const FooterText = styled(Typography)({
-  fontFamily: "Georgia",
   fontWeight: 800,
   fontSize: "16px",
 });

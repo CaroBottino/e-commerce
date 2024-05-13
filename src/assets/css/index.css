@@ -1,5 +1,41 @@
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url(../fonts/ProximaNova-Bold.woff) format('woff'),
+    url(../fonts/ProximaNova-Bold.woff2) format('woff2');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url(../fonts/ProximaNova-Semibold.woff) format('woff'),
+    url(../fonts/ProximaNova-Semibold.woff2) format('woff2');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url(../fonts/ProximaNova-Medium.woff) format('woff'),
+    url(../fonts/ProximaNova-Medium.woff2) format('woff2');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url(../fonts/ProximaNova-Regular.woff) format('woff'),
+    url(../fonts/ProximaNova-Regular.woff2) format('woff2');
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Proxima Nova', 'Open Sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -59,6 +95,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
+    font-family: 'Proxima Nova';
     color: #213547;
     background-color: #E3E6E6;
   }

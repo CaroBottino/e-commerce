@@ -20,7 +20,6 @@ export const NavbarSecondRow = styled(Grid)({
 });
 
 export const AppName = styled(Typography)({
-  fontFamily: "Georgia",
   fontWeight: 800,
   fontSize: 20,
   color: "#FFC019",
