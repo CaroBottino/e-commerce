@@ -38,7 +38,7 @@ const HomePage = () => {
                 width: "100%",
                 maskImage: "linear-gradient(black 80%, transparent)",
               }}
-              src={`images/categories/${category}.jpg`}
+              src={`/images/categories/${category}.jpg`}
               alt={category}
             />
           </Box>
@@ -47,7 +47,7 @@ const HomePage = () => {
           sx={{
             position: "relative",
             zIndex: 3,
-            top: showSearchResult ? "0vh" : "-50vh",
+            top: showSearchResult ? "0vh" : category ? "-20vh" : "-50vh",
             "@media only screen and (max-width: 1300px)": { top: "-30vh" },
             "@media only screen and (max-width: 900px)": { top: "-20vh" },
           }}
