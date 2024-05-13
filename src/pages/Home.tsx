@@ -10,7 +10,7 @@ const HomePage = () => {
           sx={{
             marginX: "-48px",
             marginTop: "40px",
-            "@media only screen and (max-width: 900px)": { marginTop: "24px" },
+            "@media only screen and (max-width: 900px)": { top: "24px" },
           }}
         >
           <CWCarousel />
@@ -20,7 +20,8 @@ const HomePage = () => {
             position: "relative",
             zIndex: 3,
             top: "-50vh",
-            "@media only screen and (max-width: 600px)": { top: "-25vh" },
+            "@media only screen and (max-width: 1300px)": { top: "-30vh" },
+            "@media only screen and (max-width: 900px)": { top: "-20vh" },
           }}
         >
           <CWItemListContainer />

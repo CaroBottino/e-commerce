@@ -50,7 +50,7 @@ function CWCarousel() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, "@media only screen and (max-width: 900px)": { marginTop: "-2vh" } }}>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -84,7 +84,7 @@ function CWCarousel() {
           top: "-55vh",
           zIndex: 2,
           color: "black",
-          "@media only screen and (max-width: 900px)": { top: "-15vh" },
+          "@media only screen and (max-width: 900px)": { top: "-25vh" },
         }}
       >
         <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
