@@ -12,7 +12,7 @@ export const StyledFooter = styled(Box)({
 });
 
 export const FooterText = styled(Typography)({
-  fontFamily: "Georgia",
+  color: "#FF1857",
   fontWeight: 800,
   fontSize: "16px",
 });
@@ -21,7 +21,9 @@ export const FooterLink = styled(Link)({
   color: "#ffffff",
   textDecoration: "none",
   margin: "0 10px",
+
   "&:hover": {
-    color: "#ffc019",
+    color: "#FFD9DA",
+    textShadow: "2px 2px 4px #EB638B",
   },
 });

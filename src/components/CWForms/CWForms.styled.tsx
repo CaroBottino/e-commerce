@@ -1,4 +1,4 @@
-import { Input, Typography, styled } from "@mui/material";
+import { Button, Input, Link, Typography, styled } from "@mui/material";
 
 export const FormLabel = styled(Typography)({
   textAlign: "start",
@@ -14,9 +14,14 @@ export const FormHelper = styled(Typography)({
 });
 
 export const FormTitle = styled(Typography)({
+  fontFamily: "Proxima Nova",
   color: "#F400A1",
   fontSize: 32,
   fontWidth: 600,
+});
+
+export const FormLink = styled(Link)({
+  color: "#AC274F",
 });
 
 export const FormItemImg = ({ src }: { src: string }) => (
@@ -40,3 +45,26 @@ export const FormAvatarImg = ({ src }: { src: string }) => (
     style={{ maxHeight: "200px", maxWidth: "200px", borderRadius: "50%", marginTop: "16px" }}
   />
 );
+
+export const FormButton = styled(Button)({
+  color: "white",
+  backgroundColor: "#AC274F",
+  borderColor: "#AC274F",
+
+  ":hover": {
+    backgroundColor: "#EB638B",
+    borderColor: "#EB638B",
+  },
+});
+
+export const FormOutlinedButton = styled(Button)({
+  color: "#AC274F",
+  backgroundColor: "transparent",
+  border: "1px solid #AC274F",
+
+  ":hover": {
+    color: "white",
+    backgroundColor: "#EB638B",
+    borderColor: "#EB638B",
+  },
+});

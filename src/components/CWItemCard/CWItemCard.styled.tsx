@@ -1,6 +1,7 @@
 import { Card, styled } from "@mui/material";
 
 export const StyledCard = styled(Card)(() => ({
+  textAlign: "center",
   maxWidth: 345,
   height: 420,
   transition: "transform .5s, box-shadow 1s",

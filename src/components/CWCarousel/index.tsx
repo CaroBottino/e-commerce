@@ -11,8 +11,8 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: "Gifts for mom",
-    imgPath: "images/carousel/carousel_1.jpg",
+    label: "Beauty products",
+    imgPath: "images/carousel/carousel_5.jpg",
   },
   {
     label: "Kitchen favourites",
@@ -27,8 +27,8 @@ const images = [
     imgPath: "images/carousel/carousel_4.jpg",
   },
   {
-    label: "Beauty products",
-    imgPath: "images/carousel/carousel_5.jpg",
+    label: "Gifts for mom",
+    imgPath: "images/carousel/carousel_1.jpg",
   },
 ];
 
@@ -50,25 +50,7 @@ function CWCarousel() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Box
-        sx={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
-          position: "relative",
-          top: 120,
-          zIndex: 2,
-          color: "black",
-        }}
-      >
-        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-          {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-        </Button>
-        <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
-          {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-        </Button>
-      </Box>
+    <Box sx={{ flexGrow: 1, "@media only screen and (max-width: 900px)": { marginTop: "-2vh" } }}>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -93,6 +75,25 @@ function CWCarousel() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          position: "relative",
+          top: "-55vh",
+          zIndex: 2,
+          color: "black",
+          "@media only screen and (max-width: 900px)": { top: "-25vh" },
+        }}
+      >
+        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          {theme.direction === "rtl" ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+        </Button>
+        <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+          {theme.direction === "rtl" ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+        </Button>
+      </Box>
     </Box>
   );
 }

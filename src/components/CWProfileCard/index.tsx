@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { Button, Grid, Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import { userTypeLabel } from "../../utils/userHelper";
 import { useUserContext } from "../../hooks/useUserContext";
 import { ProfileCard } from "./CWProfileCard.styled";
 import { useState } from "react";
 import CWSignUpForm from "../CWForms/CWSignUpForm";
+import { FormOutlinedButton } from "../CWForms/CWForms.styled";
 
 const CWProfileCard = () => {
   const { user, hasSellingPermissions } = useUserContext();
@@ -53,17 +54,13 @@ const CWProfileCard = () => {
             </Grid>
             <Grid item xs={12}>
               <Stack paddingTop={1}>
-                <Button variant="outlined" color="secondary" onClick={() => setEdit(!edit)}>
-                  Update info
-                </Button>
+                <FormOutlinedButton onClick={() => setEdit(!edit)}>Update info</FormOutlinedButton>
               </Stack>
             </Grid>
             {hasSellingPermissions() && (
               <Grid item xs={12}>
                 <Stack paddingTop={1}>
-                  <Button variant="outlined" onClick={onNewItemClick}>
-                    New item
-                  </Button>
+                  <FormOutlinedButton onClick={onNewItemClick}>New item</FormOutlinedButton>
                 </Stack>
               </Grid>
             )}

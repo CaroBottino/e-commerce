@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button, ButtonGroup, Grid, Typography } from "@mui/material";
+import { ButtonGroup, Grid, Typography } from "@mui/material";
 import {
+  ActionButton,
   ItemDescription,
   ItemImg,
   ItemPrice,
@@ -49,15 +50,13 @@ const CWItemDetailContainer = () => {
             </Grid>
             <Grid item xs={12}>
               <ButtonGroup variant="outlined" aria-label="outlined button group">
-                <Button onClick={decreaseQuantity}>-</Button>
+                <ActionButton onClick={decreaseQuantity}>-</ActionButton>
                 <QuantityButton disabled>{quantity}</QuantityButton>
-                <Button onClick={increaseQuantity}>+</Button>
+                <ActionButton onClick={increaseQuantity}>+</ActionButton>
               </ButtonGroup>
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" onClick={() => addToCart(item, quantity)}>
-                Add to cart!
-              </Button>
+              <ActionButton onClick={() => addToCart(item, quantity)}>Add to cart!</ActionButton>
             </Grid>
             <Grid item xs={12}>
               <ItemDescription>{item.desc}</ItemDescription>

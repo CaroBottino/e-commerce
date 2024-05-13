@@ -3,7 +3,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Badge,
   Box,
   Button,
   MenuItem,
@@ -21,6 +20,7 @@ import { IItem } from "../../interfaces/IItem";
 import itemsService from "../../services/items.service";
 import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
+import { ProfileBadge } from "./CWProfileMenu.styled";
 
 const CWProfileMenu = () => {
   const { user, hasSellingPermissions } = useUserContext();
@@ -45,11 +45,11 @@ const CWProfileMenu = () => {
   const getBackgroundColor = (type: UserType) => {
     switch (type) {
       case UserType.ADMIN:
-        return "#FFC019";
+        return "#AC274F";
       case UserType.SELLER:
-        return "#A451FE";
+        return "#EB638B";
       case UserType.BUYER:
-        return "#55B6FF";
+        return "#FFD9DA";
     }
   };
 
@@ -66,6 +66,7 @@ const CWProfileMenu = () => {
         <Select
           value={user.type}
           onChange={(e) => onTypeChange(e.target.value, user)}
+          size="small"
           sx={{ backgroundColor: getBackgroundColor(user.type) }}
         >
           <MenuItem value={UserType.ADMIN}>{getUserTypeLabel(UserType.ADMIN)}</MenuItem>
@@ -95,9 +96,9 @@ const CWProfileMenu = () => {
       key: "tags",
       title: "Tags",
       render: (_, { tags }) => (
-        <Box sx={{ width: "auto", p: 2 }}>
+        <Box sx={{ width: "auto", p: 2, display: "flex", justifyContent: "space-between" }}>
           {tags.map((tag, index) => (
-            <Badge key={`${tag}-${index}`} badgeContent={tag} color="info" sx={{ p: 2, m: 0.5 }} />
+            <ProfileBadge key={`${tag}-${index}`} badgeContent={tag} />
           ))}
         </Box>
       ),
@@ -108,11 +109,10 @@ const CWProfileMenu = () => {
       render: (_, { categories }) => (
         <Box sx={{ width: "auto", p: 2 }}>
           {categories.map((category, index) => (
-            <Badge
+            <ProfileBadge
               key={`${category}-${index}`}
               badgeContent={category}
-              color="warning"
-              sx={{ p: 2, m: 0.5 }}
+              badgeType="category"
             />
           ))}
         </Box>

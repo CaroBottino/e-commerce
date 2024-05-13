@@ -113,7 +113,12 @@ const AboutMePage = () => {
                   />
                 ) : (
                   <Typography
-                    sx={{ fontFamily: "Georgia", fontWeight: 800, fontSize: "16px", padding: 5 }}
+                    sx={{
+                      fontFamily: "Proxima Nova",
+                      fontWeight: 800,
+                      fontSize: 16,
+                      padding: 5,
+                    }}
                   >
                     {item.desc}
                   </Typography>

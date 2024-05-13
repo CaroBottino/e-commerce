@@ -1,18 +1,8 @@
 import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import {
-  Alert,
-  Box,
-  Button,
-  Chip,
-  Grid,
-  MenuItem,
-  OutlinedInput,
-  Select,
-  TextField,
-} from "@mui/material";
+import { Alert, Box, Chip, Grid, MenuItem, OutlinedInput, Select, TextField } from "@mui/material";
 import { ICWFormCreateItem } from "./CWForms.interfaces";
-import { FormItemImg, FormTitle } from "./CWForms.styled";
+import { FormButton, FormItemImg, FormTitle } from "./CWForms.styled";
 import { getItemsCategories } from "../../utils/itemHelper";
 import { useItemsContext } from "../../hooks/useItemsContext";
 import { useUserContext } from "../../hooks/useUserContext";
@@ -64,7 +54,7 @@ const CFCreateItemForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid container>
+      <Grid container textAlign={"center"}>
         <Grid container item xs={12} justifyContent={"center"} alignItems={"center"} padding={2}>
           {error && (
             <Alert severity="error" sx={{ width: "400px" }}>
@@ -241,9 +231,7 @@ const CFCreateItemForm = () => {
             />
           </Grid>
           <Grid item xs={12} mt={"1rem"}>
-            <Button type="submit" variant="contained">
-              Create my item!
-            </Button>
+            <FormButton type="submit">Create my item!</FormButton>
           </Grid>
         </Grid>
       </Grid>

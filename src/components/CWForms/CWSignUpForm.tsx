@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
-import { FormAvatarImg, FormHelper, FormInput, FormLabel } from "./CWForms.styled";
+import { Alert, FormControl, Grid, Typography } from "@mui/material";
+import {
+  FormAvatarImg,
+  FormButton,
+  FormHelper,
+  FormInput,
+  FormLabel,
+  FormLink,
+  FormOutlinedButton,
+} from "./CWForms.styled";
 import { ICWFormSignUp } from "./CWForms.interfaces";
 import usersService from "../../services/users.service";
 import { IUser } from "../../interfaces/IUser";
@@ -82,7 +90,7 @@ const CWSignUpForm = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} textAlign={"center"}>
         <Grid container item xs={12} justifyContent={"center"} alignItems={"center"}>
           {error && (
             <Alert severity="error" sx={{ width: "400px" }}>
@@ -163,27 +171,20 @@ const CWSignUpForm = ({
           <Grid item xs={12} mt={"1rem"}>
             <Typography>
               Already have an account? Log in{" "}
-              <Link underline="hover" onClick={changeMode}>
+              <FormLink underline="hover" onClick={changeMode}>
                 here
-              </Link>
+              </FormLink>
               .
             </Typography>
           </Grid>
         )}
 
         <Grid item xs={12} mt={"1rem"}>
-          <Button type="submit" variant="contained">
-            {editMode ? "Update info" : "Sign up!"}
-          </Button>
+          <FormButton type="submit">{editMode ? "Update info" : "Sign up!"}</FormButton>
           {editMode && (
-            <Button
-              variant="outlined"
-              color="secondary"
-              onClick={onSubmitHandler}
-              sx={{ marginLeft: 2 }}
-            >
+            <FormOutlinedButton onClick={onSubmitHandler} sx={{ marginLeft: 2 }}>
               Back
-            </Button>
+            </FormOutlinedButton>
           )}
         </Grid>
       </Grid>

@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { ICartItem } from "../../../interfaces/ICartItem";
 import {
@@ -7,7 +7,7 @@ import {
   CartButtonGroup,
   CartButtonGroupBox,
 } from "../CWCartDrawer.styled";
-import { QuantityButton } from "../../CWItemDetailContainer/CWItemDetail.styled";
+import { ActionButton, QuantityButton } from "../../CWItemDetailContainer/CWItemDetail.styled";
 import { useUserContext } from "../../../hooks/useUserContext";
 
 interface ICWCartDrawerCardProps {
@@ -37,12 +37,15 @@ const CWCartDrawerCard = ({ cartItem }: ICWCartDrawerCardProps) => {
         <Grid item xs={12}>
           <CartButtonGroupBox>
             <CartButtonGroup variant="outlined">
-              <Button onClick={() => decreaseQuantity(cartItem)}>-</Button>
+              <ActionButton onClick={() => decreaseQuantity(cartItem)}>-</ActionButton>
               <QuantityButton disabled>{cartItem.quantity}</QuantityButton>
-              <Button onClick={() => increaseQuantity(cartItem)}>+</Button>
-              <Button onClick={() => deleteFromCart(cartItem)}>
+              <ActionButton onClick={() => increaseQuantity(cartItem)}>+</ActionButton>
+              <ActionButton
+                onClick={() => deleteFromCart(cartItem)}
+                sx={{ backgroundColor: "white", color: "#AC274F" }}
+              >
                 <DeleteOutlineIcon />
-              </Button>
+              </ActionButton>
             </CartButtonGroup>
           </CartButtonGroupBox>
         </Grid>

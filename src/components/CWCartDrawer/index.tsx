@@ -23,7 +23,7 @@ const CWCartDrawer = ({ open, setOpen }: ICWCartDrawerProps) => {
       <Box sx={{ width: 400 }} role="presentation">
         <CartTytleBox>
           <Stack direction={"row"} justifyContent={"space-between"}>
-            <CartTytle>Cart</CartTytle>
+            <CartTytle>Let's check your cart</CartTytle>
             <CloseIconBtn
               size="large"
               onClick={() => setOpen(false)}
