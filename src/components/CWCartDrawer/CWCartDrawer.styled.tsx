@@ -1,19 +1,23 @@
 import { Box, ButtonGroup, Grid, IconButton, Typography, styled } from "@mui/material";
 
 export const CartTytle = styled(Typography)({
+  fontFamily: "Proxima Nova",
+  color: "#EB638B",
   fontSize: 20,
   fontWeight: 600,
   padding: 12,
+  marginLeft: 6,
 });
 
 export const CartTytleBox = styled(Box)({
   color: "white",
-  backgroundColor: "#A451FE",
+  backgroundColor: "#0f1111",
   position: "fixed",
   width: "100%",
   height: "50px",
   top: "0px",
   zIndex: 1,
+  borderBottom: "18px solid #232f3e",
 });
 
 export const CloseIconBtn = styled(IconButton)({
@@ -55,7 +59,7 @@ export const CartBodyBox = styled(Box)({
 
 export const TotalBox = styled(Box)({
   color: "white",
-  backgroundColor: "#55B6FF",
+  backgroundColor: "#37475A",
   position: "fixed",
   width: "100%",
   height: "50px",

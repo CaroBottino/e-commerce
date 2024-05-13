@@ -12,6 +12,7 @@ export const StyledFooter = styled(Box)({
 });
 
 export const FooterText = styled(Typography)({
+  color: "#FF1857",
   fontWeight: 800,
   fontSize: "16px",
 });

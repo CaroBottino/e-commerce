@@ -25,7 +25,18 @@ export const ItemDescription = styled(Typography)(() => ({
 
 export const QuantityButton = styled(Button)({
   ":disabled": {
-    color: "#1976d2",
-    border: "1px solid rgba(25, 118, 210, 0.5)",
+    color: "#AC274F",
+    border: "1px solid #AC274F",
+  },
+});
+
+export const ActionButton = styled(Button)({
+  color: "white",
+  backgroundColor: "#AC274F",
+  borderColor: "#AC274F",
+
+  ":hover": {
+    backgroundColor: "#EB638B",
+    borderColor: "#EB638B",
   },
 });

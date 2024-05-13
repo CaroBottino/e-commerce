@@ -7,4 +7,8 @@ export const CartButton = styled(IconButton)({
   ":focus": {
     outlineWidth: "0px",
   },
+
+  ":hover": {
+    color: "#EB638B",
+  },
 });

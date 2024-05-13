@@ -8,7 +8,6 @@ import CWUserMenu from "../CWUserMenu";
 import CategorySelector from "./components/CategorySelector";
 import CWCartDrawer from "../CWCartDrawer";
 import {
-  AppName,
   IconsBox,
   NavbarFirstRow,
   NavbarGrid,
@@ -73,11 +72,18 @@ const CWNavBar = () => {
     <>
       <NavbarGrid container>
         <NavbarFirstRow container item xs={12} alignItems={"center"}>
-          <Grid item xs={2} textAlign={"center"}>
+          <Grid container item xs={2} justifyContent={"center"}>
             <StyledLink to={`${base_url}/`}>
-              <AppName noWrap sx={{ display: { sm: "block" } }}>
-                CA.FE buy!
-              </AppName>
+              <Box
+                component="img"
+                sx={{
+                  display: "block",
+                  overflow: "hidden",
+                  maxHeight: "65px",
+                }}
+                src={"images/logo/cafe-logo-name.png"}
+                alt={"cafe-logo"}
+              />
             </StyledLink>
           </Grid>
           <Grid item xs={8} alignItems={"center"}>

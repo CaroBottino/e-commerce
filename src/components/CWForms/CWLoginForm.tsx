@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { Alert, Button, FormControl, Grid, Link, Typography } from "@mui/material";
-import { FormHelper, FormInput, FormLabel } from "./CWForms.styled";
+import { Alert, FormControl, Grid, Typography } from "@mui/material";
+import { FormButton, FormHelper, FormInput, FormLabel, FormLink } from "./CWForms.styled";
 import { ICWFormLogin } from "./CWForms.interfaces";
 import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
@@ -38,7 +38,7 @@ const CWLoginForm = ({ changeMode }: ICWLoginFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} textAlign={"center"}>
         <Grid container item xs={12} justifyContent={"center"} alignItems={"center"}>
           {error && (
             <Alert severity="error" sx={{ width: "400px" }}>
@@ -79,17 +79,15 @@ const CWLoginForm = ({ changeMode }: ICWLoginFormProps) => {
         <Grid item xs={12} mt={"1rem"}>
           <Typography>
             Don't have an account? Register{" "}
-            <Link underline="hover" onClick={changeMode}>
+            <FormLink underline="hover" onClick={changeMode}>
               here
-            </Link>
+            </FormLink>
             .
           </Typography>
         </Grid>
 
         <Grid item xs={12} mt={"2rem"}>
-          <Button type="submit" variant="contained">
-            Login
-          </Button>
+          <FormButton type="submit">Login</FormButton>
         </Grid>
       </Grid>
     </form>

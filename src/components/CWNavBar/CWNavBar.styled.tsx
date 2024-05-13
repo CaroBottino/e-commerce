@@ -1,4 +1,4 @@
-import { Box, Grid, Select, Typography, styled } from "@mui/material";
+import { Box, Grid, Select, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export const NavbarGrid = styled(Grid)({
@@ -17,18 +17,6 @@ export const NavbarFirstRow = styled(Grid)({
 export const NavbarSecondRow = styled(Grid)({
   backgroundColor: "#232f3e",
   padding: 8,
-});
-
-export const AppName = styled(Typography)({
-  fontWeight: 800,
-  fontSize: 20,
-  color: "#FFC019",
-  textShadow: "2px 2px 4px #A451FE",
-
-  ":hover": {
-    color: "#A451FE",
-    textShadow: "2px 2px 4px white",
-  },
 });
 
 export const StyledLink = styled(Link)({
