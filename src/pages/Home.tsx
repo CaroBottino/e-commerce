@@ -8,6 +8,8 @@ const HomePage = () => {
   const { category } = useParams();
   const { showSearchResult } = useItemsContext();
 
+  const base_url = import.meta.env.VITE_BASE_URL;
+
   return (
     <Grid container marginTop={0}>
       <Grid container item xs={12} justifyContent={"center"}>
@@ -38,7 +40,7 @@ const HomePage = () => {
                 width: "100%",
                 maskImage: "linear-gradient(black 80%, transparent)",
               }}
-              src={`/images/categories/${category}.jpg`}
+              src={`${base_url}/images/categories/${category}.jpg`}
               alt={category}
             />
           </Box>
