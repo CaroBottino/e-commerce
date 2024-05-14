@@ -18,7 +18,7 @@ const CWProfileCard = () => {
   };
 
   return (
-    <ProfileCard>
+    <ProfileCard overflow={{ xs: "scroll", md: "unset" }}>
       {edit ? (
         <Grid container>
           <Grid item xs={12} padding={2}>

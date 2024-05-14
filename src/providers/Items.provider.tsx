@@ -7,6 +7,7 @@ type ItemsContextProviderProps = {
   setLoading: (state: boolean) => void;
   items: IItem[];
   item?: IItem;
+  setItem: (item: IItem | undefined) => void;
   getAllItems: () => void;
   getItemsByType: (category: string) => void;
   getItemInfo: (id: string) => void;
@@ -23,6 +24,7 @@ export const ItemsContext = createContext<ItemsContextProviderProps>({
   setLoading: () => {},
   items: [],
   item: undefined,
+  setItem: () => {},
   getAllItems: () => {},
   getItemsByType: () => {},
   getItemInfo: () => {},
@@ -76,6 +78,7 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
   };
 
   const getItemInfo = (id: string) => {
+    setLoading(true);
     itemsService
       .getItemById(id)
       .then((item) => {
@@ -123,6 +126,7 @@ const ItemsProvider = ({ children }: IItemsProviderProps) => {
         setLoading,
         items,
         item,
+        setItem,
         getAllItems,
         getItemsByType,
         getItemInfo,
