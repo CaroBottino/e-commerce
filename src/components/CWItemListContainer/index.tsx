@@ -36,7 +36,7 @@ const CWItemListContainer = () => {
     <Grid container>
       {showSearchResult ? (
         <Grid container>
-          <Grid container item xs={items.length === 0 ? 12 : 3} paddingTop={10}>
+          <Grid container item xs={12} md={items.length === 0 ? 12 : 3} paddingTop={"10vh"}>
             <Grid item xs={12}>
               <SearchTitle marginBottom={2} marginRight={2}>
                 <strong>Your search results for:</strong> {criteria}
@@ -44,7 +44,7 @@ const CWItemListContainer = () => {
               <SearchTitle>{items.length} results</SearchTitle>
             </Grid>
           </Grid>
-          <Grid container item xs={9} paddingTop={10}>
+          <Grid container item xs={12} md={9} paddingTop={{ xs: "5vh", md: "10vh" }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 12, md: 16 }}>
               {items.map((itemToShow: IItem, index: number) => (
                 <Grid item xs={2} sm={4} md={4} key={index}>

@@ -50,6 +50,12 @@ const CWNavBar = () => {
       keepMounted
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      sx={{
+        ".MuiPaper-root": {
+          backgroundColor: "#333",
+          color: "white",
+        },
+      }}
     >
       <MenuItem key={"mobile-cart"}>
         <p>Carrito</p>
@@ -59,7 +65,8 @@ const CWNavBar = () => {
         <p>Profile</p>
         <CWUserMenu handleMobileMenuClose={handleMobileMenuClose} />
       </MenuItem>
-      <Divider />
+      <Divider sx={{ borderColor: "#EB638B" }} />
+      <MenuItem>Categories ✨</MenuItem>
       {categories.map((category) => (
         <MenuItem key={`mobile-${category}`} onClick={handleMobileMenuClose}>
           <Link to={`${base_url}/category/${category}`}>{category}</Link>
@@ -77,11 +84,21 @@ const CWNavBar = () => {
               <Box
                 component="img"
                 sx={{
-                  display: "block",
+                  display: { xs: "none", md: "block" },
                   overflow: "hidden",
                   maxHeight: "65px",
                 }}
                 src={"images/logo/cafe-logo-name.png"}
+                alt={"cafe-logo"}
+              />
+              <Box
+                component="img"
+                sx={{
+                  display: { xs: "block", md: "none" },
+                  overflow: "hidden",
+                  maxHeight: "65px",
+                }}
+                src={"images/logo/cafe-logo.png"}
                 alt={"cafe-logo"}
               />
             </StyledLink>
@@ -101,9 +118,8 @@ const CWNavBar = () => {
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
-                color="inherit"
               >
-                <MoreIcon />
+                <MoreIcon sx={{ color: "lightgray" }} />
               </IconButton>
             </Box>
           </Grid>
@@ -116,7 +132,7 @@ const CWNavBar = () => {
           alignItems={"center"}
           columnSpacing={3}
         >
-          <Grid item xs={2} mr={2}>
+          <Grid item xs={2} mr={2} sx={{ display: { xs: "none", md: "block" } }}>
             <CategorySelector />
           </Grid>
           <Grid item>

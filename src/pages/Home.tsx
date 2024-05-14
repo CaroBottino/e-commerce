@@ -48,8 +48,6 @@ const HomePage = () => {
             position: "relative",
             zIndex: 3,
             top: showSearchResult ? "0vh" : category ? "-20vh" : "-50vh",
-            "@media only screen and (max-width: 1300px)": { top: "-30vh" },
-            "@media only screen and (max-width: 900px)": { top: "-20vh" },
           }}
         >
           <CWItemListContainer />
