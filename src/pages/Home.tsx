@@ -41,7 +41,7 @@ const HomePage = () => {
             sx={{
               marginX: "-48px",
               marginTop: "40px",
-              "@media only screen and (max-width: 900px)": { top: "24px" },
+              top: { xs: "-20vh", md: "-50vh" },
             }}
           >
             <CWCarousel images={images} arrowStepper />
@@ -72,7 +72,7 @@ const HomePage = () => {
           sx={{
             position: "relative",
             zIndex: 3,
-            top: showSearchResult ? "0vh" : category ? "-20vh" : "-50vh",
+            top: showSearchResult ? "0vh" : category ? "-20vh" : { xs: "-30vh", md: "-50vh" },
           }}
         >
           <CWItemListContainer />

@@ -92,7 +92,7 @@ function CWCarousel({ steps, images, arrowStepper = false, dotsStepper = false }
             display: "flex",
             justifyContent: "space-between",
             position: "relative",
-            top: "-55vh",
+            top: "-45vh",
             zIndex: 2,
             color: "black",
             "@media only screen and (max-width: 900px)": { top: "-25vh" },
