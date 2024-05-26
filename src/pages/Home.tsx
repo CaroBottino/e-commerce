@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
 import CWItemListContainer from "../components/CWItemListContainer";
-import CWCarousel from "../components/CWCarousel";
+import CWCarousel, { CWCarouselImage } from "../components/CWCarousel";
 import { useItemsContext } from "../hooks/useItemsContext";
 import { useParams } from "react-router-dom";
 
@@ -9,6 +9,29 @@ const HomePage = () => {
   const { showSearchResult } = useItemsContext();
 
   const base_url = import.meta.env.VITE_BASE_URL;
+
+  const images: CWCarouselImage[] = [
+    {
+      label: "Beauty products",
+      imgPath: "images/carousel/carousel_5.jpg",
+    },
+    {
+      label: "Kitchen favourites",
+      imgPath: "images/carousel/carousel_2.jpg",
+    },
+    {
+      label: "Shop books",
+      imgPath: "images/carousel/carousel_3.jpg",
+    },
+    {
+      label: "New arrivals in toys",
+      imgPath: "images/carousel/carousel_4.jpg",
+    },
+    {
+      label: "Gifts for mom",
+      imgPath: "images/carousel/carousel_1.jpg",
+    },
+  ];
 
   return (
     <Grid container marginTop={0}>
@@ -21,7 +44,7 @@ const HomePage = () => {
               "@media only screen and (max-width: 900px)": { top: "24px" },
             }}
           >
-            <CWCarousel />
+            <CWCarousel images={images} arrowStepper />
           </Box>
         )}
         {category && (

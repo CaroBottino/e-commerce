@@ -35,7 +35,7 @@
 }
 
 :root {
-  font-family: 'Proxima Nova', 'Open Sans', sans-serif;
+  font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -97,7 +97,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    font-family: 'Proxima Nova';
+    font-family: "Proxima Nova", -apple-system, Roboto, Arial, sans-serif, sans-serif;
     color: #213547;
     background-color: #E3E6E6;
   }
