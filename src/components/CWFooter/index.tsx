@@ -15,7 +15,7 @@ const CWFooter = () => {
   const base_url = import.meta.env.VITE_BASE_URL;
 
   const steps: ReactElement[] = [
-    <FooterItem item container xs={12} md={4}>
+    <FooterItem item container xs={12} md={4} key={0}>
       <Grid item xs={12}>
         <FooterImage imgName={"payment"} />
       </Grid>
@@ -24,7 +24,7 @@ const CWFooter = () => {
         <FooterParagraph>You can pay with card, debit, cash</FooterParagraph>
       </Grid>
     </FooterItem>,
-    <FooterItem item container xs={12} md={4}>
+    <FooterItem item container xs={12} md={4} key={1}>
       <Grid item xs={12}>
         <FooterImage imgName={"shipping"} />
       </Grid>
@@ -35,7 +35,7 @@ const CWFooter = () => {
         </FooterParagraph>
       </Grid>
     </FooterItem>,
-    <FooterItem item container xs={12} md={4}>
+    <FooterItem item container xs={12} md={4} key={2}>
       <Grid item xs={12}>
         <FooterImage imgName={"protected"} />
       </Grid>

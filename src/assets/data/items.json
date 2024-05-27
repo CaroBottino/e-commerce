@@ -4,8 +4,10 @@
         "name": "Muñeca Barbie Fashionistas Closet De Lujo Gbk12 Mattel",
         "img": "https://http2.mlstatic.com/D_NQ_NP_2X_819420-MLA51075183518_082022-F.webp",
         "desc": "Barbie Fashionistas Ultimate Closet - Juguete de moda portátil con muñeca, ropa, accesorios y perchas Plástico El juego de muñecas y accesorios Barbie Ultimate Closet tiene estilo dentro y fuera con ropa y accesorios incluidos. El armario rosa está decorado con puertas dobles transparentes para un vistazo al armario de la muñeca Barbie. El espacio de estante almacena y muestra accesorios, y un estante plegable sostiene la moda para divertirse. Barbie La muñeca lleva un mameluco floral y tiene dos vestidos adicionales para cambiar su atuendo. Tres pares de zapatos, dos collares y dos bolsos crean diferentes looks en un instante. Un asa de transporte hace que sea fácil de guardar o llevar sobre la marcha. Mezcla y combina para jugar a la moda y la diversión de contar historias ",
-        "price": 49676,
         "stock": 9,
+        "price": 49676,
+        "discount": 10,
+        "rating": 5,
         "tags": [
             "kids",
             "play",
@@ -21,8 +23,10 @@
         "name": "Tablet Philco Tp10a332 10.1'' Ips 32gb 2gb Android 11 Con Funda",
         "img": "https://http2.mlstatic.com/D_NQ_NP_2X_886369-MLA52088853536_102022-F.webp",
         "desc": "- Microprocesador: RK3566, Quad-core ARM Cortex™-A55 - S.O: Android 11 - Memoria RAM: 2 GB - Memoria Interna: 32 GB - Slot de memoria: MicroSD Expansible hasta 512GB - Pantalla: 10.1” - Resolución: 1280x800 IPS - Conectividad: Wi-Fi - Bluetooth: 4.2 - Cámara frontal: 2 Mp - Cámara Posterior: 5Mp - Batería: 6000 mAH - Alimentación: 5V 2A (Incluye cable de alimentación USB C / No Incluye Cargador de pared) - Incluye Funda - Dimensiones (En Cms): 24.5 x 0.98 x 16.3 - Peso (Kgs): 0.505",
-        "price": 45999,
         "stock": 4,
+        "price": 45999,
+        "discount": 10,
+        "rating": 4,
         "tags": [
             "electronics",
             "tablet",
@@ -40,6 +44,8 @@
         "desc": "NESCAFÉ® Dolce Gusto® Piccolo XS es extrapequeña, con su tamaño compacto y moderna estilo, está diseñado por expertos para adaptarse a cualquier cocina. Piccolo XS mide solo 14 cm (ancho) x 28 cm (alto) x 27cm (profundidad).",
         "price": 47952,
         "stock": 9,
+        "discount": 20,
+        "rating": 5,
         "tags": [
             "coffee",
             "cafe",
@@ -57,6 +63,8 @@
         "desc": "CONTENIDO DE LA PUBLICACIÓN • 1 Taladro/ Atornillador Percutor Garde Plus by Lusqtoff • 2 Baterías • 1 Cargador • 1 Maletín",
         "price": 31795.69,
         "stock": 2,
+        "discount": 0,
+        "rating": 2.5,
         "tags": [
             "taladro",
             "reparaciones"
@@ -73,6 +81,8 @@
         "desc": "Barbie Fashionistas celebra la diversidad y ofrece infinitas posibilidades para contar historias y explorar la moda. ¡Con esta gama inclusiva de muñecas, los niños pueden ver lo divertido que es expresar la personalidad a través del estilo! Son un regalo ideal para los niños amantes de la moda en todas partes. Diseñada para reflejar el mundo que ven los niños hoy en día, esta diversa línea de Barbie Fashionistas muestra estilos brillantes y modernos que crean infinitas posibilidades para contar historias.¡Conoce a la primera muñeca Barbie Fashionistas con frenillos!Con una hermosa sonrisa, anteojos de sol con margaritas rosadas y tacones de plataforma amarillos, su look presenta muchos detalles que resaltan su personalidad. Ella tiene cabello rubio y un tipo de cuerpo original, ¡y hace una declaración colorida en un vestido arcoíris con mangas decorativas con volantes! Medida Barbie 30 cm de alto. Medida Estuche: 32 x 5 x 10 cm. Infancenter..mas que juguetes!!",
         "price": 21899,
         "stock": 39,
+        "discount": 0,
+        "rating": 2,
         "tags": [
             "barbie",
             "toy",
@@ -90,6 +100,8 @@
         "desc": "Una línea especialmente diseñada para el cuidado de la espalda, brindando el soporte y confort que tu cuerpo necesita.",
         "price": 190188.54,
         "stock": 20,
+        "discount": 50,
+        "rating": 5,
         "tags": [
             "cama",
             "colchon"
@@ -106,6 +118,8 @@
         "desc": "La tienda no incluyó una descripción del producto",
         "price": 41990,
         "stock": 69,
+        "discount": 0,
+        "rating": 5,
         "tags": [
             "barbie",
             "kids",
@@ -123,6 +137,8 @@
         "desc": "JBL Go Essential ofrece un sonido natural, con una gran claridad y precisión, que se dispersa de manera uniforme. Un parlante que asegura potencia y calidad por igual en la reproducción de contenidos multimedia.",
         "price": 18899,
         "stock": 44,
+        "discount": 0,
+        "rating": 5,
         "tags": [
             "parlante",
             "music",
@@ -140,6 +156,8 @@
         "desc": "Esta tablet es la combinación perfecta de rendimiento y versatilidad, ideal para acompañar cada una de tus actividades.",
         "price": 18899,
         "stock": 49,
+        "discount": 10,
+        "rating": 3.5,
         "tags": [
             "tablet",
             "electronics"
@@ -156,6 +174,8 @@
         "desc": "Stylus Pen expande el poder de las tabletas y los teléfonos inteligentes, lo que facilita tomar notas, dibujar, resaltar o anotar documentos en las aplicaciones que usa todos los días. No necesita conexión bluetooth. Simplemente presione el botón en la parte superior para encenderlo y estará listo para funcionar.",
         "price": 9214.56,
         "stock": 22,
+        "discount": 0,
+        "rating": 2,
         "tags": [
             "pencil",
             "tablet"
@@ -172,6 +192,8 @@
         "desc": "SANDWICHERA ELECTRICA PANINIS - Superficie antiadherente - Traba de seguridad. - Paredes frias. - Indicadores luminosos. - Facil de usar y limpiar. - Muy practica. - 750W. - Medidas 24x10x24,3cm",
         "price": 8499,
         "stock": 4,
+        "discount": 0,
+        "rating": 2,
         "tags": [
             "sandwitch",
             "eat",
@@ -189,6 +211,8 @@
         "desc": "Cambios y devoluciones: si necesitás cambiar o devolver un artículo simplemente escribinos por mensajería interna de Mercadolibre o por email así te explicamos los pasos a seguir.",
         "price": 25499,
         "stock": 59,
+        "discount": 20,
+        "rating": 5,
         "tags": [
             "ropa",
             "mujer",
@@ -206,6 +230,8 @@
         "desc": "Combine calidez y comodidad con esta Campera acolchada. Un diseño emblemático, hidrófugo y respetuoso con el medioambiente. Claramente imprescindible.",
         "price": 149000,
         "stock": 69,
+        "discount": 0,
+        "rating": 3,
         "tags": [
             "ropa",
             "campera",
@@ -223,6 +249,8 @@
         "desc": "La tabla de medidas que figura en la publicación y la que figura en la última foto corresponden a la prenda medida en plano (se toma en el frente y no en el contorno completo). NO CORRESPONDE A MEDIDAS DEL CUERPO.",
         "price": 39599,
         "stock": 5,
+        "discount": 0,
+        "rating": 4,
         "tags": [
             "puffer",
             "ropa",
@@ -240,6 +268,8 @@
         "desc": "Si estás buscando un calzado elegante y sofisticado, la sandalia Kandil Bloomy en color rosa brillante liso es la elección perfecta. Confeccionada en cuero vacuno, esta sandalia es única y sofisticada.",
         "price": 7840,
         "stock": 52,
+        "discount": 10,
+        "rating": 2,
         "tags": [
             "sandalia",
             "pink",
@@ -639,256 +669,74 @@
         "id": "42"
     },
     {
-        "name": "Awesome Bronze Chicken",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "price": 43,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "3",
+        "name": "Mate Imperial (Calabaza) con Cuero - Virola Alpaca Cincelada.",
+        "img": "https://acdn.mitiendanube.com/stores/001/104/123/products/1x1-imperial-cueroliso-virolaapliques-50888c50b785b4a69f16964523815846-1024-1024.png",
+        "desc": "🧉 Mate Imperial de calabaza premium, con virola cincelada a mano con apliques de bronce. Forrado en cuero liso de primera calidad, con guarda/fleje de alpaca, y virola de alpaca.\n\n➡️ Tamaño, color y guarda del mate a elección desde el menu desplegable. En la ultima foto del producto, se encuentran detalladas las especificaciónes.\n\n➡️ El cincelado de la virola es realizado a mano por lo que es aleatorio (no se puede elegir), y los apliques de bronce pueden variar entre uno grande, o dos chicos.\n\n✔️ Se pueden adquirir personalizaciónes mediante apliques de bronce extras (letras o escudos) haciendo clic aquí, y sumando ambas cosas a tu carrito de compras.  Esta virola NO se puede grabar a laser.\n\n✔️ Se pueden adquirir cajas premium de regalo para el mate haciendo clic aquí, y sumando ambas cosas a tu carrito de compras.  \n\n❌ Los mates NO inculyen bombilla. La misma se puede adquirir haciendo clic aquí, y sumando ambas cosas a tu carrito de compras.\n\n❗ Este objeto puede ofrecer variaciones en su acabado final como resultado de su producción artesanal, asi como cambios en la tonalidad del color marrón borravino (mas claro o mas oscuro que en la foto), detalles en el cuero, o armado. El producto no tiene devolución excepto por fallas de fabricación notorias.",
+        "price": "59900",
+        "tags": [
+            "mate",
+            "argentino",
+            "cuero"
+        ],
+        "categories": [
+            "home"
+        ],
+        "seller_id": "1",
+        "stock": "5",
         "id": "43"
     },
     {
-        "name": "Handmade Granite Pants",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "price": 16,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "4",
+        "name": "Termo Stanley 1,4 Litro Clásico Original Pico Cebador",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_2X_910044-MLA70682073541_072023-F.webp",
+        "desc": "Termo Stanley 1,4 Litro Clásico Original tapon Cebador\n\nNueva colección - Nueva tecnología - Mas livianos.\n\nCon menor distancia entre sus paredes internas que garantiza mayor durabilidad.\n\nLa palabra que viene a la mente es \"icónico\": diseño elegante, construcción robusta y una actitud indescriptible. Con el termo Stanley nunca tendrás que preocuparte de que el agua se enfríe o que tu bebida se caliente. Gracias a su pared externa de acero grueso obtendrás un rendimiento térmico que te durará a través de los años.\n\nEspecificaciones:\n\nPeso: 840 Gramos\nAncho: 12 cm\nAlto: 35,5 cm\nProf: 11 cm\n\nDETALLES: Prueba de fugas.\nAcero inoxidable 18/8.\nAislamiento de doble pared al vacío.\nTapa con aislamiento.\nSin BPA.\nIncluye tapón cebador.\n\n______________________________________________________________\n\nORIGINALES CON SELLO DE AFIP\n\n\nFAST-STORE ARGENTINA\n****************************\n\nFACTURA A:\n\nRealizamos Factura A. Somos agente de Percepción de IIBB de Buenos Aires/Capital Federal/Misiones, con lo cual si debemos percibir el impuesto se le cobrara mediante un botón de pago de MercadoPago la diferencia de la factura. En el caso de estar exento o tener alguna atenuación por favor enviar los datos impositivos en el mensaje de la compra dentro de los 30 minutos.\nEl sistema de facturación es automático y realiza el tipo de comprobante según los datos informados al momento de efectuar la compra. Debe estar cargado previamente el CUIT a la compra en la solapa de “DATOS PARA FACTURACION”. En caso de no estar el CUIT, no se podrá emitir factura A.\n\n****************************\n\nENVIOS:\n\nHacemos envíos gratis a todo el país en compras superiores a $10.000 en las categorías que tengan activo Mercado Envíos.\n\n- FULL: Cuando la publicación indica que es \"FULL\" es Mercado Libre quien se encarga de la logística del despacho ya que tienen ese producto en su depósito. No es posible efectuar modificaciones al producto seleccionado, ni informar horarios de entrega.\n\n- FLEX: Entregas rápidas desde las 17hs hasta 22hs de lunes a viernes. El horario varía según hoja de ruta.\n\n- ACORDAR CON EL VENDEDOR: Luego de efectuar la compra, escribir por el chat privado para coordinar el envío y abonar el costo del mismo.\n\n****************************\n\nHORARIOS DE ATENCION:\n\nNuestro horario de atención es de lunes a jueves de 9hs a 18hs.\nviernes de 9hs a 14 hs.\nNo tenemos local al público.\n\n****************************\n\nHace todas las consultas que necesites antes de realizar tu compra\n\n¡Estamos para asesorarte!\n\n****************************\n\nFAST-STORE ARGENTINA",
+        "price": "120000",
+        "tags": [
+            "termo",
+            "argentina",
+            "mate",
+            "gaucho"
+        ],
+        "categories": [
+            "clothes"
+        ],
+        "seller_id": "1",
+        "stock": 1,
         "id": "44"
     },
     {
-        "name": "Recycled Plastic Salad",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "price": 62,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "5",
+        "name": "Item de test",
+        "img": "https://sirsasin.com/wp-content/uploads/2021/09/Test-Product.jpeg",
+        "desc": "Test item",
+        "price": "1",
+        "tags": [
+            "hola",
+            "chau",
+            "test"
+        ],
+        "categories": [
+            "clothes"
+        ],
+        "seller_id": "1",
+        "stock": "3",
         "id": "45"
     },
     {
-        "name": "Intelligent Bronze Bike",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "price": 19,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "6",
+        "name": "Item de test",
+        "img": "https://s1.eestatic.com/2020/05/07/cocinillas/recetas/postres/reposteria-postres_488211764_151581852_1706x960.jpg",
+        "desc": "My test item. Just to try",
+        "price": "7",
+        "tags": [
+            "donuts",
+            "donas",
+            "glace",
+            "dulce",
+            "sweet"
+        ],
+        "categories": [
+            "toys"
+        ],
+        "seller_id": "1",
+        "stock": "8",
         "id": "46"
-    },
-    {
-        "name": "Gorgeous Cotton Ball",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "price": 73,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "7",
-        "id": "47"
-    },
-    {
-        "name": "Bespoke Plastic Shoes",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-        "price": 96,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "8",
-        "id": "48"
-    },
-    {
-        "name": "Practical Concrete Ball",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "price": 53,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "9",
-        "id": "49"
-    },
-    {
-        "name": "Sleek Rubber Chair",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "price": 42,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "0",
-        "id": "50"
-    },
-    {
-        "name": "Recycled Fresh Pants",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-        "price": 18,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "1",
-        "id": "51"
-    },
-    {
-        "name": "Unbranded Granite Shirt",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "price": 67,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "4",
-        "id": "52"
-    },
-    {
-        "name": "Tasty Fresh Mouse",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "price": 56,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "3",
-        "id": "53"
-    },
-    {
-        "name": "Luxurious Cotton Shirt",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The Football Is Good For Training And Recreational Purposes",
-        "price": 0,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "2",
-        "id": "54"
-    },
-    {
-        "name": "Incredible Metal Chair",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "price": 95,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "1",
-        "id": "55"
-    },
-    {
-        "name": "Tasty Concrete Computer",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-        "price": 68,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "6",
-        "id": "56"
-    },
-    {
-        "name": "Licensed Granite Hat",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "price": 92,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "7",
-        "id": "57"
-    },
-    {
-        "name": "Practical Concrete Cheese",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
-        "price": 48,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "8",
-        "id": "58"
-    },
-    {
-        "name": "Small Concrete Fish",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-        "price": 42,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "9",
-        "id": "59"
-    },
-    {
-        "name": "Modern Cotton Chair",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
-        "price": 2,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "0",
-        "id": "60"
-    },
-    {
-        "name": "Luxurious Steel Cheese",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The Football Is Good For Training And Recreational Purposes",
-        "price": 87,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "1",
-        "id": "61"
-    },
-    {
-        "name": "Awesome Steel Car",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-        "price": 76,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "2",
-        "id": "62"
-    },
-    {
-        "name": "Licensed Frozen Gloves",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-        "price": 74,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "3",
-        "id": "63"
-    },
-    {
-        "name": "Refined Concrete Bike",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
-        "price": 57,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "4",
-        "id": "64"
-    },
-    {
-        "name": "Handcrafted Concrete Car",
-        "img": "https://loremflickr.com/640/480/business",
-        "desc": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
-        "price": 80,
-        "stock": 5,
-        "tags": [],
-        "categories": [],
-        "seller_id": "5",
-        "id": "65"
     }
 ]

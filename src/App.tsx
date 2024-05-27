@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "@/assets/css/App.css";
 import { Box } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CWNavBar from "./components/CWNavBar";
 import CWFooter from "./components/CWFooter";
 import HomePage from "./pages/Home";
@@ -12,11 +13,17 @@ import UserProvider from "./providers/User.provider";
 import ItemsProvider from "./providers/Items.provider";
 import NewItemPage from "./pages/NewItem";
 
+const cwTheme = createTheme({
+  typography: {
+    fontFamily: ["Proxima Nova", "-apple-system", "Roboto", "Arial", "sans-serif"].join(","),
+  },
+});
+
 function App() {
   const base_url = import.meta.env.VITE_BASE_URL;
 
   return (
-    <>
+    <ThemeProvider theme={cwTheme}>
       <UserProvider>
         <ItemsProvider>
           <BrowserRouter>
@@ -36,7 +43,7 @@ function App() {
           </BrowserRouter>
         </ItemsProvider>
       </UserProvider>
-    </>
+    </ThemeProvider>
   );
 }
 

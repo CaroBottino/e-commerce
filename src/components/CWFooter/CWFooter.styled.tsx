@@ -27,7 +27,7 @@ export const FooterImage = ({ imgName }: { imgName: string }) => (
     sx={{
       padding: "10px",
     }}
-    src={`/images/footer/${imgName}.svg`}
+    src={`images/footer/${imgName}.svg`}
     alt={imgName}
   />
 );
