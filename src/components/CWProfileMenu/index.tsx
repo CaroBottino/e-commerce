@@ -21,6 +21,7 @@ import itemsService from "../../services/items.service";
 import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
 import { ProfileBadge } from "./CWProfileMenu.styled";
+import { priceAsCurrency } from "../../utils/itemHelper";
 
 const CWProfileMenu = () => {
   const { user, hasSellingPermissions } = useUserContext();
@@ -90,7 +91,12 @@ const CWProfileMenu = () => {
         </Tooltip>
       ),
     },
-    { key: "price", title: "Price", sortable: true },
+    {
+      key: "price",
+      title: "Price",
+      sortable: true,
+      render: (_, { price }) => <Typography>{priceAsCurrency(price)}</Typography>,
+    },
     { key: "stock", title: "Stock", sortable: true },
     {
       key: "tags",
@@ -146,6 +152,44 @@ const CWProfileMenu = () => {
 
   return (
     <Box maxWidth={"90vw"}>
+      {hasSellingPermissions() && (
+        <>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="items-content"
+              id="items-header"
+            >
+              Your items on sale
+            </AccordionSummary>
+            <AccordionDetails>
+              <CWReportsTable data={userItems} columns={itemColumns} />
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="sales-content"
+              id="sales-header"
+            >
+              Sales
+            </AccordionSummary>
+            <AccordionDetails>comming soon...</AccordionDetails>
+          </Accordion>
+        </>
+      )}
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="purchases-content"
+          id="purchases-header"
+        >
+          Purchases
+        </AccordionSummary>
+        <AccordionDetails>comming soon...</AccordionDetails>
+      </Accordion>
+
       {user.type === UserType.ADMIN && (
         <>
           <Accordion>
@@ -174,42 +218,6 @@ const CWProfileMenu = () => {
           </Accordion>
         </>
       )}
-      {hasSellingPermissions() && (
-        <>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="items-content"
-              id="items-header"
-            >
-              Your items on sale
-            </AccordionSummary>
-            <AccordionDetails>
-              <CWReportsTable data={userItems} columns={itemColumns} />
-            </AccordionDetails>
-          </Accordion>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="sales-content"
-              id="sales-header"
-            >
-              Sales
-            </AccordionSummary>
-            <AccordionDetails>comming soon...</AccordionDetails>
-          </Accordion>
-        </>
-      )}
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="purchases-content"
-          id="purchases-header"
-        >
-          Purchases
-        </AccordionSummary>
-        <AccordionDetails>comming soon...</AccordionDetails>
-      </Accordion>
 
       {openConfDialog && userToUpdate && (
         <CWDialog
