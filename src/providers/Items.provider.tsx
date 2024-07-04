@@ -2,7 +2,7 @@ import { ReactNode, createContext, useState } from "react";
 import { IItem } from "../interfaces/IItem";
 import itemsService from "../services/items.service";
 
-type ItemsContextProviderProps = {
+export type ItemsContextProviderProps = {
   loading: boolean;
   setLoading: (state: boolean) => void;
   items: IItem[];

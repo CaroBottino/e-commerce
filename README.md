@@ -11,6 +11,7 @@ This application is built with React.js. Just a little brief of my skills for yo
 - MockAPI backend
 - react-hook-form
 - sessionStorage
+- Storybook 📓
 
 ## To interact:
 
@@ -26,6 +27,12 @@ npm install
 
 ```
 npm run dev
+```
+
+### Storybook 📓
+
+```
+npm run storybook
 ```
 
 ## Message to other devs:

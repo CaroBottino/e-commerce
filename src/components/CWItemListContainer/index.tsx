@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
 import CWItemCard from "../CWItemCard";
-import CFItemsListSkeleton from "../CWSkeletons/CWItemsListSkeleton";
+import CWItemsListSkeleton from "../CWSkeletons/CWItemsListSkeleton";
 import { IItem } from "../../interfaces/IItem";
 import { SearchTitle } from "./CWItemListContainer.styled";
 import { useItemsContext } from "../../hooks/useItemsContext";
@@ -31,7 +31,7 @@ const CWItemListContainer = () => {
   }, [category]);
 
   return loading ? (
-    <CFItemsListSkeleton />
+    <CWItemsListSkeleton />
   ) : (
     <Grid container>
       {showSearchResult ? (

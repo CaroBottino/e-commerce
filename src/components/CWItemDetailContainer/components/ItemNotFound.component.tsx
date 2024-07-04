@@ -14,7 +14,7 @@ const ItemNotFound = () => {
         />
       </Grid>
       <Grid item xs={12}>
-        <Typography>Ups! Couldn't find your item</Typography>
+        <Typography>Oops! Couldn't find your item</Typography>
       </Grid>
     </Grid>
   );
