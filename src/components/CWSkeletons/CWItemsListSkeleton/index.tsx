@@ -1,6 +1,6 @@
 import { Box, Skeleton, Stack } from "@mui/material";
 
-const CFItemsListSkeleton = () => {
+const CWItemsListSkeleton = () => {
   return (
     <Stack
       spacing={4}
@@ -23,4 +23,4 @@ const CFItemsListSkeleton = () => {
   );
 };
 
-export default CFItemsListSkeleton;
+export default CWItemsListSkeleton;

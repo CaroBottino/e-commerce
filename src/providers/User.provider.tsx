@@ -5,7 +5,7 @@ import { IItem } from "../interfaces/IItem";
 import { ICartItem } from "../interfaces/ICartItem";
 import usersService from "../services/users.service";
 
-type UserContextProviderProps = {
+export type UserContextProviderProps = {
   user: IUser;
   loginUser: (user: IUser) => void;
   logoutUser: () => void;
@@ -59,6 +59,8 @@ const UserProvider = ({ children }: IUserProviderProps) => {
   );
 
   const loginUser = (userToLog: IUser) => {
+    console.log("caro - en loginUser...");
+
     if (user.cart.length > 0) {
       // user added items to cart while not logged
       user.cart.forEach((cartItem) => {
@@ -75,6 +77,7 @@ const UserProvider = ({ children }: IUserProviderProps) => {
       });
     }
 
+    console.log("caro - setUser...");
     setUser(userToLog);
     sessionStorage.setItem("user", JSON.stringify(userToLog));
   };
