@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { IItem } from "../../interfaces/IItem";
 import { BrowserRouter } from "react-router-dom";
-import { ItemsContext, ItemsContextProviderProps } from "../../providers/Items.provider";
-import { ReactElement } from "react";
 import CWItemListContainer from ".";
+import { ItemsDecorator } from "../../utils/storybook/itemsProviderMock";
 
 const demoItems: IItem[] = [
   {
@@ -101,59 +100,6 @@ const searchItems: IItem[] = [
     seller_id: "1",
   },
 ];
-
-type ItemsProviderMockProps = {
-  itemsOptions: ItemsContextProviderProps;
-  children: ReactElement;
-};
-
-const ItemsProviderMock = ({ itemsOptions, children }: ItemsProviderMockProps) => {
-  const loading = itemsOptions?.loading ?? false;
-  const setLoading = itemsOptions?.setLoading ? itemsOptions?.setLoading : () => {};
-  const items = itemsOptions?.items;
-  const item = itemsOptions?.item;
-  const setItem = itemsOptions?.setItem ? itemsOptions?.setItem : () => {};
-  const getAllItems = itemsOptions?.getAllItems ? itemsOptions?.getAllItems : () => {};
-  const getItemsByType = itemsOptions?.getItemsByType ? itemsOptions?.getItemsByType : () => {};
-  const getItemInfo = itemsOptions?.getItemInfo ? itemsOptions?.getItemInfo : () => {};
-  const criteria = itemsOptions?.criteria;
-  const setCriteria = itemsOptions?.setCriteria ? itemsOptions?.setCriteria : () => {};
-  const searchItems = itemsOptions?.searchItems ? itemsOptions?.searchItems : () => {};
-  const showSearchResult = itemsOptions?.showSearchResult ?? false;
-  const setShowSearchResult = itemsOptions?.setShowSearchResult
-    ? itemsOptions?.setShowSearchResult
-    : () => {};
-  const createItem = itemsOptions?.createItem;
-
-  return (
-    <ItemsContext.Provider
-      value={{
-        loading,
-        setLoading,
-        items,
-        item,
-        setItem,
-        getAllItems,
-        getItemsByType,
-        getItemInfo,
-        criteria,
-        setCriteria,
-        searchItems,
-        showSearchResult,
-        setShowSearchResult,
-        createItem,
-      }}
-    >
-      {children}
-    </ItemsContext.Provider>
-  );
-};
-
-const ItemsDecorator = (Story: any, { parameters }: any) => (
-  <ItemsProviderMock itemsOptions={parameters.itemsOptions}>
-    <Story />
-  </ItemsProviderMock>
-);
 
 const meta: Meta<typeof CWItemListContainer> = {
   title: "CafeWeb/ItemListContainer",
