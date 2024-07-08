@@ -2,15 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Alert, FormControl, Grid, Typography } from "@mui/material";
-import {
-  FormAvatarImg,
-  FormButton,
-  FormHelper,
-  FormInput,
-  FormLabel,
-  FormLink,
-  FormOutlinedButton,
-} from "./CWForms.styled";
+import { FormAvatarImg, FormHelper, FormInput, FormLabel, FormLink } from "./CWForms.styled";
 import { ICWFormSignUp } from "./CWForms.interfaces";
 import usersService from "../../services/users.service";
 import { IUser } from "../../interfaces/IUser";

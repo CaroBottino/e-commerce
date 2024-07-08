@@ -1,5 +1,4 @@
-import { Box, Button, Chip, Grid, Typography, styled } from "@mui/material";
-import CWButton from "../CWButton";
+import { Box, Chip, Grid, Typography, styled } from "@mui/material";
 
 export const ItemImg = styled(Box)(() => ({
   width: 450,

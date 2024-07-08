@@ -5,7 +5,6 @@ import { useUserContext } from "../../hooks/useUserContext";
 import { ProfileCard } from "./CWProfileCard.styled";
 import { useState } from "react";
 import CWSignUpForm from "../CWForms/CWSignUpForm";
-import { FormOutlinedButton } from "../CWForms/CWForms.styled";
 import CWButton from "../CWButton";
 
 const CWProfileCard = () => {

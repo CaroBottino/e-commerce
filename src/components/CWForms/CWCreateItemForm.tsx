@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { Alert, Box, Chip, Grid, MenuItem, OutlinedInput, Select, TextField } from "@mui/material";
 import { ICWFormCreateItem } from "./CWForms.interfaces";
-import { FormButton, FormItemImg, FormTitle } from "./CWForms.styled";
+import { FormItemImg, FormTitle } from "./CWForms.styled";
 import { getItemsCategories } from "../../utils/itemHelper";
 import { useItemsContext } from "../../hooks/useItemsContext";
 import { useUserContext } from "../../hooks/useUserContext";
