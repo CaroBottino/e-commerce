@@ -45,6 +45,22 @@ export const CartButtonGroup = styled(ButtonGroup)({
   },
 });
 
+export const ActionBtnStyles = {
+  borderRadius: "8 0 8 0",
+  border: "1px solid #AC274F !important",
+  boxShadow: 0,
+};
+
+export const QuantityBtnStyles = {
+  borderColor: "#AC274F !important",
+  color: "#AC274F !important",
+};
+
+export const DeleteBtnStyles = {
+  backgroundColor: "white",
+  color: "#AC274F",
+};
+
 export const CartButtonGroupBox = styled(ButtonGroup)({
   marginTop: 3,
   width: "130px",

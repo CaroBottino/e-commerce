@@ -1,11 +1,11 @@
-import { Button, Input, Link, Typography, styled } from "@mui/material";
+import { Input, Link, Typography, styled } from "@mui/material";
 
 export const FormLabel = styled(Typography)({
   textAlign: "start",
 });
 
 export const FormInput = styled(Input)({
-  width: "400px",
+  minWidth: "30vw",
   maxWidth: "80vw",
 });
 
@@ -45,26 +45,3 @@ export const FormAvatarImg = ({ src }: { src: string }) => (
     style={{ maxHeight: "200px", maxWidth: "200px", borderRadius: "50%", marginTop: "16px" }}
   />
 );
-
-export const FormButton = styled(Button)({
-  color: "white",
-  backgroundColor: "#AC274F",
-  borderColor: "#AC274F",
-
-  ":hover": {
-    backgroundColor: "#EB638B",
-    borderColor: "#EB638B",
-  },
-});
-
-export const FormOutlinedButton = styled(Button)({
-  color: "#AC274F",
-  backgroundColor: "transparent",
-  border: "1px solid #AC274F",
-
-  ":hover": {
-    color: "white",
-    backgroundColor: "#EB638B",
-    borderColor: "#EB638B",
-  },
-});

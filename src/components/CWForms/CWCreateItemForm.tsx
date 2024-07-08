@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { Alert, Box, Chip, Grid, MenuItem, OutlinedInput, Select, TextField } from "@mui/material";
 import { ICWFormCreateItem } from "./CWForms.interfaces";
-import { FormButton, FormItemImg, FormTitle } from "./CWForms.styled";
+import { FormItemImg, FormTitle } from "./CWForms.styled";
 import { getItemsCategories } from "../../utils/itemHelper";
 import { useItemsContext } from "../../hooks/useItemsContext";
 import { useUserContext } from "../../hooks/useUserContext";
+import CWButton from "../CWButton";
 
 const CFCreateItemForm = () => {
   const {
@@ -231,7 +232,7 @@ const CFCreateItemForm = () => {
             />
           </Grid>
           <Grid item xs={12} mt={"1rem"}>
-            <FormButton type="submit">Create my item!</FormButton>
+            <CWButton label="Create my item!" variant="contained" type="submit" />
           </Grid>
         </Grid>
       </Grid>

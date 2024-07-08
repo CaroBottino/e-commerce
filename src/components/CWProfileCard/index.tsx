@@ -5,7 +5,7 @@ import { useUserContext } from "../../hooks/useUserContext";
 import { ProfileCard } from "./CWProfileCard.styled";
 import { useState } from "react";
 import CWSignUpForm from "../CWForms/CWSignUpForm";
-import { FormOutlinedButton } from "../CWForms/CWForms.styled";
+import CWButton from "../CWButton";
 
 const CWProfileCard = () => {
   const { user, hasSellingPermissions } = useUserContext();
@@ -18,10 +18,10 @@ const CWProfileCard = () => {
   };
 
   return (
-    <ProfileCard overflow={{ xs: "scroll", md: "unset" }}>
+    <ProfileCard overflow={{ xs: "scroll", md: "unset" }} maxWidth={edit ? "70vw" : "40vw"}>
       {edit ? (
         <Grid container>
-          <Grid item xs={12} padding={2}>
+          <Grid item xs={12} padding={2} width={"100%"}>
             <CWSignUpForm editMode={true} user={user} onSubmitHandler={() => setEdit(false)} />
           </Grid>
         </Grid>
@@ -47,20 +47,20 @@ const CWProfileCard = () => {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Stack direction="row" spacing={2} padding={2}>
+              <Stack direction="row" spacing={2} justifyContent={"center"}>
                 <Typography>Type:</Typography>
                 <Typography>{userTypeLabel(user)}</Typography>
               </Stack>
             </Grid>
             <Grid item xs={12}>
               <Stack paddingTop={1}>
-                <FormOutlinedButton onClick={() => setEdit(!edit)}>Update info</FormOutlinedButton>
+                <CWButton label="Update info" variant="outlined" onClick={() => setEdit(!edit)} />
               </Stack>
             </Grid>
             {hasSellingPermissions() && (
               <Grid item xs={12}>
                 <Stack paddingTop={1}>
-                  <FormOutlinedButton onClick={onNewItemClick}>New item</FormOutlinedButton>
+                  <CWButton label="New item" variant="outlined" onClick={onNewItemClick} />
                 </Stack>
               </Grid>
             )}

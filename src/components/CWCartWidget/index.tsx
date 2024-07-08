@@ -1,4 +1,3 @@
-// import { Badge, IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartButton } from "./CWCartWidget.styled";
