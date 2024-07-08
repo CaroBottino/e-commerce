@@ -2,13 +2,16 @@ import { Grid, Typography } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { ICartItem } from "../../../interfaces/ICartItem";
 import {
+  ActionBtnStyles,
   CardInfoGrid,
   CardMainGrid,
   CartButtonGroup,
   CartButtonGroupBox,
+  DeleteBtnStyles,
+  QuantityBtnStyles,
 } from "../CWCartDrawer.styled";
-import { ActionButton, QuantityButton } from "../../CWItemDetailContainer/CWItemDetail.styled";
 import { useUserContext } from "../../../hooks/useUserContext";
+import CWButton from "../../CWButton";
 
 interface ICWCartDrawerCardProps {
   cartItem: ICartItem;
@@ -37,15 +40,30 @@ const CWCartDrawerCard = ({ cartItem }: ICWCartDrawerCardProps) => {
         <Grid item xs={12}>
           <CartButtonGroupBox>
             <CartButtonGroup variant="outlined">
-              <ActionButton onClick={() => decreaseQuantity(cartItem)}>-</ActionButton>
-              <QuantityButton disabled>{cartItem.quantity}</QuantityButton>
-              <ActionButton onClick={() => increaseQuantity(cartItem)}>+</ActionButton>
-              <ActionButton
+              <CWButton
+                label="-"
+                variant="contained"
+                onClick={() => decreaseQuantity(cartItem)}
+                sx={ActionBtnStyles}
+              />
+              <CWButton
+                label={cartItem.quantity.toString()}
+                variant="outlined"
+                disabled
+                sx={QuantityBtnStyles}
+              />
+              <CWButton
+                label="+"
+                variant="contained"
+                onClick={() => increaseQuantity(cartItem)}
+                sx={ActionBtnStyles}
+              />
+              <CWButton
+                label={<DeleteOutlineIcon />}
+                variant="outlined"
                 onClick={() => deleteFromCart(cartItem)}
-                sx={{ backgroundColor: "white", color: "#AC274F" }}
-              >
-                <DeleteOutlineIcon />
-              </ActionButton>
+                sx={DeleteBtnStyles}
+              />
             </CartButtonGroup>
           </CartButtonGroupBox>
         </Grid>

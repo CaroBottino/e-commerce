@@ -1,4 +1,5 @@
 import { Box, Button, Chip, Grid, Typography, styled } from "@mui/material";
+import CWButton from "../CWButton";
 
 export const ItemImg = styled(Box)(() => ({
   width: 450,
@@ -49,25 +50,6 @@ export const ItemDescription = styled(Typography)(() => ({
   fontSize: 20,
   color: "gray",
 }));
-
-export const QuantityButton = styled(Button)({
-  ":disabled": {
-    color: "#AC274F",
-    border: "1px solid #AC274F",
-  },
-});
-
-export const ActionButton = styled(Button)({
-  color: "white",
-  backgroundColor: "#AC274F",
-  borderColor: "#AC274F",
-  textTransform: "none",
-
-  ":hover": {
-    backgroundColor: "#EB638B",
-    borderColor: "#EB638B",
-  },
-});
 
 export const ResumeGrid = styled(Grid)({
   borderRadius: "8px",

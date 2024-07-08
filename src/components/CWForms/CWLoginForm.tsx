@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Alert, FormControl, Grid, Typography } from "@mui/material";
-import { FormButton, FormHelper, FormInput, FormLabel, FormLink } from "./CWForms.styled";
+import { FormHelper, FormInput, FormLabel, FormLink } from "./CWForms.styled";
 import { ICWFormLogin } from "./CWForms.interfaces";
 import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
+import CWButton from "../CWButton";
 
 interface ICWLoginFormProps {
   changeMode: () => void;
@@ -87,7 +88,7 @@ const CWLoginForm = ({ changeMode }: ICWLoginFormProps) => {
         </Grid>
 
         <Grid item xs={12} mt={"2rem"}>
-          <FormButton type="submit">Login</FormButton>
+          <CWButton variant="contained" type="submit" label="Login" />
         </Grid>
       </Grid>
     </form>

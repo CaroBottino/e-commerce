@@ -17,7 +17,7 @@ const meta: Meta<typeof CWCartDrawer> = {
 export default meta;
 type Story = StoryObj<typeof CWCartDrawer>;
 
-export const EmptyCart: Story = {
+export const FullCart: Story = {
   decorators: [UserDecorator],
   parameters: {
     userOptions: {
@@ -29,7 +29,7 @@ export const EmptyCart: Story = {
   },
 };
 
-export const FullCart: Story = {
+export const EmptyCart: Story = {
   decorators: [UserDecorator],
   parameters: {
     userOptions: {

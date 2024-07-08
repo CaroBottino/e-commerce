@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Grid, Rating, Stack } from "@mui/material";
 import {
-  ActionButton,
   ItemDiscount,
   ItemPrice,
   ItemSmallInfo,
@@ -14,6 +13,7 @@ import { priceAsCurrency } from "../../../utils/itemHelper";
 import { useItemsContext } from "../../../hooks/useItemsContext";
 import { useUserContext } from "../../../hooks/useUserContext";
 import ItemQuantitySelect from "./ItemQuantitySelect.component";
+import CWButton from "../../CWButton";
 
 const ItemResume = () => {
   const { item } = useItemsContext();
@@ -67,12 +67,12 @@ const ItemResume = () => {
               <ItemQuantitySelect quantity={quantity} handleChange={handleChange} />
             </Stack>
             <Stack direction="row" width={"100%"}>
-              <ActionButton
+              <CWButton
+                label="Add to cart!"
+                variant="contained"
                 onClick={() => addToCart(item, quantity)}
-                sx={{ width: "100%", marginTop: "8px" }}
-              >
-                Add to cart!
-              </ActionButton>
+                sx={{ width: "100%", marginTop: "8px", textTransform: "none" }}
+              />
             </Stack>
           </>
         )}
