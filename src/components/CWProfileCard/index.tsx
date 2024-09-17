@@ -1,9 +1,9 @@
+import { CSSProperties, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Grid, Stack, Typography } from "@mui/material";
 import { userTypeLabel } from "../../utils/userHelper";
 import { useUserContext } from "../../hooks/useUserContext";
 import { ProfileCard } from "./CWProfileCard.styled";
-import { useState } from "react";
 import CWSignUpForm from "../CWForms/CWSignUpForm";
 import CWButton from "../CWButton";
 
@@ -25,6 +25,15 @@ const CWProfileCard = () => {
     navigate(base_url);
   };
 
+  const avatarImgStyles: CSSProperties = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: smallScreen ? 16 : 0,
+    borderBottomLeftRadius: smallScreen ? 0 : 16,
+  };
+
   return (
     <ProfileCard
       overflow={{ xs: "scroll", md: "unset" }}
@@ -40,17 +49,7 @@ const CWProfileCard = () => {
         <Grid container>
           <Grid container item xs={12} md={4}>
             <Grid item>
-              <img
-                src={user.avatar}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  borderTopLeftRadius: 16,
-                  borderTopRightRadius: smallScreen ? 16 : 0,
-                  borderBottomLeftRadius: smallScreen ? 0 : 16,
-                }}
-              />
+              <img src={user.avatar} style={avatarImgStyles} />
             </Grid>
           </Grid>
           <Grid container item xs={12} md={8} textAlign={"center"} padding={2}>
