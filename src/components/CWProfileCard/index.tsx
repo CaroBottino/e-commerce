@@ -8,13 +8,18 @@ import CWSignUpForm from "../CWForms/CWSignUpForm";
 import CWButton from "../CWButton";
 
 const CWProfileCard = () => {
-  const { user, hasSellingPermissions } = useUserContext();
+  const { user, hasSellingPermissions, logoutUser } = useUserContext();
   const navigate = useNavigate();
   const base_url = import.meta.env.VITE_BASE_URL;
   const [edit, setEdit] = useState<boolean>(false);
 
   const onNewItemClick = () => {
     navigate(`${base_url}/new-item`);
+  };
+
+  const onSignOutClick = () => {
+    logoutUser();
+    navigate(base_url);
   };
 
   return (
@@ -67,6 +72,11 @@ const CWProfileCard = () => {
                 </Stack>
               </Grid>
             )}
+            <Grid item xs={12}>
+              <Stack paddingTop={1}>
+                <CWButton label="Sign out" variant="contained" onClick={onSignOutClick} />
+              </Stack>
+            </Grid>
           </Grid>
         </Grid>
       )}

@@ -1,7 +1,8 @@
 import { useState, MouseEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Box, Divider, Grid, IconButton, Menu, MenuItem } from "@mui/material";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
 import CWCartWidget from "../CWCartWidget";
 import CWSearchBar from "../CWSearchBar";
 import CWUserMenu from "../CWUserMenu";
@@ -15,8 +16,12 @@ import {
   StyledLink,
 } from "./CWNavBar.styled";
 import { getItemsCategories } from "../../utils/itemHelper";
+import { useUserContext } from "../../hooks/useUserContext";
 
 const CWNavBar = () => {
+  const { user, logoutUser } = useUserContext();
+  const navigate = useNavigate();
+
   const base_url = import.meta.env.VITE_BASE_URL;
 
   const [open, setOpen] = useState(false);
@@ -34,6 +39,12 @@ const CWNavBar = () => {
   const handleCartOnMobile = () => {
     setOpen(!open);
     handleMobileMenuClose();
+  };
+
+  const handleMobileSignOut = () => {
+    logoutUser();
+    handleMobileMenuClose();
+    navigate(base_url);
   };
 
   const categories = getItemsCategories();
@@ -63,8 +74,16 @@ const CWNavBar = () => {
       </MenuItem>
       <MenuItem key={"mobile-profile"} onClick={handleMobileMenuClose}>
         <p>Profile</p>
-        <CWUserMenu handleMobileMenuClose={handleMobileMenuClose} />
+        <CWUserMenu />
       </MenuItem>
+      {user.id && (
+        <MenuItem key={"mobile-sign-out"} onClick={handleMobileSignOut}>
+          <p>Sign out</p>
+          <IconButton size="large">
+            <ExitToAppOutlinedIcon sx={{ color: "lightgray" }} />
+          </IconButton>
+        </MenuItem>
+      )}
       <Divider sx={{ borderColor: "#EB638B" }} />
       <MenuItem>Categories ✨</MenuItem>
       {categories.map((category) => (
@@ -108,7 +127,7 @@ const CWNavBar = () => {
           </Grid>
           <Grid item xs={2}>
             <IconsBox sx={{ display: { xs: "none", md: "flex" }, color: "white" }}>
-              <CWUserMenu handleMobileMenuClose={handleMobileMenuClose} />
+              <CWUserMenu />
               <CWCartWidget open={open} setOpen={setOpen} />
             </IconsBox>
             <Box sx={{ display: { xs: "flex", md: "none" }, justifyContent: "end" }}>
