@@ -10,7 +10,10 @@ import CWButton from "../CWButton";
 const CWProfileCard = () => {
   const { user, hasSellingPermissions, logoutUser } = useUserContext();
   const navigate = useNavigate();
+
   const base_url = import.meta.env.VITE_BASE_URL;
+  const smallScreen = window.innerWidth < 900;
+
   const [edit, setEdit] = useState<boolean>(false);
 
   const onNewItemClick = () => {
@@ -39,7 +42,14 @@ const CWProfileCard = () => {
             <Grid item>
               <img
                 src={user.avatar}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderTopLeftRadius: 16,
+                  borderTopRightRadius: smallScreen ? 16 : 0,
+                  borderBottomLeftRadius: smallScreen ? 0 : 16,
+                }}
               />
             </Grid>
           </Grid>
