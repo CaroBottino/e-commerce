@@ -35,10 +35,7 @@ const CWProfileCard = () => {
   };
 
   return (
-    <ProfileCard
-      overflow={{ xs: "scroll", md: "unset" }}
-      sx={{ maxWidth: { xs: "70vw", md: edit ? "70vw" : "40vw" } }}
-    >
+    <ProfileCard sx={{ maxWidth: { xs: "70vw", md: edit ? "70vw" : "40vw" }, overflow: "auto" }}>
       {edit ? (
         <Grid container>
           <Grid item xs={12} padding={2} width={"100%"}>
