@@ -56,18 +56,27 @@ const CFCreateItemForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid container textAlign={"center"}>
-        <Grid container item xs={12} justifyContent={"center"} alignItems={"center"} padding={2}>
-          {error && (
-            <Alert severity="error" sx={{ width: "400px" }}>
-              Couldn't create item
-            </Alert>
-          )}
-          {success && (
-            <Alert severity="success" sx={{ width: "400px" }}>
-              Item created
-            </Alert>
-          )}
-        </Grid>
+        {(error || success) && (
+          <Grid
+            container
+            item
+            xs={12}
+            justifyContent={"center"}
+            alignItems={"center"}
+            marginBottom={2}
+          >
+            {error && (
+              <Alert severity="error" sx={{ width: "400px" }}>
+                Couldn't create item
+              </Alert>
+            )}
+            {success && (
+              <Alert severity="success" sx={{ width: "400px" }}>
+                Item created
+              </Alert>
+            )}
+          </Grid>
+        )}
         <Grid container item xs={12} sm={6}>
           <Grid item xs={12}>
             <FormItemImg src={watchImage} />

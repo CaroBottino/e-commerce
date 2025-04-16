@@ -17,6 +17,9 @@ const cwTheme = createTheme({
   typography: {
     fontFamily: ["Proxima Nova", "-apple-system", "Roboto", "Arial", "sans-serif"].join(","),
   },
+  components: {
+    MuiCssBaseline: {},
+  },
 });
 
 function App() {

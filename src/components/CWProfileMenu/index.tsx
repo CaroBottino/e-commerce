@@ -1,16 +1,5 @@
-import { useEffect, useState } from "react";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Button,
-  MenuItem,
-  Select,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useEffect, useMemo, useState } from "react";
+import { Box, Button, MenuItem, Select, Tooltip, Typography } from "@mui/material";
 import { UserType } from "../../enums/user.enum";
 import CWReportsTable from "../CWReportsTable";
 import CWDialog from "../CWDialog";
@@ -22,6 +11,7 @@ import usersService from "../../services/users.service";
 import { useUserContext } from "../../hooks/useUserContext";
 import { ProfileBadge } from "./CWProfileMenu.styled";
 import { priceAsCurrency } from "../../utils/itemHelper";
+import CWTabs, { CWTabsContent } from "../CWTabs";
 
 const CWProfileMenu = () => {
   const { user, hasSellingPermissions } = useUserContext();
@@ -142,6 +132,43 @@ const CWProfileMenu = () => {
     }
   };
 
+  const tabs: CWTabsContent[] = useMemo(() => {
+    const aux: CWTabsContent[] = [];
+
+    if (hasSellingPermissions()) {
+      aux.push(
+        {
+          label: "Your items on sale",
+          content: <CWReportsTable data={userItems} columns={itemColumns} />,
+        },
+        {
+          label: "Sales",
+          content: "comming soon...",
+        },
+      );
+    }
+
+    aux.push({
+      label: "Purchases",
+      content: "comming soon...",
+    });
+
+    if (user.type === UserType.ADMIN) {
+      aux.push(
+        {
+          label: "Users registered",
+          content: <CWReportsTable data={users} columns={userColumns} />,
+        },
+        {
+          label: "All items on sale",
+          content: <CWReportsTable data={items} columns={itemColumns} />,
+        },
+      );
+    }
+
+    return aux;
+  }, [user.type, userItems, users, items]);
+
   useEffect(() => {
     usersService.getUsers().then((users) => users && setUsers(users));
     itemsService.getItems().then((items) => items && setItems(items));
@@ -152,72 +179,7 @@ const CWProfileMenu = () => {
 
   return (
     <Box maxWidth={"90vw"}>
-      {hasSellingPermissions() && (
-        <>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="items-content"
-              id="items-header"
-            >
-              Your items on sale
-            </AccordionSummary>
-            <AccordionDetails>
-              <CWReportsTable data={userItems} columns={itemColumns} />
-            </AccordionDetails>
-          </Accordion>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="sales-content"
-              id="sales-header"
-            >
-              Sales
-            </AccordionSummary>
-            <AccordionDetails>comming soon...</AccordionDetails>
-          </Accordion>
-        </>
-      )}
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="purchases-content"
-          id="purchases-header"
-        >
-          Purchases
-        </AccordionSummary>
-        <AccordionDetails>comming soon...</AccordionDetails>
-      </Accordion>
-
-      {user.type === UserType.ADMIN && (
-        <>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="users-content"
-              id="users-header"
-            >
-              Users registered
-            </AccordionSummary>
-            <AccordionDetails>
-              <CWReportsTable data={users} columns={userColumns} />
-            </AccordionDetails>
-          </Accordion>
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="items-content"
-              id="items-header"
-            >
-              All items on sale
-            </AccordionSummary>
-            <AccordionDetails>
-              <CWReportsTable data={items} columns={itemColumns} />
-            </AccordionDetails>
-          </Accordion>
-        </>
-      )}
+      <CWTabs tabs={tabs} />
 
       {openConfDialog && userToUpdate && (
         <CWDialog

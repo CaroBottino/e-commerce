@@ -23,7 +23,7 @@ export const UserLogued: Story = {
   render: () => (
     <BrowserRouter>
       <Stack sx={{ backgroundColor: "black", padding: 4 }}>
-        <CWUserMenu handleMobileMenuClose={() => {}} />
+        <CWUserMenu />
       </Stack>
     </BrowserRouter>
   ),
@@ -39,7 +39,7 @@ export const NoUserLogued: Story = {
   render: () => (
     <BrowserRouter>
       <Stack sx={{ backgroundColor: "black", padding: 4 }}>
-        <CWUserMenu handleMobileMenuClose={() => {}} />
+        <CWUserMenu />
       </Stack>
     </BrowserRouter>
   ),
