@@ -1,5 +1,5 @@
 import { ReactElement, useState } from "react";
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Tabs } from "@mui/material";
 import { StyledTab, TabsLabelBox, TabsMainBox } from "./CWTabs.styled";
 
 export interface CWTabsContent {
